@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20150321130355) do
+ActiveRecord::Schema.define(:version => 20170914130126) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -108,6 +108,11 @@ ActiveRecord::Schema.define(:version => 20150321130355) do
     t.string   "tag"
   end
 
+  create_table "companies", :force => true do |t|
+    t.string "title"
+    t.string "description"
+  end
+
   create_table "consumer_accounts", :force => true do |t|
   end
 
@@ -179,6 +184,11 @@ ActiveRecord::Schema.define(:version => 20150321130355) do
 
   add_index "coupons", ["campaign_id"], :name => "index_coupons_on_campaign_id"
 
+  create_table "coupons_hashtags", :id => false, :force => true do |t|
+    t.integer "coupon_id"
+    t.integer "hashtag_id"
+  end
+
   create_table "delivery_channels", :force => true do |t|
     t.integer  "campaign_id"
     t.string   "type"
@@ -211,6 +221,12 @@ ActiveRecord::Schema.define(:version => 20150321130355) do
     t.integer "material_id"
   end
 
+  create_table "hashtags", :force => true do |t|
+    t.text     "tag"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "locations", :force => true do |t|
     t.string   "name",                     :null => false
     t.string   "zip_code",    :limit => 5, :null => false
@@ -219,6 +235,7 @@ ActiveRecord::Schema.define(:version => 20150321130355) do
     t.datetime "created_at",               :null => false
     t.datetime "updated_at",               :null => false
     t.integer  "consumer_id"
+    t.integer  "company_id"
   end
 
   add_index "locations", ["consumer_id"], :name => "index_locations_on_consumer_id"
@@ -378,6 +395,12 @@ ActiveRecord::Schema.define(:version => 20150321130355) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "thumb"
+  end
+
+  create_table "streams", :force => true do |t|
+    t.string  "title"
+    t.string  "link"
+    t.integer "location_id"
   end
 
   create_table "subscriptions", :force => true do |t|

@@ -10,4 +10,6 @@ class Location < ActiveRecord::Base
   
   after_validation :geocode, :if => :zip_code_changed?
 
+  has_attachments :photos
+
 end

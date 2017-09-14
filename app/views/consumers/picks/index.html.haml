@@ -1,0 +1,75 @@
+= stylesheet_link_tag 'redesign/picks'
+= javascript_include_tag 'other/searchbar'
+- unless @exclude_search
+  .filter_bar
+    %input.inline.mefilter(type='text')
+    %input.inline.mebutton(type='button' value='SEARCH')
+    %select.inline.drop_down_top#distanceFilter
+      %option(value='-1' selected='selected') All Distances
+      %option(value='0') 0 miles
+      %option(value='1') 1 mile
+      %option(value='2') 2 miles
+      %option(value='3') 3 miles
+      %option(value='5') 5 miles
+      %option(value='10') 10 miles
+      %option(value='15') 15 miles
+      %option(value='30') 30 miles
+      %option(value='50') 50 miles
+      %option(value='150') 150 miles
+      %option(value='300') 300 miles
+    %select.inline.drop_down_top#categoryFilter
+      %option(value='-1' selected='selected') All Categories
+      - unless @category_data.nil?
+        - @category_data.each do |entry|
+          %option{:value => entry[1]}= entry[0]
+  .clear
+  %br
+  .filter_message
+  %br
+
+.coupons.group
+  - if @offers.empty?
+    %h1.no_msgs There are no offers available.
+  - else
+    - unless @offers.empty?
+      .coupon_type Offer Board
+      = render :partial => 'shared/offer-board',
+        :collection => @offers,
+        :as => :campaign,
+        :cache => false,
+        :locals => {one_offer: @offers.size == 1}
+
+= render 'pages/quick_coupon_view'
+
+= javascript_include_tag 'consumer/business_subscribe'
+
+:javascript
+  $select = $('select.drop_down_top')
+  //$select.val(qs('cat_id'))
+  if (qs('cat_id'))
+    $select.val(qs('cat_id'))
+  else
+    $select.val(-1)
+  $select.change(function () {
+    var bname = qs('business_name')
+    var search = ''
+    if (bname) search += 'business_name=' + bname + '&';
+    if ($select.val() != '-1') {
+      search += 'cat_id=' + $select.val()
+    }
+    window.location.search = search
+  })
+
+//  if (qs('business_name') || qs('cat_id')) {
+//    var msg = 'Viewing offers'
+//    if (qs('business_name')) {
+//      msg += ' from ' + qs('business_name')
+//    }
+//    if (qs('cat_id')) {
+//      var val = $select.val()
+//      msg += ' in ' + $select.find('option[value="' + val + '"]').text()
+//    }
+//    $('.filter_message').text(msg)
+//  }
+
+

@@ -1,0 +1,50 @@
+!!!
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en">
+/[if IE 8] <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]<!
+%html.no-js{:lang => "en"}
+  / <![endif]
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %title social, local, mobile offers.
+    %meta{:content => "width=device-width", :name => "viewport"}
+    %link{:href => "https://dollarhood.com/", :rel => "canonical"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway:400,300,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://hooditt-fonts.s3.amazonaws.com/proxima.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{href: "assets/icon57.png", rel: "apple-touch-icon", sizes: "57x57"}/
+    %link{href: "assets/icon72.png", rel: "apple-touch-icon", sizes: "72x72"}/
+    %link{href: "assets/icon76.png", rel: "apple-touch-icon", sizes: "76x76"}/
+    %link{href: "assets/icon114.png", rel: "apple-touch-icon", sizes: "114x114"}/
+    %link{href: "assets/icon120.png", rel: "apple-touch-icon", sizes: "120x120"}/
+    %link{href: "assets/icon144.png", rel: "apple-touch-icon", sizes: "144x144"}/
+    %link{href: "assets/icon152.png", rel: "apple-touch-icon", sizes: "152x152"}/
+    %link{href: "assets/favicon.ico", rel: "shortcut icon", type: "image/ico"}/
+    %meta{content: "assets/icon144.png", name: "msapplication-TileImage"}/
+    %meta{content: "#ffffff", name: "msapplication-TileColor"}/
+    %meta{content: "Dollarhood", name: "application-name"}/
+    = javascript_include_tag "redesign/application"
+    = javascript_include_tag "custom"
+    = stylesheet_link_tag "hooditt"
+    = stylesheet_link_tag "redesign/application"
+    = stylesheet_link_tag "redesign/fullscreen"
+    = stylesheet_link_tag "global"
+    = stylesheet_link_tag "landing"
+  %body
+    /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+    = render partial: 'layouts/header_nav'
+    #container
+      .navbar-brand
+        %a{:href => "/"}
+          = image_tag('dollarhood/dollarhood-logo-smaller.jpg', :width => '188')
+
+    .main(role="main")
+      = yield
+    = render 'layouts/footer' 
+  
+:javascript
+  $(function() {
+    $form = $('form[accept-charset="UTF-8"]').first();
+    $form.find('input:not([type="hidden"])').first().focus();
+  });

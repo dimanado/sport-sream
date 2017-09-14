@@ -1,0 +1,28 @@
+.header= f.label :email, "Email Address:"
+.form= f.text_field :email
+.header= f.label :location, "Zip Code:"
+.form= f.text_field :location
+
+
+- if session[:loc_error]
+  %p
+    .alert-message.error
+      = session[:loc_error]
+- session[:loc_error] = nil
+
+
+.header= f.label :password, "Password:"
+.form= f.password_field :password
+.header= f.label :password_confirmation
+.form= f.password_field :password_confirmation
+.header Email Preferences
+.form
+  = f.check_box :weekly_digest, style: 'float:left'
+  &nbsp;
+  &nbsp;
+  = f.label 'Receive weekly digest emails', :class => 'long', :style => 'display: inline-block'
+  %br/
+  %br/
+  %br/
+.clean
+= f.submit "Update", :class => "special", :style => 'margin: 0 auto'

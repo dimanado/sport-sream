@@ -1,0 +1,16 @@
+#categories_selector {
+  line-height: 38px;
+  font-size: 14px;
+  a,label {
+    text-decoration:none;
+    color: #666;
+  }
+  .subcategories { clear: both; }
+  .category {
+    margin-left: 38px;
+    float:left;
+    width: 200px;
+  }
+  .row {clear: both; border-top: solid 1px #dc1f27;}
+  span.small {font-size:12px;}
+}

@@ -1,0 +1,17 @@
+= render 'consumers/mobile_confirmation'
+= form_for @consumer, :url => consumer_path, :html => {"data-ajax" => false} do |f|
+  - if @consumer.errors.present?
+    .alert-message.block-message.error
+      = @consumer.errors.full_messages.join
+  = f.label :location, "Zip Code"
+  .input= f.text_field :location
+  = f.label :mobile, "Mobile (ex: xxx xxx xxxx)"
+  .input= f.phone_field :mobile
+  - if @consumer.mobile_confirmed?
+    %fieldset{"data-role"=>"controlgroup"}
+      %legend Message Delivery Preference
+      = f.radio_button :message_delivery_preference, DeliveryChannel::Email, :id => "consumer_email_preference"
+      = f.label :email_preference, DeliveryChannel::Email.human_name
+      = f.radio_button :message_delivery_preference, DeliveryChannel::Sms, :id => "consumer_sms_preference"
+      = f.label :sms_preference, DeliveryChannel::Sms.human_name
+  = f.submit "Update profile"

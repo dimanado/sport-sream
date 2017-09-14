@@ -1,0 +1,24 @@
+/= render 'consumers/signup_modal'
+.modal
+  .header
+    .purple
+      Customer signup
+      %span.header__business-link
+        = link_to 'Business signup', '/merchants/sign_up', :target => "_top"
+  .body
+    = form_for(consumer, :as => :consumer, :url => registration_path(:consumer)) do |f|
+      = f.label :email, 'Email *'
+      = f.email_field :email
+      = f.label :password, 'Password *'
+      = f.password_field :password
+      %p.notice Your password should be at least 8 characters.
+      = f.label :password_confirmation, 'Confirm Password *'
+      = f.password_field :password_confirmation
+      %label(for='consumer_location') Zip Code *
+      = f.text_field :location
+      %label(for='consumer_source') Referral Code
+      = f.text_field :referral_code
+      .clean
+      = f.submit "SIGNUP", :class => 'button'
+  .footer
+    = link_to "", consumer_omniauth_authorize_path(:facebook), :class => 'facebook-btn facebook-btn_signup'

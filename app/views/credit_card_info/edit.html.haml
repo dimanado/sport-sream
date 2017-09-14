@@ -1,0 +1,33 @@
+= stylesheet_link_tag 'redesign/picks'
+= stylesheet_link_tag 'redesign/merchant_pick'
+:css
+  fieldset {
+    margin-bottom: 10px;
+  }
+  .btn-save {
+    text-transform: uppercase;
+    padding: 4px 45px;
+  }
+  .coupon_detail {
+    padding-top: 15px;
+  }
+  .coupon_detail input[type='text'] {
+    margin: 5px 0 15px;
+  }
+  .text, p {
+    margin: 0;
+  }
+  #credit_card_number, #credit_card_expiration_date {
+    width: 350px;
+  }
+  #credit_card_cvv {
+    width: 120px;
+  }
+  #billing_address_postal_code {
+    width: 165px;
+  }
+.top_central
+  .first_header
+    %b Payment Information
+.coupon_detail
+  = render "form_existing"

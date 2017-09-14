@@ -1,0 +1,84 @@
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xmlns:fb" => "http://ogp.me/ns/fb#"}
+  %head
+    %meta{:content => "width=device-width", :name => "viewport"}/
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Dollarhood Pass
+  %body{:bgcolor => "#FFFFFF", :leftmargin => "0", :marginheight => "0", :marginwidth => "0", :style => "-webkit-font-smoothing: antialiased;-webkit-text-size-adjust: none;", :topmargin => "0"}
+    %table.body-wrap{:style => "width: 100%;"}
+      %tr
+        %td
+        %td.container{:bgcolor => "#FFFFFF", :style => "margin: 0 auto;padding: 0;display: block;max-width: 600px;clear: both;"}
+          .content{:style => "margin: 0 auto;padding: 15px;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;max-width: 600px;display: block;"}
+            %table{:style => "width: 100%;"}
+              %tr
+                %td
+                  %p{:style => "margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6;"}
+                    = image_tag "dollarhood/dollarhood-logo-smaller.jpg", :style => "width: 100%;"
+                  //hero
+
+              - unless @cart.nil?
+                - cartItems = @cart.shopping_cart_items
+              - else
+                - cartItems = shopping_cart.shopping_cart_items
+
+
+              - cartItems.each do |offer|
+
+                %tr{:style => "border-bottom:1px solid #ccc"}
+                  %td{:style => "padding:10px 0"}
+                    %p.lead{:style => "text-align:center;margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: bold;font-size: 18px;line-height: 1.6;"}
+                      #{offer.item.campaign.business.name}
+                      &mdash;
+                      #{offer.item.subject}
+                    %p.lead{:style => "text-align:center;margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 17px;line-height: 1.6;"}
+                      #{offer.item.content}
+                      %br/
+
+                    - if offer.item.promo_code.present?
+                      %p.lead{:style => "text-align:center;margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: bold;font-size: 18px;line-height: 1.6;"}
+                        Prome code: #{offer.item.promo_code}
+
+                    %p.lead{:style => "text-align:center;margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 17px;line-height: 1.6;"}
+                      Purchased On: #{shopping_cart.created_at.to_formatted_s(:long)}
+                      %br>/
+
+                      Offer Expiration Date: #{offer.item.campaign.expires_at.to_formatted_s(:long)}
+                    %p.lead{:style => "text-align:center;margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: bold;font-size: 18px;line-height: 1.6;"}
+                      Dollarhood Confirmation Number:
+                      #{@cart.transactions.last.confirmation_code}
+                      %br/
+                      - if offer.item.campaign.business.online_business == 0.to_s
+                        #{offer.item.campaign.business.contact_block.html_safe}
+                      %br/
+                      
+   
+                    Tell your friends about your Offer and share-itt here!
+                    %a{:href => "http://api.addthis.com/oexchange/0.8/forward/facebook/offer?pco=tbx32nj-1.0&url=#{ CGI::escape(view_coupon_url(offer.item.code))}&pubid=ra-518ce20529de4a15", :target => "_blank"}<
+                      %img{:alt => "Facebook", :border => "0", :src => "http://cache.addthiscdn.com/icons/v1/thumbs/32x32/facebook.png"}/
+                    %a{:href => "http://api.addthis.com/oexchange/0.8/forward/twitter/offer?pco=tbx32nj-1.0&url=#{ CGI::escape(view_coupon_url(offer.item.code))}&pubid=ra-518ce20529de4a15", :target => "_blank"}<
+                      %img{:alt => "Twitter", :border => "0", :src => "http://cache.addthiscdn.com/icons/v1/thumbs/32x32/twitter.png"}/
+                    %a{:href => "http://www.addthis.com/bookmark.php?source=tbx32nj-1.0&=300&pubid=ra-518ce20529de4a15&url=#{ CGI::escape(view_coupon_url(offer.item.code))}", :target => "_blank"}<
+                      %img{:alt => "More...", :border => "0", :src => "http://cache.addthiscdn.com/icons/v1/thumbs/32x32/more.png"}/
+                    %p{:style => "margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6;"}
+          .column-wrap{:style => "margin: 0 auto;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;max-width: 600px;"}
+            .column{:style => "width: 300px;float: left;"}
+              %table{:align => "left", :style => "width: 100%;"}
+                %tr
+                  %td{:style => "margin: 0;padding: 15px;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;"}
+                    %p{:style => "margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6;"} Present a printed or smartphone pass upon arrival to the place of business noted below.
+                    %p{:style => "margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 14px;line-height: 1.6;"}
+                    %p{:style => "margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: bold;font-size: 16px;line-height: 1.6;"} Customer Service
+                    %p{:style => "margin: 0;padding: 0;font-family: \"Helvetica Neue\", Helvetica, Arial, sans-serif;margin-bottom: 10px;font-weight: normal;font-size: 12px;line-height: 1.6;"}
+                      If you have a question or concern, please send an email to
+                      = succeed "." do
+                        %a{:href => "mailto:customer@dollarhood.com"} customer@dollarhood.com
+            .clear{:style => "display: block;clear: both;"}
+        %td
+- unless @print_offer.nil? 
+  :javascript
+
+    window.onload = function() {
+      window.print();
+    };
+

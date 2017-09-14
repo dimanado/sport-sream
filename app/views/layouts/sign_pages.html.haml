@@ -1,0 +1,6 @@
+= extends :fullscreen do
+
+  = yield
+  - cache 'layouts_pages_modals' do
+    = render 'consumers/login_modal'
+    = render 'consumers/signup_modal'

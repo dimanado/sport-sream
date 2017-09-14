@@ -1,0 +1,12 @@
+%table#campaigns.table.table-striped
+  %thead
+    %tr
+      %th Business
+      %th Campaign
+      %th Expires at
+  %tbody
+    -campaigns.each do |c|
+      %tr
+        %td.break= c.business.name
+        %td.break= c.message_content
+        %td= c.expires_at.strftime('%d/%m/%Y %H:%M:%S %P')

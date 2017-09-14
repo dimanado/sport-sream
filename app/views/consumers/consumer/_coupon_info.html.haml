@@ -1,0 +1,46 @@
+:css
+  table td { word-wrap: break-word; }
+
+- codes.each do |coupon_code|
+  - transaction = coupon_code.transaction
+  - coupon = coupon_code.coupon
+  %div(style="border: 1px dashed grey; border-radius: 7px; padding: 5px; max-width: 500px")
+    %div(style="text-align: center; display: inline-block; vertical-align: top")
+      %div(style="font-weight: bold; font-size: 150%")
+        =coupon_code.code
+      = qr_code redeem_url(coupon_code)
+
+    %div(style="display: inline-block; vertical-align: top")
+      %div(style="font-weight: bold; font-size: 150%")
+        Transaction information
+      %br
+      %table
+        %tbody
+          %tr
+            %td
+              %b Transaction id &nbsp;
+            %td= transaction.id
+          %tr
+            %td
+              %b Transaction date &nbsp;
+            %td= l transaction.created_at
+          %tr
+            %td
+              %b Amount &nbsp;
+            %td= p "$%5.2f" % (transaction.amount_in_cents.to_f / 100)
+          %tr
+            %td
+              %b Business
+            %td= coupon.campaign.business.name
+          %tr
+            %td
+              %b Coupon
+            %td= coupon.subject
+          %tr
+            %td
+              %b Expires at
+            %td= l coupon.campaign.expires_at
+
+
+    %div(style="clear: both")
+  %div(style="clear: both")

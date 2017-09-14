@@ -1,0 +1,62 @@
+= stylesheet_link_tag 'redesign/picks'
+= stylesheet_link_tag 'redesign/merchant_pick'
+:css
+  .right_block_consumer_view {
+    padding: 0;
+    width: 754px;
+    padding-left: 10px;
+  }
+  .coupon-detail {
+    padding:20px;
+  }
+.new_offers
+  .header_new_offers
+    %span Update Profile
+.coupon-detail
+  .col1     
+    - unless @consumer.errors.any?
+      - flash.each do |key, message|
+        .alert-message{:class => key}
+          = message
+
+    - unless @consumer.email_confirmed?
+      .alert-message.info
+        %p
+          You did not confirm your email address. To do that, go to your
+          email inbox and click on the confirmation link.
+        %br
+        %p
+          If you did not receive the confirmation email, please check if your
+          email is correct in your profile.
+        %br
+        %p
+          Also, you can
+          %a{:href => confirm_email_consumer_path(:resend => true) }
+            resend the confirmation email
+    .profile
+      = render 'validation_errors', :resource => @consumer
+      .fancy
+        = form_for @consumer, :url => consumer_path do |f|
+          = render 'form', :f => f
+  .col2
+    .marketing
+      %p
+        %br/
+        %br/
+        It's important to keep your personal profile up to date.  Feel free to make changes at any time.
+      %p
+        %br/
+        Use your work or home zip code. You can even change it while you are traveling.
+
+      %p
+        %br/
+        - if current_consumer.has_payment_info?
+          = link_to "Edit Billing Info", "/customer/#{current_consumer.id}/edit", class: "billing"
+        - else
+          = link_to "Add Billing Info", '/customer/new', class: "Billing"
+    :css
+      a.billing {
+       font-size: 100%;
+       color: #909543;
+       font-weight: bold;
+      }

@@ -1,0 +1,12 @@
+%li[business]{"data-filtertext" => business.name}
+  = link_to consumers_business_path(business) do
+    %h3= business.name
+    %p= business.short_description
+    %p
+      = business.distance.round(2)
+      Miles
+
+  - if current_consumer.subscribed_to?(business)
+    = link_to 'unsubscribe', toggle_subscription_consumers_business_path(business), :method => :post, :remote => true, "data-ajax" => false, "data-icon" => "delete"
+  - else
+    = link_to 'subscribe', toggle_subscription_consumers_business_path(business), :method => :post, :remote => true, "data-ajax" => false, "data-icon" => "star"

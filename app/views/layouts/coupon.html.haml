@@ -1,0 +1,9 @@
+!!!
+%html
+  %head
+    = yield :head
+    %title
+    = stylesheet_link_tag :application
+    = stylesheet_link_tag "mobile/print", :media => "print"
+  %body
+    #content= yield

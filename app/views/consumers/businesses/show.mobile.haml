@@ -1,0 +1,15 @@
+.ui-grid-a
+  .ui-block-b
+    %h3= @business.name
+    %address
+      = link_to "https://maps.google.com/?saddr=Current+Location&daddr=#{@business.latitude},#{@business.longitude}" do
+        = @business.full_address
+      %br
+      = @business.phone
+%div(data-role="content")
+  %p= @business.description
+
+- if current_consumer.subscribed_to?(@business)
+  = button_to "Unsubscribe", toggle_subscription_consumers_business_path(@business), "data-icon" => "delete", "data-iconpos" => "bottom", "data-direction"=>"reverse", "data-role" => "button", "data-rel" => "back"
+- else
+  = button_to "Subscribe", toggle_subscription_consumers_business_path(@business), "data-icon" => "star", "data-iconpos" => "bottom", "data-direction"=>"reverse", "data-role" => "button", "data-rel" => "back"

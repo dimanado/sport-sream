@@ -1,0 +1,25 @@
+.ui-bar
+  %h6
+    near
+    = current_consumer.location
+%br
+%ul(data-role="listview" data-theme="a" data-split-icon="star" data-split-theme="a" data-filter="true")
+  - @businesses.each do |business|
+    = render business
+
+- if session[:updated_location_at].nil?
+  :javascript
+    function successHandler(location) {
+      $.post("/consumer/update_location", {lat: location.coords.latitude, lng: location.coords.longitude}, function() {
+        window.location.reload();
+      });
+    }
+    function errorHandler(error) {
+      //alert('Attempt to get location failed: ' + error.message);
+    }
+    function getGeolocation(){
+      navigator.geolocation.getCurrentPosition(successHandler, errorHandler);
+    }
+    $(function(){
+      getGeolocation();
+    });

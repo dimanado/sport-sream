@@ -1,0 +1,22 @@
+!!! Mobile
+%html
+  %head
+    %meta(name="apple-mobile-web-app-capable" content="yes")
+    %meta(name="apple-mobile-web-app-status-bar-style" content="black")
+    %meta(name="viewport" content="width=device-width, initial-scale=1, user-scalable=0")
+    = stylesheet_link_tag 'mobile/application'
+    = stylesheet_link_tag "mobile/print", :media => "print"
+    = javascript_include_tag 'mobile/application'
+    %link{:href => image_path("cherry_avatar.gif"), :rel => "apple-touch-icon"}
+    %link{:href => image_path("chinoki_mobile_splash.jpg"), :rel => "apple-touch-startup-image"}
+  %body
+    %div(data-role="page" data-cache="never")
+      - unless ios_app?
+        %div(data-role="header")
+          = link_to "Back", consumers_dashboard_path, "data-icon" => "arrow-l"
+          %h1 Coupon
+      %div(data-role="content")
+        - flash.each do |key, message|
+          .alert-message{:class => key}
+            = message
+        = yield

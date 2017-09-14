@@ -1,0 +1,5 @@
+consumers_weekly_emails:
+  cron: "* 8 * * 4"
+  class: WeeklyConsumerEmail
+  queue: some_queue
+  description: Send weekly emails to consumers

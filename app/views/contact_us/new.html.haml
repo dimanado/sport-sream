@@ -1,0 +1,40 @@
+= content_for :head do
+  = stylesheet_link_tag "base"
+
+.content.clearfix
+  %section.left-main
+    %hgroup
+      %h1.page-head Contact dollarhood
+      %h2.page-slogan We're here to help!
+    .contact-info.vcard
+      .contact-group
+        %h3.contact-head Email Us
+        - if merchant_signed_in?
+          = link_to "customer@dollarhood.com", "mailto:customer@dollarhood.com", :class => "contact-entity"
+        -else
+          = link_to "customer@dollarhood.com", "mailto:customer@dollarhood.com", :class => "contact-entity"
+
+      %h3.contact-head Contact Form
+
+      = form_for @message, :url => contact_us_path, :class => 'contact-form' do |f|
+        - unless @message.errors.empty?
+          .form-errors= @message.errors.full_messages.join("<br>").html_safe
+        = f.label :name, :class => "contact-label"
+        = f.text_field :name, :class => "signup_full contact-field contact-field_short"
+        = f.label :email, :class => "contact-label"
+        = f.email_field :email, :class => "signup_full contact-field contact-field_short"
+        = f.label :subject, :class => "contact-label"
+        = f.text_field :subject, :class => "signup_full contact-field contact-field_short"
+        %label.contact-label{:for => 'contact_us_message_body'}
+          Message *
+        = f.text_area :body, :size => "100x7", :class => 'contact-field contact-field_full'
+        = f.submit "Submit", :class => 'special contact-button', :disable_with => 'Please wait...'
+  %aside.sidebar
+    %nav.sidenav
+      = link_to "About dollarhood", "/pages/about", :class => 'sidenav-item'
+      = link_to "Contact dollarhood", "/contact_us/new", :class => 'sidenav-item active'
+      = link_to "Resources", "/pages/resources", :class => 'sidenav-item'
+    %a.h-badge.h-badge_shop{:href => "https://www.dollarhood.com/"}
+      = image_tag('dollarhood/love-local-dollarhood-small.png', :style => 'width: 183px; height: 190px')
+    %a.h-badge.h-badge_offers{:href => "https://www.dollarhood.com/"}
+      = image_tag("dollarhood/dollarhood-exclusive-badge.png", :width => '170')

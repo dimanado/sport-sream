@@ -1,0 +1,6 @@
+= stylesheet_link_tag 'redesign/picks'
+%br/
+%h2#siteDescription.center Business list
+.columns
+  %ul.business__list
+    = render partial: "business_list", collection: @businesses

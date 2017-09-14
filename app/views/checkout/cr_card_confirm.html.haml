@@ -1,0 +1,19 @@
+- purge :category_nav
+.dh-wrapper
+  .inner-container.checkout-page
+    .layout.main-sidebar
+      .main
+        %h1 Payment Info Confirmation
+        %p
+          Your payment information was successfully saved for credit card: 
+          = OtherUtil.only_last(@result.credit_card.masked_number)
+        %p
+          You will be redirected to Confirm Your Order page in a second
+
+:javascript
+
+  window.setTimeout(function() {
+    window.location = "/checkout";
+  }, 1000);
+
+

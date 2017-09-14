@@ -1,0 +1,59 @@
+- coupon = campaign.coupon
+- business = campaign.business
+- iframe = defined?(iframe) && iframe
+- description_length = business.name.length + coupon.subject.length
+- if description_length > 80
+  - top_class = 'top middle_size'
+- elsif description_length > 110
+  - top_class = 'top small_size'
+- offer_id = coupon.id
+
+.coupon.offerboard{ :class =>  iframe ? 'iframe' : '', :id => offer_id, :one_item => one_offer ? 'true' : 'false'}
+  .watch
+    This offer ends in
+    %span{'data-expire' => campaign.expires_at.to_i}
+  - if (coupon.has_image? rescue false)
+    %img{:src => coupon.thumb, :class => 'product_img'}
+  - else
+    - if business.logo
+      - logostr = "v#{business.logo.version}/#{business.logo.public_id}"
+      = cl_image_tag(logostr, { size: '240x160', crop: :fit, format: :jpg, :class => 'product_img' })
+    - else
+      = image_tag('default_business_logo.png', height: '60', :style => 'margin: 50px 0')
+  %div{'class' => top_class}
+    .city
+      - if business.online_business == 0.to_s || business.website.blank?
+        #{business.city}
+        ,
+        #{business.state}
+      - else
+        - if business.website.present?
+          .website
+            = business.website.sub(/^www./, '')
+    .head= business.name
+    .product_text.small_subject= coupon.subject
+    - unless coupon.hashtags.size == 0
+      .hashtags
+        - coupon.hashtags.each do |hashtag|
+          %a{:href => "?hashtag=#{hashtag.tag.sub('#','%23')}"}
+            =hashtag.tag
+  .bottom
+    %p.view
+      %a.qv-btn{ href: '#', 'data-target' => coupon.code }  Quick view
+      / = link_to "View Details", view_coupon_path(coupon.code, iframe: iframe)
+    %p.rem
+      - if coupon.amount != -1
+        = "#{coupon.amount - coupon.sold_count} Left"
+      - else
+        &nbsp;
+    %p
+
+    - unless iframe
+      %p
+        = link_to "Add to cart $1", shopping_cart_items_path(offer_id: coupon), class: "gradient coupon_button_new", method: :post, remote: true
+
+    .distance
+      %span
+        = business.distance.to_f.round(2).to_s + ' miles from you'
+
+    .clear

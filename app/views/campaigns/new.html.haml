@@ -1,0 +1,39 @@
+= form_for @campaign, :as => :campaign, :html => {:class => 'form-stacked'} do |f|
+  .group
+    .column1
+      = render :partial => 'form', :locals => {:f => f}
+      %div(style="float:right; width:500px;")
+        = f.submit 'Finished. Add to Queue', :disabled => 'disabled', :id => 'new_offer_finish', :class => 'finished_offer_button disabled', :style => "font-size:16px"
+    .column2
+      = render :partial => "coupon_preview"
+#uploadImage.modal.hide.fade
+  = form_for @business, url: upload_business_image_path(@business), :html => {:multipart => true} do |b|
+    .modal-header
+      %a.close{"data-dismiss" => "modal"} ×
+      %h2 Upload a custom photo
+    .modal-body
+      %br/
+      %br/
+      = b.label :images, "Upload your own photo:"
+      = b.attachinary_file_field :images
+      %a.click-to-browse
+        Click to Browse
+      %br/
+      %br/
+    .modal-footer
+      %a.btn{:href => "#"} Close
+      = b.submit "Save Image", class: 'btn btn-primary'
+:javascript
+  var curBusinessID = '#{ @business.id }',
+      confirm = $('#confirm'),
+      new_offer_finish = $('#new_offer_finish');
+
+  confirm.on('change', function() {
+    new_offer_finish.toggleClass('disabled');
+    if(new_offer_finish.attr('disabled') == 'disabled') {
+      new_offer_finish.removeAttr('disabled');
+    } else {
+      new_offer_finish.attr('disabled', 'disabled');
+    }
+  });
+

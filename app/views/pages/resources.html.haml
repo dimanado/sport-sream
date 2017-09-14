@@ -1,0 +1,55 @@
+= content_for :head do
+  = stylesheet_link_tag "base"
+
+.content.clearfix
+  %section.left-main
+    %h1.page-head Resources
+    .resources-group
+      -#%h2.resources-head hoodditt logo
+      -#%ul.resources-list.resources-list_two
+
+        -#%li.resource-item
+          -#%a.resource-link{:href => image_path("hoodditt-logo.png")}
+            -#= image_tag("hoodditt-logo-small.png", :alt => "Hoodditt logo")
+          -#%span.resource-description PNG - 400x78px
+        -#%li.resource-item
+          -#%a.resource-link{:href => image_path("hoodditt-logo.eps")}
+            -#= image_tag("hoodditt-logo-small.png", :alt => "Hoodditt logo")
+          -#%span.resource-description Vector EPS
+
+    .resources-group
+      -#%h2.resources-head hoodditt icons
+      %ul.resources-list
+        %li.resource-item
+          -#%a.resource-link{:href => image_path("hoodditt-icon.jpg")}
+            -#= image_tag("hoodditt-icon-small.jpg", :alt => "Hoodditt icon")
+          -#%span.resource-description PNG - 512 x 512px
+
+    .resources-group
+      %h2.resources-head dollarhood badges
+      %ul.resources-list.resources-list_two
+        %li.resource-item
+          %a.resource-link{:href => image_path("dollarhood/love-local-dollarhood-small.png")}
+            = image_tag("dollarhood/love-local-dollarhood-small.png", :alt => "Dollarhood shop local badge", :style => 'width: 183px; height: 190px')
+        %li.resource-item
+          %a.resource-link{:href => image_path("dollarhood/dollarhood-exclusive-badge.png")}
+            = image_tag("dollarhood/dollarhood-exclusive-badge.png", :width => '170', :alt => "Dollarhood exclusive offers")
+
+    .resources-group
+      -#%h2.resources-head hoodditt web ads
+      %ul.resources-list.resources-list_three
+        %li.resource-item
+          -#%a.resource-link{:href => "https://www.dollarhood.com/"}
+            -#= image_tag("hoodditt-exclusive-web.jpg", :alt => "Hoodditt exclusive offers")
+        -#%li.resource-item
+          -#%a.resource-link{:href => "https://www.dollarhood.com/"}
+            -#= image_tag("hoodditt-buyit-web.jpg", :alt => "Hoodditt - love it? buy it!")
+        -#%li.resource-item
+          -#%a.resource-link{:href => "https://www.dollarhood.com/"}
+            -#= image_tag("hoodditt-99c-web.jpg", :alt => "Hoodditt exclusive offers")
+
+  %aside.sidebar
+    %nav.sidenav
+      = link_to "About dollarhood", "/pages/about", :class => 'sidenav-item'
+      = link_to "Contact dollarhood", "/contact_us/new", :class => 'sidenav-item'
+      = link_to "Resources", "/pages/resources", :class => 'sidenav-item active'

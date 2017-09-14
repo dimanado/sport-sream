@@ -1,0 +1,17 @@
+- if shopping_cart_item.item.amount != -1
+  - left = shopping_cart_item.item.amount - shopping_cart_item.item.sold_count
+%form{:action => new_transaction_path, :class => "shopping_form"}
+  %tr.cart-row
+    %td.cart-cell
+      = shopping_cart_item.item.business.name
+    %td.cart-cell
+      = link_to "", shopping_cart_item_path(shopping_cart_item.id), :method => :delete, :class => 'delete'
+      = link_to shopping_cart_item.item.subject, view_coupon_path(shopping_cart_item.item.code)
+    %td.cart-cell.cart-cell-number
+      %input{:type => :text,
+        :value => shopping_cart_item.quantity,
+        :data => {:left => left.nil? ? -1 : left, :validation => 'check_amount', :id => shopping_cart_item.id},
+        :name => "number[#{shopping_cart_item.id}]",
+        :class => 'number',
+        :maxlength => 3}
+    %td.cart-cell.cart-cell-price= number_to_currency(shopping_cart_item.price)

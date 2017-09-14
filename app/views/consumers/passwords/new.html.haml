@@ -1,0 +1,9 @@
+.modal
+  .header 
+    .green
+      Forgot your password?
+  = form_for(resource, :as => resource_name, :url => consumer_password_path, :html => { :method => :post }) do |f|
+    = devise_error_messages!
+    = f.label :email
+    = f.email_field :email, :class => "signup_full"
+    = f.submit "Submit", :class => 'button'

@@ -1,0 +1,19 @@
+- if shopping_cart_item.item.amount != -1
+  - left = shopping_cart_item.item.amount - shopping_cart_item.item.sold_count
+
+%tr.first-row
+  %th{align: "left", colspan: "3"}
+    = shopping_cart_item.item.subject
+    %span
+      = shopping_cart_item.item.business.name
+%tr
+  %td
+    - unless shopping_cart_item.item.thumb.empty?
+      %img{alt: "item", src: shopping_cart_item.item.image_url}/
+  %td
+    .qty-field
+      $1 x #{shopping_cart_item.quantity}
+      / %button.remove-item{type: "button"} Remove
+      / = link_to 'Remove', shopping_cart_item_path(shopping_cart_item.id), :method => :delete, :class => 'remove-item', type: 'button'
+  %td{align: "right"}
+    = number_to_currency(shopping_cart_item.price)

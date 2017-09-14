@@ -1,0 +1,36 @@
+// Place all the styles related to the Demonstrations controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body
+{
+  background: url("http://buckscountyalive.com/images/backtile2010.gif") repeat-x;
+
+  .bca
+  {
+    position: relative;
+    width: 1280px;
+    margin: -8px auto 0;
+  }
+
+  .bca-wrapper
+  {
+    iframe
+    {
+      position: absolute;
+      top: 940px;
+      left: 190px;
+      border: none;
+    }
+  }
+
+  .bca-business-wrapper
+  {
+    iframe
+    {
+      position: absolute;
+      top: 810px;
+      left: 190px;
+      border: none;
+    }
+  }
+}

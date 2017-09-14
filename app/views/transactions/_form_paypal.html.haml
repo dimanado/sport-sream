@@ -1,0 +1,17 @@
+/ = form_for @transaction, :url => confirm_paypal_transaction_path do |f|
+/   = f.hidden_field :express_token
+/   %p.header First Name
+/   %p.form=h @transaction.first_name
+/   %p.header Last Name
+/   %p.form=h @transaction.last_name
+/   = f.submit 'Confirm Purchase', :class => 'buy', :disable_with => 'Please wait...', :class => "special", :style => 'margin: 10px 100px'
+
+= form_for @transaction, :url => confirm_paypal_transaction_path do |f|
+  %li
+    = f.hidden_field :express_token
+    = f.submit 'Place order', class: 'braintree-checkout btn btn-primary text-uc', disable_with: 'Please wait...', style: 'width: 100%;'
+  %li
+    %a.pull-right{href: "#"} Change
+    %p
+      %strong.bold Payment:
+      = "#{@transaction.first_name} #{@transaction.last_name}"

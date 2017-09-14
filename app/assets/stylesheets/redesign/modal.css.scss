@@ -1,0 +1,205 @@
+.modalbg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  background: image-url('black_50.png');
+  z-index: 10001;
+  display: none;
+}
+
+.modal {
+  display: none;
+  width: 400px;
+  background: white;
+  margin: 0 auto;
+  margin-top: 20px;
+  box-shadow: 0 0px 10px #40310a;
+  border-radius: 7px;
+}
+
+.modal .header,
+.modal .body {
+  padding: 0 30px;
+  padding-top: 20px;
+}
+
+.modal .header,
+.signin .header
+{
+	font-family: proximanova_bold;
+	font-size:24px;
+	line-height:1.0;
+  padding:15px 30px;
+}
+.signin .body {
+  overflow-y: auto;
+  margin-bottom: 20px;
+  //max-height: 550px;
+  //height: auto !important;
+  //height: 550pX;
+
+  form {
+    label {
+      font-family: proximanova;
+      font-size:13pt;
+      color:#000;
+      display: block;
+      margin: 10px 0;
+    }
+
+    .errors {
+      padding: 15px;
+      border: 2px solid red;
+      border-radius: 5px;
+      color: red;
+    }
+
+    input, select {
+      display: block;
+      width: 100%;
+    }
+    
+    .inline {
+      display: block;
+      input, label {
+        display: inline-block;
+        width: auto;
+        margin-right: 10px;
+      }
+      input {
+        margin-top:10px;
+
+        height: 15px;
+      }
+    }
+
+    input[type='submit'] {
+      height:37px;
+      background-color: #62A343;
+      text-transform: uppercase;
+      border: none;
+      color:#fff;
+      cursor:pointer;
+      font-size:17pt;
+      font-family:proximanova_semibold;
+      width: auto;
+      padding: 0 30px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+  }
+}
+.modal .body,
+.fancy 
+{
+  overflow-y: auto;
+  margin-bottom: 20px;
+  //max-height: 550px;
+  //height: auto !important;
+  //height: 550pX;
+
+  form {
+    label {
+      font-family: proximanova;
+      font-size:13pt;
+      color:#000;
+      display: block;
+      margin: 10px 0 0 0;
+    }
+
+    .errors {
+      padding: 3px;
+      border: 1px solid red;
+      border-radius: 5px;
+      color: red;
+    }
+
+    input, select {
+      display: block;
+      width: 100%;
+    }
+    
+    .inline {
+      display: block;
+      input, label {
+       vertical-align:top;
+       display: inline-block;
+        width: auto;
+        margin-right: 10px;
+      }
+      label {
+        margin-top: 6px;
+      }
+      input {
+        height: 33px;
+      }
+    }
+
+    input[type='submit'] {
+      height:37px;    
+      background-color: #62A343;
+      text-transform: uppercase;
+      border: none;
+      color:#fff;
+      cursor:pointer;
+      font-size:17pt;
+      font-family:proximanova_semibold;
+      width: auto;
+      padding: 0 30px;
+      margin: 0 auto;
+      margin-top: 20px;
+    }
+  }
+}
+
+.header__business-link a{
+  color: #000;
+  font-family: proximanova;
+  font-size: 19px;
+  text-decoration: underline;
+}
+.header__business-link:before{
+  font-family: proximanova;
+  content: '|';
+  font-size: 18px;
+  color: #000;
+}
+
+.modal .body form .group {
+  input, label {
+    height: 23px;
+    margin: 0 5px;
+  }
+}
+
+.modal .body form .online_business {
+  display: inline-block;
+  width: inherit;
+  margin-right: 5px;
+}
+
+.invalid {
+  border: 1px solid red;
+}
+
+label .fieldErrors {
+  font-size: 15px;
+  color: red;
+  float: right;
+}
+
+.modal .footer {
+  padding: 5px 30px 30px;
+  a {
+    font-family: proximanova;
+    font-size: 14px;
+    color: grey;
+    text-decoration: underline;
+  }
+  a.facebook-btn {
+    margin: 10px auto 0;
+
+  }
+
+}

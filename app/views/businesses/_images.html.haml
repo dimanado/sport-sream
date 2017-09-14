@@ -1,0 +1,23 @@
+.jcarousel
+  %ul
+    - unless @business.images.nil?
+      - @business.images.each do |image|
+        %li
+          %a.img
+            - logostr = "v#{image.version}/#{image.public_id}"
+            = cl_image_tag(logostr, { size: '240x160', crop: :fill, format: :jpg })
+:css
+  a.img IMG {
+    height:80px;
+    width:120px;
+  }
+:javascript
+  jQuery(function($){
+    function select() {
+      var imgSrcVal = $('img', this).attr("src");
+      $('#campaign_coupon_attributes_thumb').val(imgSrcVal); // hidden
+      $('#campaign_coupon_attributes_subject').change(); // trigger update
+      $('#results').html('');
+    }
+    $('a.img').on("click", select);
+  });

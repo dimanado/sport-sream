@@ -1,0 +1,22 @@
+.modal
+  .header
+    .green
+      Customer Login
+  .body
+    %p
+      We’re so glad you have chosen to purchase this offer. Sign in with your account, or create a new one today to take advantage of these wonderful offers
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      - flash.each do |key, message|
+        .errors
+          .alert-message{:class => key}
+            = message
+      = f.label :email
+      = f.email_field :email, :class => "signup_full"
+      = f.label :password
+      = f.password_field :password, :class => "signup_full"
+      .inline
+        = f.label :remember_me
+        = f.check_box :remember_me
+      .clean
+      = f.submit "Sign in", :class => 'button'
+      = render :partial => "consumers/shared/links"

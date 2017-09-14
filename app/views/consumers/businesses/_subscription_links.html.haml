@@ -1,0 +1,8 @@
+.toggle-subscription(style="display: inline-block")
+  - if current_consumer.subscribed_to?(business)
+    %input.toggle{:id => "#{business.id}", :type => "checkbox", :checked => "checked"}
+    /.button= link_to 'Unsubscribe', toggle_subscription_consumers_business_path(business), :method => :post, :remote => true
+  - else
+    %input.toggle{:id => "#{business.id}", :type => "checkbox"}
+    /.button= link_to 'Subscribe', toggle_subscription_consumers_business_path(business), :method => :post, :remote => true
+

@@ -1,0 +1,501 @@
+.iframe-container
+{
+  overflow-x: hidden;
+
+  #container {
+    width: 770px;
+    margin: 0;
+
+    .coupon-detail
+    {
+      margin-left: 60px;
+    }
+  }
+}
+.right_block_consumer_view
+{
+  .coupon.offerboard
+  {
+    height: 465px;
+    .bottom
+    {
+      bottom: 25px
+    }
+  }
+  [one_item="true"] {
+    float: none;
+    margin: 0 auto;
+  }
+}
+.offerboard
+{
+  height:432px;
+  width:240px;
+  border:1px solid #000;
+  background-color:#fff;
+  float: left;
+  margin:10px 0 0 10px;
+  position: relative;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  text-align: center;
+  .distance
+  {
+    text-align: center;
+    width: 100%;
+    span
+    {
+      background-color: #deedc8;
+      font-family: proximanova;
+      font-size: 10pt;
+      color: #007236;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+    }
+  }
+}
+.offerboard.iframe
+{
+  height: 375px;
+  .bottom
+  {
+    height: 54px;
+  }
+}
+.phonecoupon .coupon {
+  height: 409px;
+  position:relative;
+}
+.coupon .head
+{
+  font-family: proximanova_bold,'Raleway', sans-serif;;
+  font-size:20px;
+  color:#000;
+  text-align:center;
+  line-height:1.0;
+  word-wrap:break-word;
+  margin: 6px;
+}
+.coupon .head .under_header
+{
+  font-family: proximanova, 'Raleway', sans-serif;;
+  font-size:20px;
+  color:#919642;
+  font-weight:bold;
+
+}
+.coupon_handler .text
+{
+  font-family: proximanova, 'Raleway', sans-serif;;
+  font-size:11pt;
+  color:#fff;
+  text-align:center;
+  padding:50px 0 0 0;
+}
+.coupon .text a
+{
+  color:#fff;
+  cursor:pointer;
+}
+
+a.more {
+  position: absolute;
+  bottom: -3px;
+  right: 10px;
+  background: white;
+  padding: 3px;
+  display: none;
+}
+.coupon {
+  .watch {
+    background-color:#000;
+    text-align:center;
+    height:20px;
+    padding:8px 0 0 0;
+    margin:0;
+    font-family: proximanova, 'Raleway', sans-serif;
+    font-size:12px;
+    color:#fff;
+    SPAN {
+      font-size:12px;
+      color:#ea7236;
+      font-family: proximanova_bold, 'Raleway', sans-serif;;
+      }
+  }
+
+  .bottom {
+  position: absolute;
+  bottom: 0;
+  color: white;
+  width: 240px;
+  padding: 10px 0;
+  text-align: center;
+  border: 0;
+  height: 115px;
+  P {
+    font-family: proximanova_bold,'Raleway', sans-serif;;
+    font-size:9pt;
+    color:#000;
+    &.rem {
+      margin:0;
+      font-size:11pt;
+      color:#ff8201;
+    }
+    &.view {
+      font-family: proximanova,'Raleway', sans-serif;;
+      font-size:13pt;
+      color:#000;
+      A {
+      color:#000;
+      text-decoration:none;
+      border-bottom:1px solid #919642;
+      }
+    }
+  }
+}
+
+  .product_img
+{
+  //width:240px;
+  //height:160px;
+}
+.top {
+  max-height:120px;
+  overflow:hidden
+}
+.top.middle_size
+{
+  .head
+  {
+    font-size: 16px
+  }
+  .product_text
+  {
+    font-size: 14px;
+  }
+}
+.top.small_size
+{
+  .head
+  {
+    font-size: 13px
+  }
+  .product_text
+  {
+    font-size: 11px;
+  }
+}
+.city
+{
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+.product_text
+{
+  margin:0 8px;
+  font-family: proximanova_semibold, 'Raleway', sans-serif;
+  text-align:center;
+  font-size:18px;
+  color:#ea7236;
+  display:block;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+.small_subject
+{
+  font-size: 14px;
+}
+.product_text a
+{
+  color:#007236;
+  cursor:pointer;
+}
+}
+.above_header
+{
+  font-family: proximanova, 'Raleway', sans-serif;;
+  font-size:12pt;
+  color:#919642;
+  text-align:center;
+  margin:10px 0 10px 0;
+}
+.valid
+{
+  font-family: proximanova, 'Raleway', sans-serif;;
+  font-size:9pt;
+  color:#fff;
+  text-align:center;
+  margin:0px 0 10px 0;
+}
+.quantity
+{
+  font-family: proximanova, 'Raleway', sans-serif;;
+  font-size:12pt;
+  color:#007236;
+  margin:20px 0 0px 10px;
+}
+.coupon_button
+{
+  font-family: proximanova_semibold, 'Raleway', sans-serif;;
+  font-size:12pt;
+  color:#007236;
+  width:113px;
+  height:30px;
+  display: inline-block;
+  margin: 4px 0 0 0;
+  background-image: url(/assets/buy.png);
+}
+
+.coupon_button_new {
+  display: inline-block;
+  margin: 4px 0 0 0;
+  padding: 5px 14px 4px;
+  min-width: 50px;
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  text-transform: uppercase;
+  //border:1px solid #000;
+  cursor: pointer;
+  background: #62A343; /* Old browsers */
+  /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+}
+
+.coupon_button_new:hover {
+color: #FFF;
+}
+
+.coupon_button_new:active {
+  outline:none;
+  position:relative;
+  top:1px;
+}
+
+.coupon_button_new:focus {
+  outline:none;
+  border:2px solid #000;
+}
+
+.coupon_button.big {
+  margin-left: 10px;
+  width: 198px;
+}
+
+.stick_down {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+}
+
+.subscribed {
+  text-align: center;
+  text-decoration : none; color : #fff;
+  &:hover {
+    color: #fff;
+  }
+}
+
+.coupon_button.nomargin {
+  margin: 0;
+}
+
+.check
+{
+  margin:10px 0 0 10px
+}
+
+.grey_div
+{
+  background:#363636;
+  height:90px;
+  margin:7px 0 0 0;
+}
+
+.coupon a {
+  background-position: 0 0;
+}
+
+.coupons {
+  width: 780px;
+  margin: -30px;
+  padding-bottom:60px;
+}
+
+.coupon_type {
+text-align:center;
+  text-transform:uppercase;
+  font-size: 45px;
+  letter-spacing:4px;
+  margin: 19px 0 12px 0;
+}
+
+h1.no_msgs {
+  display: block;
+  width: 500px;
+  margin: 50px auto;
+  font-size: 35px;
+  color: grey;
+}
+
+
+.coupon .bottom.expandDescription {
+  bottom: 70px;
+  right: 10px;
+  width: 30px;
+  height: 10px;
+  background: #ebebeb;
+  color: black;
+  cursor: pointer;
+  display:none;
+}
+
+.coupon .bottom.buy_transition {
+  color: black;
+  background: transparent;
+  height: 200px;
+}
+
+input.coupon_button {
+  margin-top: 10px;
+  height: 40px;
+}
+
+.progress {
+  background: url(/assets/Jcrop.gif);
+  height: 8px;
+  width: 128px;
+  margin: 30px 0 0 56px;
+}
+
+.flag_handler
+{
+  position:absolute;
+  width:54px;
+  height:79px;
+  margin:4px 0 0 180px;
+  background: image-url('flag.png');
+  z-index:1;
+  padding:2px 0px 0px 0 ;
+  text-align: center;
+}
+.flag
+{
+  height:81px;
+  width:50px;
+  margin:2px 0 0 0;
+}
+
+.flag_handler p
+{
+
+  font-family: proximanova, 'Raleway', sans-serif;
+  font-weight:bold;
+  font-size:7pt;
+  color:#fff;
+
+  letter-spacing:1px;
+  line-height:2.0;
+
+}
+.flag_handler strong
+{
+  font-family: proximanova_bold, 'Raleway', sans-serif;
+  font-size:17pt;
+  color:#fff;
+
+}
+
+.filter_bar {
+  height:35px;
+  width:744px;
+  background: image-url('top_grey_bckg_alpha.png');
+  margin-top: -30px;
+  margin-left: -30px;
+  padding: 10px;
+  border-bottom: 4px solid grey;
+}
+
+input.mefilter {
+  margin-left: 0px;
+  border-radius: 15px;
+  background: #ccc;
+  padding: 8px 30px 8px 15px;
+  border: 0;
+  font-size: 12px;
+  -moz-box-shadow:    inset 0 0 5px #888;
+  -webkit-box-shadow: inset 0 0 5px #888;
+  box-shadow:         inset 0 0 5px #888;
+  width: 200px;
+  font-family: proximanova, 'Raleway', sans-serif;
+}
+
+input.mebutton {
+  border-radius: 15px;
+  background-color: #62a443;
+  color: white;
+  border: 0;
+  width: 100px;
+  padding: 8px 0;
+  margin-left: -30px;
+  margin-top: 2px;
+  font-size: 12px;
+  font-family: proximanova, 'Raleway', sans-serif;
+}
+
+select.drop_down_top {
+  float: right;
+  margin: 5px 0 0;
+  padding: 0;
+}
+
+#categoryFilter {
+    margin-right: 10px;
+}
+
+.filter_message {
+  word-wrap: break-word;
+}
+
+select.coupon_quantity {
+  width: 150px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-top: 2px;
+}
+
+a.collapseToggle {
+  text-decoration: none;
+  float: left;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 15px;
+  text-align: center;
+}
+button#refine {
+  float: right;
+  background-color: #4FC369;
+  padding: 3px;
+  color: white;
+  margin-right: 3px;
+}
+.business__item
+{
+  float: left;
+  width: 50%;
+  height: 100px;
+  list-style: none;
+  .business__item__name
+  {
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .business__item__iframe
+  {
+    width: 300px;
+    height: 50px;
+  }
+}

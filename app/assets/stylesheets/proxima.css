@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'proximanova';
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-regular-webfont.eot');
+    src: url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-regular-webfont.woff') format('woff'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-regular-webfont.ttf') format('truetype'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-regular-webfont.svg#MyFont') format('svg');
+}
+@font-face {
+    font-family: 'proximanova_semibold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-semibold-webfont');
+    src: url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-semibold-webfont.woff') format('woff'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-semibold-webfont.ttf') format('truetype'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-semibold-webfont.svg#MyFont') format('svg');
+}
+@font-face {
+    font-family: 'proximanova_bold';
+    font-style: normal;
+    font-weight: normal;
+    src: url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-bold-webfont.woff') format('woff'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-bold-webfont.ttf') format('truetype'),
+         url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-bold-webfont.svg#MyFont') format('svg');
+    src: url('https://hooditt-fonts.s3.amazonaws.com/fonts/proximanova-bold-webfont.eot');
+}

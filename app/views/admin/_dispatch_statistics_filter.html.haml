@@ -1,0 +1,13 @@
+%form
+	%fieldset
+		%label
+			Partner:
+			%p
+				= select_tag("partner_id", options_for_select([['All Partners', 'all']] + Partner.all.map { |p| [p.name, p.id] } , params[:partner_id]))
+		%label
+			Material:
+			%p
+				= select_tag("material_id", options_for_select([['All Materials', 'all']] + Material.all.map { |m| [m.title, m.id] } , params[:material_id]))
+	%fieldset
+		%p
+			%input{:type => "submit"}

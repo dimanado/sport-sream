@@ -1,0 +1,27 @@
+= stylesheet_link_tag "popup"
+= javascript_include_tag "popup/popup_launch"
+.feedBack-box
+  .feedBack-overlay
+  .feedBack-popup
+    .feedBack-thumbnail
+      = image_tag "checkmark.png", :alt => "dh"
+    .text-center
+      %h3 Success!!
+      %h4 Helpful hints:
+    %ul
+      %li
+        You can have
+        %u multiple offers
+        on the offer board at the same time.
+      %li You can schedule offers to go out whenever you like.
+      %li You can preset offers to post and expire on your schedule.
+      %li You can run an offer for a few hours, a day, a few days.
+    %p
+      If you need help with anything, please email us at
+      %a{ :href => "mailto:business@dollarhood.com", :target => "_top" } business@dollarhood.com
+    .feedBack-footer.text-center
+      = link_to 'Back to Profile', edit_business_path(current_business)
+      %span|
+      = link_to 'Create New Offer', new_campaign_path
+      %span|
+      %a{ :href => "#", :onClick => 'getFeedBackBox()' } Close

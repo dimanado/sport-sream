@@ -1,0 +1,9 @@
+- if shopping_cart.shopping_cart_items.empty?
+  %p.text-center Empty
+- else
+  %ul
+    = render :partial => 'shopping_carts/shopping_cart_mini_item', :collection => shopping_cart.shopping_cart_items
+  .clear
+  .text-center
+    %h4 Subtotal: #{number_to_currency(shopping_cart.total)}
+    %a.btn.btn-primary.text-uc.checkout{href: checkout_path} View Cart

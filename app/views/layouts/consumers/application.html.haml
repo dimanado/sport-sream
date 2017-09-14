@@ -1,0 +1,18 @@
+= extends :application do
+  - purge :top
+  - content_for :head do
+    = javascript_include_tag 'redesign/picks'
+  .main
+    .head_images.clearfix
+      .brand
+        %a{href: "/consumers/offers"}
+          = image_tag 'dh-logo.png'
+      .market
+        %span.currency-sign $
+        %p
+          Exclusive dollar deals in your neighborhood and online!
+    .consumer_view
+      .left_block_consumer_view
+        = render '/layouts/consumers/navigation'
+      .right_block_consumer_view
+        = yield

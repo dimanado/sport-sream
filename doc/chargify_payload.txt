@@ -1,0 +1,62 @@
+ {
+   "payload"=>{
+     "subscription"=>{
+       "current_period_ends_at"=>"2012-08-10 11:03:16 -0400", 
+       "activated_at"=>"", 
+       "cancellation_message"=>"", 
+       "current_period_started_at"=>"2012-07-10 11:03:16 -0400", 
+       "customer"=>{
+         "first_name"=>"Kirill", 
+         "email"=>"kgrini03@gmail.com", 
+         "zip"=>"", "state"=>"", "country"=>"", "phone"=>"", "address"=>"", "id"=>"1973340",
+         "created_at"=>"2012-07-10 11:03:16 -0400", "address_2"=>"", "updated_at"=>"2012-07-10 11:03:16 -0400", "organization"=>"", "city"=>"", 
+         "reference"=>"1970", "last_name"=>"Grini"
+       }, 
+       "state"=>"trialing", 
+       "coupon_code"=>"", 
+       "trial_started_at"=>"2012-07-10 11:03:16 -0400", 
+       "balance_in_cents"=>"0", 
+       "signup_revenue"=>"0.00", 
+       "id"=>"2019741", 
+       "cancel_at_end_of_period"=>"false", 
+       "created_at"=>"2012-07-10 11:03:16 -0400", 
+       "credit_card"=>{
+         "billing_state"=>"", "vault_token"=>"1", "first_name"=>"Kirill", "masked_card_number"=>"XXXX-XXXX-XXXX-1", 
+         "billing_address_2"=>"", "billing_city"=>"", "card_type"=>"bogus", "id"=>"1043809", "billing_address"=>"", "expiration_year"=>"2017", "billing_zip"=>"10004", 
+         "customer_vault_token"=>"", "billing_country"=>"", "last_name"=>"Grini", "expiration_month"=>"3", "customer_id"=>"1973340", "current_vault"=>"bogus"
+       }, 
+       "delayed_cancel_at"=>"", 
+       "updated_at"=>"2012-07-10 11:03:50 -0400", 
+       "expires_at"=>"", 
+       "trial_ended_at"=>"2012-08-10 11:03:16 -0400", 
+       "next_assessment_at"=>"2012-08-10 11:03:16 -0400", 
+       "product"=>{
+         "expiration_interval_unit"=>"never", 
+         "return_url"=>"https://test-chinoki.herokuapp.com/consumer/chargify_signup?subscription_id={subscription_id}", 
+         "return_params"=>"", 
+         "product_family"=>{
+           "description"=>"", 
+           "name"=>"Chinoki Consumer", "id"=>"194897", "accounting_code"=>"", "handle"=>"chinoki-consumer"
+         }, 
+         "description"=>"", "initial_charge_in_cents"=>"", "trial_interval_unit"=>"month", "name"=>"Chinoki Subscription", 
+         "archived_at"=>"", "id"=>"1782114", "accounting_code"=>"", "trial_interval"=>"1", 
+         "created_at"=>"2012-07-10 10:31:00 -0400", "interval_unit"=>"month", "expiration_interval"=>"", 
+         "update_return_url"=>"https://test-chinoki.herokuapp.com/consumer/chargify_update?subscription_id={subscription_id}", 
+         "updated_at"=>"2012-07-10 10:34:44 -0400", "require_credit_card"=>"true", "price_in_cents"=>"0", 
+         "handle"=>"chinoki-subscription", "interval"=>"1", "request_credit_card"=>"true", "trial_price_in_cents"=>"0"
+       }, 
+       "previous_state"=>"trialing", 
+       "canceled_at"=>"", "signup_payment_id"=>"18229672"
+     }, 
+     "transaction"=>{
+       "payment_id"=>"", "success"=>"true", "memo"=>"Payment for: Buy coupon \"btfrehv6jyr\", #58", "kind"=>"one_time", 
+       "product_id"=>"1782114", "ending_balance_in_cents"=>"0", "id"=>"18229783", "created_at"=>"2012-07-10 11:03:50 -0400", "subscription_id"=>"2019741", 
+       "amount_in_cents"=>"800", "transaction_type"=>"payment", "type"=>"Payment"
+     }, 
+     "site"=>{
+       "subdomain"=>"chinoki-test", 
+       "id"=>"10599"
+     }
+   }, 
+   "event"=>"payment_success", "id"=>"4031847", "controller"=>"coupons", "action"=>"hook"
+ }

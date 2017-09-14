@@ -1,0 +1,31 @@
+/*
+ *= require reset
+ *= require tables
+ *= require campaigns
+ *= require categories
+ *= require coupons
+ *= require dashboard
+ *= require modal
+ *= require testimonials
+ *= require screen
+ *= require global
+ *= require_self
+*/
+
+h2 {
+  font-size:23px;
+}
+.inline {
+  display: inline-block;
+}
+
+.inline_children > * {
+  display: inline-block;
+}
+
+.break {
+  word-break: break-all;
+}
+
+.floatl { float: left; }
+.floatr { float: right; }

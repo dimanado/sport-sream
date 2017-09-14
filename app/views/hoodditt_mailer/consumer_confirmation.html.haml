@@ -1,0 +1,12 @@
+%html
+  %head
+    - logo_style =  "background: url('#{image_url('chinoki-logo.png')}');"
+    - logo_style += "width: 355px; height: 153px;"
+    - logo_style += "margin: 0 auto; margin-bottom: 50px"
+  
+  %body
+    .chinoki-logo{style: logo_style}
+    
+    %p(style="text-align: center")
+      Hi, you changed your email address in dollarhood, and you
+      %a{:href => confirm_email_consumer_url(:token => @token)} must confirm this in your profile.

@@ -1,0 +1,17 @@
+!!! 5
+%html(lang="en")
+  %head
+    %meta(charset="utf-8")/
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %title chinoki &mdash; you pick. you win.
+  %body
+    .container
+      = render 'layouts/user_bar'
+      .header
+      .one-cherry
+      .content
+        = yield
+      = render 'layouts/footer'
+

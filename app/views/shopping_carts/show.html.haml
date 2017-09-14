@@ -1,0 +1,30 @@
+= content_for :head do
+  = stylesheet_link_tag "base"
+  = javascript_include_tag 'redesign/shopping_cart'
+  = javascript_include_tag 'redesign/jquery.validate.min'
+
+/ - purge :category_nav
+.content.shopping.clearfix
+  = link_to "https://www.braintreegateway.com/merchants/377qpscfgqn6cbkr/verified", :target => "_blank", :class => "braintree_logo" do
+    = image_tag "https://braintree-badges.s3.amazonaws.com/08.png"
+  %h1.page-head Shopping Cart
+  %table.cart-table
+    %tr
+      %th.cart-cell Business Name
+      %th.cart-cell Offer
+      %th.cart-cell Number
+      %th.cart-cell Price
+    = render :partial => 'shopping_cart_item', :collection => shopping_cart.shopping_cart_items
+    %tr.cart-row
+      %td.cart-cell
+      %td.cart-cell
+        .total-price
+          Total price
+      %td.cart-cell
+      %td.cart-cell
+        .summer.cart-cell-price= number_to_currency(shopping_cart.total)
+
+  .clearfix
+    = link_to 'Checkout', 'javascript: void(0);', :class => "gradient cart-submit braintree-checkout"
+    = link_to 'Continue shopping', consumers_offers_path, :class => "gradient cart-submit"
+  = link_to image_tag("https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"), new_paypal_transaction_path, :class => 'pay_pal_button'

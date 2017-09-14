@@ -1,0 +1,25 @@
+.modal#merchantLogin(data-form="fancyform_login")
+  .header 
+    .green
+      Business Log In
+  .body
+    = form_for(merchant,:method => 'post', :remote => true, :url => session_path(:merchant, :fancylogin => true)) do |f|
+      .errors
+      = f.label :email
+      = f.email_field :email, :autocomplete=>"off"
+      = f.label :password
+      = f.password_field :password, :autocomplete=>"off"
+      .inline
+        = f.check_box :remember_me
+        = f.label :remember_me
+      .clean
+      = f.submit "Sign in", :class => 'button'
+  .footer
+    = link_to 'Forgot your password?', new_merchant_password_path, :target => "_top"
+
+:css
+  .button
+  {
+    border-radius: 22px;
+    border: 0
+  }

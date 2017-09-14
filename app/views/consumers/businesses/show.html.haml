@@ -1,0 +1,28 @@
+%div[@business]
+  %div(style="float: left; font-weight: bold")
+    %h1= @business.name
+  %div(style="float: right")
+    Subscribe
+    = render :partial => 'subscription_links', :locals => {:business => @business}
+
+  .clear
+
+  %p= @business.description
+  %address= @business.contact_info
+  = link_to @business.website, @business.website if @business.website
+
+  .clear
+  %br
+
+  -if not @campaigns.empty?
+    %h1 Current active campaigns for this business
+    = render :partial => 'list_campaigns', :locals => {:campaigns => @campaigns}
+  
+  -if not @all_businesses.empty?
+    %h1 Current active campaigns for all business of this merchant
+    -@all_businesses.each do |b|
+      = render :partial => 'list_campaigns', :locals => {:campaigns => b.campaigns}
+
+
+
+= javascript_include_tag 'consumer/subscribe_ajax'

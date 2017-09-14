@@ -1,0 +1,26 @@
+- content_for :custom_fb do
+  %meta{:content => @material.title, :property => "og:title"}/
+  %meta{:content => materials_share_url(@material), :property => "og:url"}/
+  %meta{:content => "Dollarhood", :property => "og:site_name"}/
+  %meta{:content => @material.type_of_file == 'image' ? @material.full_path : image_url('text-file-icon.png'), :property => "og:image"}/
+.center
+  - unless @partner.nil?
+    %h1= @partner.name + ' shared material with you!'
+  %br
+  %h2
+    = link_to 'Learn more', page_business_path
+    about dollarhood for business
+  %br
+  %br
+  Title:
+  = @material.title
+
+  - if @material.file? && @material.type_of_file == 'image'
+    = cl_image_tag(@material.file.path, { size: '250', crop: :pad })
+  - else
+    = image_tag('text-file-icon.png', size: "200")
+
+  = link_to 'download material', @material.full_path
+  %br
+  %br
+  %br

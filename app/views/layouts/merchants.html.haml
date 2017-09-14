@@ -1,0 +1,59 @@
+!!!
+/[if lt IE 7] <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7] <html class="no-js lt-ie9 lt-ie8" lang="en">
+/[if IE 8] <html class="no-js lt-ie9" lang="en">
+/ [if gt IE 8]><!
+%html.no-js{:lang => "en"}
+  / <![endif]
+  %head
+    = meta_tags(:title=> "dollarhood")
+    %meta{:content => "noodp, noydir", :name => "robots"}/
+    %meta{:content => "Dollarhood", :property => "og:title"}/
+    %meta{:content => "https://dollarhood.com/", :property => "og:url"}/
+    %meta{:content => "dollarhood provides $1 offers created by local businesses for loyal customers who love great deals.", :property => "og:description"}/
+    %meta{:content => "local deals, 1 dollar coupons, best restaurants, things to do, pet services, shop local, sports deals, shopping and travel deals, exclusive offers, best of businesses", :name => "keywords"}/
+    %meta{:content => "Dollarhood", :property => "og:site_name"}/
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible"}
+    %link{:href => "https://hooditt-fonts.s3.amazonaws.com/proxima.css", :rel => "stylesheet", :type => "text/css"}/
+    %link{href: asset_path("icon57.png"), rel: "apple-touch-icon", sizes: "57x57"}/
+    %link{href: asset_path("icon72.png"), rel: "apple-touch-icon", sizes: "72x72"}/
+    %link{href: asset_path("icon76.png"), rel: "apple-touch-icon", sizes: "76x76"}/
+    %link{href: asset_path("icon114.png"), rel: "apple-touch-icon", sizes: "114x114"}/
+    %link{href: asset_path("icon120.png"), rel: "apple-touch-icon", sizes: "120x120"}/
+    %link{href: asset_path("icon144.png"), rel: "apple-touch-icon", sizes: "144x144"}/
+    %link{href: asset_path("icon152.png"), rel: "apple-touch-icon", sizes: "152x152"}/
+    %link{href: asset_path("favicon.ico"), rel: "shortcut icon", type: "image/ico"}/
+    %meta{content: asset_path("icon144.png"), name: "msapplication-TileImage"}/
+    %meta{content: "#ffffff", name: "msapplication-TileColor"}/
+    %meta{content: "dollarhood", name: "application-name"}/
+    = stylesheet_link_tag "redesign/application"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = javascript_include_tag "redesign/modal"
+    = stylesheet_link_tag "landing"
+    = cloudinary_js_config
+  %body.merchants(style="width: 1020px; margin: 0 auto;")
+    /[if lt IE 7] <p class=chromeframe>Your browser is <em>ancient!</em> <a href="http://browsehappy.com/">Upgrade to a different browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to experience this site.</p>
+    %header.group.row
+      = render '/layouts/merchants/header'
+      %br
+      %br
+    .group.row.content
+      = yield
+
+    = render 'layouts/footer'
+    / Start of StatCounter Code for Default Guide
+    :javascript
+      var sc_project=9049977;
+      var sc_invisible=1;
+      var sc_security="e888c9b6";
+      var scJsHost = (("https:" == document.location.protocol) ?
+      "https://secure." : "http://www.");
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+      "statcounter.com/counter/counter.js'></"+"script>");
+    %noscript
+      .statcounter
+        %a{:href => "http://statcounter.com/free-hit-counter/", :target => "_blank", :title => "free hit counter"}
+          %img.statcounter{:alt => "free hit counter", :src => "http://c.statcounter.com/9049977/0/e888c9b6/1/"}/
+    / End of StatCounter Code for Default Guide

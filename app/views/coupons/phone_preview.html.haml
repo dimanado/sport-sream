@@ -1,0 +1,39 @@
+= stylesheet_link_tag 'redesign/picks'
+= content_for :head do
+  %meta{:property => 'og:title', :content => @coupon.subject}
+  %meta{:property => 'og:description', :content => @coupon.content}
+
+#coupon.phonecoupon
+  .holder
+    .coupon
+      #logo
+        = image_tag "dollarhood/dollarhood-logo-smaller.jpg", :width => '126'
+      #promo
+        - src = nil
+        - if nil != params[:campaign]
+          - if nil != params[:campaign][:coupon_attributes]
+            - if nil != params[:campaign][:coupon_attributes][:thumb]
+              - if !params[:campaign][:coupon_attributes][:thumb].empty?
+                - src = params[:campaign][:coupon_attributes][:thumb]
+        - if (!@coupon.thumb.nil? && src.nil?)
+          - if !@coupon.thumb.empty?
+            - src = @coupon.thumb
+        - if (src.nil?)
+          - src = "upload_a_custom_picture.gif"
+        = image_tag src, :style =>  "max-width: 240px; max-height: 160px" 
+      .top
+        .head
+          = @coupon.business.name
+        .product_text
+          = @coupon.subject
+      .bottom
+        %p.view
+          %a{href: '#'} View Details
+        %p.rem 
+          - if @coupon.amount != -1
+            = "#{@coupon.amount} Left"
+          - else 
+            &nbsp;
+        %p
+        %p 
+          %a.coupon_button_new Add to cart $1

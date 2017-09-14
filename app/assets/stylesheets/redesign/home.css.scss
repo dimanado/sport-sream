@@ -1,0 +1,71 @@
+$button_red_color: #db1d25;
+$normal_button_text_size: 13pt ;
+.central_home
+{
+	margin:30px 55px 50px 70px;
+	float:left;
+}
+
+.header_home
+{
+	float: left;
+	font-family: proximanova;
+	font-size:25pt;
+	color:#000;
+	margin:20px 0 0 0 ;
+
+}
+.header_home span
+{
+	color:#bd1219;
+	line-height:1.0;
+}
+.left_text_handler
+{
+	float: left;
+	font-family: proximanova;
+	font-size:14pt;
+	color:#5a5a5a;
+	width:470px;
+	margin:10px 0 0 0;
+}
+
+.left_text_handler b
+{
+	color:#000;
+	margin:10px 0 10px 0;
+	float: left;
+	font-weight:normal;
+
+}
+.right_block_with_img
+{
+	margin:10px 0 0 10px;
+	float: left;
+}
+.center_bottom
+{
+	font-family:JennaSue;
+	font-size:24pt;
+	color:#dc1e26;
+	margin: 20px 0 0 0;
+	
+}
+.logotypes   
+{
+	position:relative;
+	margin: 0 auto;
+	
+	width:100%;
+}
+.logotypes img
+{
+	margin:0 5px;
+}
+$button_light_gray_color: #e2e2e2;
+
+
+
+a {
+  cursor: pointer;
+}

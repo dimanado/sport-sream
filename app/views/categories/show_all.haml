@@ -1,0 +1,9 @@
+= stylesheet_link_tag 'redesign/picks'
+= javascript_include_tag 'redesign/picks'
+%br/
+%h2#siteDescription.center
+.columns
+	- unless @offers.empty?
+		- @offers.each do |c|
+			= render 'shared/offer', :campaign => c
+= javascript_include_tag 'redesign/random-site-descript'

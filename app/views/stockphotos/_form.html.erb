@@ -1,0 +1,25 @@
+<%= form_for(@stockphoto) do |f| %>
+  <% if @stockphoto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@stockphoto.errors.count, "error") %> prohibited this stockphoto from being saved:</h2>
+
+      <ul>
+      <% @stockphoto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :img %><br />
+    <%= f.text_field :img %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

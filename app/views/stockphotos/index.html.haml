@@ -1,0 +1,11 @@
+.container
+  - @category = 'blank'
+  - @stockphotos.each do |stockphoto|
+    - if @category != stockphoto.category
+      .header.group.clear
+        %h1= stockphoto.category
+      - @category = stockphoto.category
+    .photo
+      %img{:src => "https://res.cloudinary.com/hooditt-com/image/upload/#{stockphoto.thumb}"}
+      %br
+      Photo #{stockphoto.id}

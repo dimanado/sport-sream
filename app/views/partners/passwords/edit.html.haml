@@ -1,0 +1,17 @@
+.modal
+  .header 
+    .green
+      Change your password
+  .body
+    = form_for(resource, :as => resource_name, :url => partner_password_path(:fancylogin => true), :html => { :method => :put }) do |f|
+      .signup_content
+        = devise_error_messages!
+        = f.hidden_field :reset_password_token
+        %p.label= f.label :password, "New password"
+        %p.field= f.password_field :password
+        %p.notice Your password should be at least 8 characters.
+        %p.label= f.label :password_confirmation, "Confirm new password *"
+        %p.field= f.password_field :password_confirmation
+        %br
+      .signup_submit
+        = f.submit "Change my password", :class => "button"

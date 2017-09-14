@@ -1,0 +1,20 @@
+= stylesheet_link_tag 'redesign/picks'
+= stylesheet_link_tag 'redesign/merchant_pick'
+:css
+  .right_block_consumer_view {
+    padding: 0;
+    width: 754px;
+    padding-left: 10px;
+  }
+  .coupon-detail {
+    padding:20px;
+  }
+.new_offers
+  .header_new_offers
+    %span Edit Billing Info
+.coupon-detail
+  .col1     
+    - flash.each do |key, message|
+      .alert-message{:class => key}
+        = message
+    = render "form_existing"

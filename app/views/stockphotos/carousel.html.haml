@@ -1,0 +1,16 @@
+.jcarousel
+  %ul
+    - @stockphotos.each do |stockphoto|
+      %li
+        %a.img
+          %img{height:'80px', width:'120px', src: "https://res.cloudinary.com/hooditt-com/image/upload/#{stockphoto.thumb}"}
+:javascript
+  jQuery(function($){
+    function selectMe() {
+      var imgSrcVal = $('img', this).attr("src");
+      $('#campaign_coupon_attributes_thumb').val(imgSrcVal); // hidden
+      $('#campaign_coupon_attributes_subject').change(); // trigger update
+      $('#results').html('');
+    }
+    $('a.img').on("click", selectMe);
+  });

@@ -1,0 +1,23 @@
+development:
+  api_key: RN8Lwr0nMuU2iKlAiKZW
+  subdomain: 'chinoki-staging'
+  shared_api_key: 'zeCOESITNQP2FpmjZc6S'
+  hosted_pages_id: 796293
+
+test:
+  api_key: RN8Lwr0nMuU2iKlAiKZW
+  subdomain: 'chinoki-staging'
+  shared_api_key: 'zeCOESITNQP2FpmjZc6S'
+  hosted_pages_id: 796293
+  
+staging:
+  api_key: RN8Lwr0nMuU2iKlAiKZW
+  subdomain: 'chinoki-staging'
+  shared_api_key: 'zeCOESITNQP2FpmjZc6S'
+  hosted_pages_id: 796293
+
+production:
+  api_key: RN8Lwr0nMuU2iKlAiKZW
+  subdomain: 'chinoki-staging'
+  shared_api_key: 'zeCOESITNQP2FpmjZc6S'
+  hosted_pages_id: 796293

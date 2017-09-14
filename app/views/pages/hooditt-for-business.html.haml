@@ -1,0 +1,123 @@
+= content_for :head do
+  %meta{:content => "Dollarhood", :property => "og:title"}/
+  %meta{:content => "https://dollarhood.com/", :property => "og:url"}/
+  %meta{:content => "Dollarhood allows businesses to post free offers to thousands of local customers including restaurants, retail, services, B2B and more.", :property => "og:description"}/
+  %meta{:content => "free advertising, new deals websites, marketing solutions, targeted customers, local advertising, maximum exposure, pets, services, B2B, retail, restaurants, boutiques", :name => "keywords"}/
+  %meta{:content => "hooditt", :property => "og:site_name"}/
+.dh-wrapper
+  .banner.banner-intro
+  .block.block-intro
+    .inner-container.text-center
+      %h1.bold Dollarhood is your solution for online marketing.
+      %h3 FREE for businesses... forever!
+
+  .block.block-highlight.how-it-works
+    .inner-container.text-center
+      %h2.bold How does it work?
+      .clear
+
+      .row.set-4-cols
+        .col{style:"float:left;"}
+          .number 1
+          %p You sign up  for Dollarhood for FREE!
+
+        .col{style:"float:left;"}
+          .number 2
+          %p Post an exclusive offer  in real-time or  schedule one to post  at a future date.
+
+        .col{style:"float:left;"}
+          .number 3
+          %p Customer claims  your dollarhood  exclusive offer.
+
+        .col{style:"float:left;"}
+          .number 4
+          %p Customer brings offer to your store  (local or online) to make a purchase.
+
+      .clear
+      .text-center
+        %a.btn.btn-std.text-uc.lrg.bold{ :href => new_merchant_registration_path }
+          Sign up for free
+
+  .block.block-static
+    .inner-container.text-center
+      %h2.bold Take control of your marketing message.
+      %p
+        Dollarhood’s flexibility allows business owners to create offers based on the needs of the business. Build your offer by selecting features including: the discount that fits best, the quantity, and your timing preference. Post offers customized for your business in real time, on your terms, at your price.
+
+      %h3.bold No hidden charges. No credit card required.
+      .clear
+      .row.set-2-cols.media-cols
+        .col
+          .thumbnail-holder
+            = image_tag "banners/1.jpg", :alt => "dh"
+          %h3.bold Local Businesses
+          %p
+            Dollarhood was built with local businesses in mind. Our system allows customers to stay in touch  with local businesses in their neighborhood.
+
+        .col
+          .thumbnail-holder
+            = image_tag "banners/2.jpg", :alt => "dh"
+
+          %h3.bold Online Businesses
+          %p
+            Dollarhood makes it simple for e-commerce to post offers too! Customers receive an unique identifier  to be used for online purchases.
+
+        .col
+          .thumbnail-holder
+            = image_tag "banners/3.jpg", :alt => "dh"
+
+          %h3.bold Business to Business (B2B)
+          %p
+            Dollarhood provides a unique opportunity for businesses to offer exclusive deals to new B2B clients.
+
+        .col
+          .thumbnail-holder
+            = image_tag "banners/4.jpg", :alt => "dh"
+
+          %h3.bold Bloggers
+          %p
+            Dollarhood works with bloggers to promote  offers for our business clients.
+
+
+  .clear
+  .inner-container
+    .text-center
+      %h4.secondary-title
+        We're here to help! As an added value, we provide social media educational classes for FREE to any business in our dollarhood community!
+
+      .clear
+
+      %a{ :href => "https://www.facebook.com/dollarhood", target: "_blank" }
+        %i.icon-social.facebook
+      %a{ :href => "https://twitter.com/dollarhoodUS", target: "_blank" }
+        %i.icon-social.twitter
+
+      %br
+      %br
+
+    .clear
+
+    .banner.banner-market
+      %h3.bold
+        Dollarhood is your resource for easy, exclusive,
+        do it yourself, online marketing.
+        %br
+        %br
+        What are you waiting for?
+
+      %a.btn.btn-primary.text-uc.lrg.bold{ :href => new_merchant_registration_path }
+        Sign up for free
+:css
+  .number {
+    margin: auto;
+    border-radius: 50%;
+
+    width: 40px;
+    height: 40px;
+
+    background: #fff;
+    color: #62a343;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 32px;
+  }

@@ -1,0 +1,18 @@
+= stylesheet_link_tag 'redesign/picks'
+= stylesheet_link_tag 'redesign/merchant_pick'
+:css
+  .right_block_consumer_view {
+    padding: 0;
+    width: 754px;
+    padding-left: 10px;
+  }
+  .coupon-detail {
+    padding:20px;
+  }
+.top_central
+  .first_header
+    %b Payment Info Confirmation
+.coupon-detail
+  %p
+    Your payment information was successfully saved for credit card: 
+    = OtherUtil.only_last(@result.credit_card.masked_number)

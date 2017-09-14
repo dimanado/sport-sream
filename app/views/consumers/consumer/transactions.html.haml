@@ -1,0 +1,35 @@
+= stylesheet_link_tag 'redesign/picks'
+= stylesheet_link_tag 'redesign/merchant_pick'
+:css
+  .coupon-detail {
+    padding:20px;
+  }
+- unless @transactions.nil? or @transactions.count == 0
+  .top_central
+    .first_header
+      <b>Transactions</b>
+  .central_handler_consumer_view
+    %table
+      %tr.table_header
+        %td Date
+        %td Confirmation Number
+        %td Offer Details
+        %td Receipt
+      %tbody
+        - @transactions.each do |transaction| 
+          - transaction_cart = @transaction = transaction.shopping_cart
+
+          %tr[transaction]
+            %td= transaction.created_at.to_date.strftime("%m/%d/%y")
+            %td
+              = link_to transaction.confirmation_code, show_transaction_path(transaction)
+            %td
+              = link_to "Print Offer", show_transaction_path(transaction, print_offer: 'yes')
+            %td
+              = link_to "Print Receipt", show_receipt_path(transaction, print_receipt: 'yes')
+- else 
+  .top_central
+    .first_header
+      %b No Transactions Yet.
+  .central_handler_consumer_view
+    = link_to "Edit Billing Info", "/customer/#{current_consumer.id}/edit", class: "billing"

@@ -1,0 +1,25 @@
+---
+development:
+  cloud_name: hooditt-com
+  api_key: '753489219664983'
+  api_secret: jiCkq8lEErF3rLdAt4l5--F9XQ0
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hooditt-com
+  api_key: '753489219664983'
+  api_secret: jiCkq8lEErF3rLdAt4l5--F9XQ0
+  enhance_image_tag: true
+  static_image_support: true
+staging:
+  cloud_name: hooditt-com
+  api_key: '753489219664983'
+  api_secret: jiCkq8lEErF3rLdAt4l5--F9XQ0
+  enhance_image_tag: true
+  static_image_support: false
+test:
+  cloud_name: hooditt-com
+  api_key: '753489219664983'
+  api_secret: jiCkq8lEErF3rLdAt4l5--F9XQ0
+  enhance_image_tag: true
+  static_image_support: false

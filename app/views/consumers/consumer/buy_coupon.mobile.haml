@@ -1,0 +1,27 @@
+- if current_consumer.account.bought? @coupon
+  %h1 You successfully bought this coupon.
+  %br
+  = render 'coupon_info.html.haml', :coupon => @coupon, :codes => @coupon_codes
+
+- elsif current_consumer.account.charged_for? @coupon
+  %h3
+    The charge for this coupon was emitted from your account, but
+    the payment did not occur yet. This should happen very shortly.
+    %br
+    %br
+    Also, you should receive the coupon details on your email, once the purchase is validated.
+    %br
+    %br
+    If this will not happen during an hour, please check your credit card account or contact us at
+    %a(href="mailto:support@hoodditt.com") our e-mail.
+
+  .small(style="color: grey")
+    Note: This page will show the bought coupon details once it's ready.
+
+  = javascript_include_tag 'consumer/purchase_checker_ajax'
+
+- elsif @coupon.unavailable?
+  Sorry, this coupon is no longer available.
+
+- else
+  = render 'checkout.html.haml', :coupon => @coupon

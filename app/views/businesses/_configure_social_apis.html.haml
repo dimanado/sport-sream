@@ -1,0 +1,51 @@
+%p.header Social Networks
+%br
+- if @business.new_record?
+  Not yet configured.
+- else
+  .twitter-oauth
+    %h3 Twitter
+    - if @business.has_twitter_credentials?
+      - if @twitter_client.authorized?
+        %p
+          You may post a coupon to
+          = link_to "@#{@twitter_client.screen_name}", "https://twitter.com/#{@twitter_client.screen_name}"
+      - else
+        %p
+          Linked!
+      = link_to 'Unlink', reset_social_business_url(:account => 'twitter'), :confirm => 'Are you sure?'
+    - else
+      %p
+        Not yet configured.
+        = link_to 'Configure', oauth_connect_business_url(@business)
+  %br
+
+  .facebook-oauth
+    %h3 Facebook
+    - if @business.facebook_client_authorized?
+      - if @business.facebook_page_authorized?
+        %p
+          You may post a coupon to the
+          = link_to @business.facebook_page_name, "https://facebook.com/#{@business.facebook_page.identifier}"
+          facebook page
+        %p
+          = link_to 'Choose another page', reset_social_business_url(:account => 'facebook_page'), :confirm => 'Are you sure?'
+      - else
+        %p
+          - if @business.facebook_user.accounts.size > 0
+            Choose a page for #{@business}
+            = form_for @business do |f|
+              - @business.facebook_user.accounts.each do |fb_account|
+                %p
+                  = f.radio_button :facebook_page_identifier, fb_account.identifier
+                  = fb_account.name
+          - else
+            You do not have any Facebook page associated with your facebook account.
+            You can create one
+            %a(href="http://www.facebook.com/pages/create.php") here.
+      %p
+        = link_to 'Unlink', reset_social_business_url(:account => 'facebook'), :confirm => 'Are you sure?'
+    - else
+      %p
+        Not yet configured.
+        = link_to 'Configure', facebook_oauth_connect_business_url(@business)

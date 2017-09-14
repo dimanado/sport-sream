@@ -1,0 +1,110 @@
+- @offer = @coupon.campaign
+- coupon = @coupon
+- business = @coupon.campaign.business
+- iframe = defined?(params[:iframe]) && params[:iframe]
+- logostr = business.logo ? "v#{business.logo.version}/#{business.logo.public_id}" : ''
+= stylesheet_link_tag 'redesign/picks' if iframe
+
+- content_for :custom_fb do
+  %meta{:content => coupon.subject, :property => "og:title"}/
+  %meta{:content => view_coupon_url(coupon.code), :property => "og:url"}/
+  %meta{:content => coupon.content, :property => "og:description"}/
+  %meta{:content => "Dollarhood", :property => "og:site_name"}/
+  %meta{:content => Cloudinary::Utils.cloudinary_url(logostr, :width => 300, :height => 300, :crop => :pad), :property => "og:image"}/
+.content
+  .coupon-detail.group.content
+    .col1
+      .business-image
+        - if business.logo
+          = cl_image_tag(logostr, { size: '90x85', crop: :fit, format: :jpg })
+        - else
+          = image_tag('default_business_logo.png')
+      %h3= business.name
+      %h2= coupon.subject
+      %h2.details Details
+      %h3
+        = coupon.content
+      - if not @coupon.unavailable?
+        .button
+          - if iframe
+            = link_to_function image_tag('buyoffer.gif'), "top.location.href = '#{add_from_iframe_shopping_cart_items_path(offer_id: coupon)}'", :class => 'buy-offer-details'
+          - else
+            = link_to 'buy offer for $1', shopping_cart_items_path(offer_id: coupon, partner_slug: params[:partner_slug]), method: :post, :class => 'buy-offer-details', remote: true
+        .watch
+          This offer ends in
+          %span{'data-expire' => @offer.expires_at.to_i}
+      - else
+        .button
+          %H3 EXPIRED
+        .watch
+          This coupon has expired.
+      .addthis_toolbox.addthis_default_style.group{"addthis:url" => view_coupon_url(coupon.code), "addthis:title" => "#{business.name} - #{coupon.subject} - via @dollarhoodUS", "addthis:description" => coupon.content }
+        .span{style:'float:left;display:inline-block'} Share this offer &nbsp; &nbsp;
+        %a.addthis_button_preferred_1
+        %a.addthis_button_preferred_2
+        %a.addthis_button_preferred_3
+        %a.addthis_button_preferred_4
+        %a.addthis_button_compact
+        %a.addthis_counter.addthis_bubble_style
+      - unless coupon.terms.count ==0 && coupon.more_terms.blank?
+        %h2.details Terms
+        - unless coupon.terms.count ==0
+          %ul
+            - coupon.terms.each do |term|
+              %li
+                = term
+            %li All offers that are purchased will be emailed to you, you can print out the pass or show your phone
+        - unless coupon.more_terms.blank?
+          = coupon.more_terms
+
+    .col2
+      - if (coupon.has_image? rescue false)
+        %img{:src => coupon.thumb, :class => 'product_img'}
+      - else
+        %div(style="margin-top: 40px;")
+      %h2.head
+        = business.name
+      .product_text
+        - if business.online_business == 0.to_s
+          %p
+            = business.full_address
+          %br/
+          %p
+            = business.phone
+          %br/
+          %p
+            = business.website
+        - else
+          #{business.website}
+
+:css
+  .coupon-detail .watch, .coupon-detail .addthis_toolbox,.coupon-detail .button{
+    margin: 20px 0;
+  }
+  .coupon-detail H2, .coupon-detail H3 {
+    margin: 10px 0;
+    font-weight:normal;
+    font-family:proximanova;
+  }
+  .coupon-detail H2.details {
+    margin: 20px 0 10px 0;
+    font-family:proximanova_bold;
+    color: #62A343;
+    font-size:15px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+  }
+  .coupon-detail H3 {
+    font-size:18px;
+  }
+  .coupon-detail UL {
+    list-style:disc;
+    margin-left:2em;
+  }
+  .coupon-detail LI {
+    margin: 4px 0;
+  }
+= javascript_include_tag 'redesign/picks'
+:javascript
+  var addthis_config = {"data_track_addressbar":true};
+= javascript_include_tag "https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-508e563741b6132f"

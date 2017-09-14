@@ -1,0 +1,4 @@
+- unless @consumer.errors.any?
+  - flash.each do |key, message|
+    .alert-message{:class => key}
+      = message

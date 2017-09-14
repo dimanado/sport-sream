@@ -1,0 +1,30 @@
+%h2 Crop the region which will be used as a logo
+%br
+
+= stylesheet_link_tag "3rd_partyjquery.Jcrop.min"
+= javascript_include_tag "3rd_party/jquery.Jcrop.min"
+
+= form_for @business do |f|
+  - for attribute in [:crop_x, :crop_y, :crop_w, :crop_h]
+    = f.hidden_field attribute, :id => attribute
+
+  %br
+  = f.submit "Crop"
+
+:javascript
+  var updateCrop = function (box) {
+    var ratio = #{@business.logo_geometry(:original).width / @business.logo_geometry(:full).width}
+    $('#crop_x').val(Math.floor(box.x * ratio))
+    $('#crop_y').val(Math.floor(box.y * ratio))
+    $('#crop_w').val(Math.floor(box.w * ratio))
+    $('#crop_h').val(Math.floor(box.h * ratio))
+  }
+
+  $('#cropbox').Jcrop({
+    onChange: updateCrop,
+    onSelect: updateCrop,
+    setSelect: [0,0,100,100],
+    aspectRatio: 1
+  })
+
+%br

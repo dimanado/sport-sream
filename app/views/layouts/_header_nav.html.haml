@@ -1,0 +1,36 @@
+.nav.quick-access
+  .inner-container.clearfix
+    %ul.pull-right
+      - if user_signed_in?
+        %li.dropdown
+          %a.dropdown-btn{href: ""}
+            - if consumer_signed_in?
+              - if current_consumer.name
+                Hi #{current_consumer.name}
+              - else
+                #{current_consumer.email}
+            - else
+              Signed as #{current_merchant.name}
+            %i.icon-caret.t-5
+          .dropdown-list.login.clearfix
+            %p.text-center
+              = link_to 'Profile', consumer_signed_in? ? edit_consumer_path : businesses_path
+              %br
+              = link_to 'Log out', consumer_signed_in? ? destroy_consumer_session_path : destroy_merchant_session_path, :method => :delete
+        - if consumer_signed_in?
+          %li.dropdown
+            %a.dropdown-btn{href: ""}
+              %i.icon-cart.m--t4
+                %small.notifier #{shopping_cart.quantity}
+            .dropdown-list.cart-list.clearfix
+              = render :partial => 'shopping_carts/minishow'
+      - else
+        %li
+          %a(data-modal="consumerSignup") Sign Up
+        %li
+          %a(data-modal="consumerLogin") Log in
+      %li
+        %a{href: "https://www.facebook.com/dollarhood", target: "_blank"}
+          %i.icon-social.small.facebook.m--t3
+        %a{href: "https://twitter.com/dollarhoodUS", target: "_blank"}
+          %i.icon-social.small.twitter.m--t3

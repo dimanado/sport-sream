@@ -1,0 +1,26 @@
+- if @result
+  #total-errors{:style => "color:red;"}
+    = h(@result.errors.size)
+    error(s)
+= form_for :customer, :url => Braintree::TransparentRedirect.url, |
+  :params => @result && @result.params[:customer],           |
+  :builder => ApplicationHelper::BraintreeFormBuilder,       |
+  :errors => @result && @result.errors.for(:customer) do |f| |
+  = field_set_tag "Customer" do
+    %p.header= f.label :first_name, 'First Name'
+    %p.form= f.text_field :first_name
+    %p.header= f.label :last_name, 'Last Name'
+    %p.form= f.text_field :last_name
+  = field_set_tag "Credit Card" do
+    - f.fields_for :credit_card do |cc|
+      %p.header= cc.label :number, 'Number'
+      %p.form= cc.text_field :number
+      %p.header= cc.label :expiration_date, 'Expiration Date (MM/YY)'
+      %p.form= cc.text_field :expiration_date
+      %p.header= cc.label :cvv, 'CVV'
+      %p.form= cc.text_field :cvv
+      - f.fields_for :billing_address do |ba|
+        %p.header= f.label :postal_code, 'Billing Zip Code'
+        %p.form= f.text_field :postal_code
+  = hidden_field_tag :tr_data, @tr_data
+  = f.submit 'Save Payment Info', :class => 'buy', :disable_with => 'Please wait...', :class => "special", :style => 'margin: 20px 100px'

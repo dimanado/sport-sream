@@ -1,0 +1,16 @@
+%p.header= f.label "Categorize your business to reach new customers interested in types of goods/services you provide!"
+%br
+%p Make sure you select a category that most reflects your business’s offer.  Your offer will appear on the main Offer Board and again when a customer narrows their search by category.
+%br
+.group
+  - @cats = Category.top_level.in_groups(2, false)
+  .col_a 
+    - @cats[0].each do |category|
+      %div.row
+        = f.check_box :category_ids, {:multiple => true}, category.id, nil
+        = category.name
+  .col_b
+    - @cats[1].each do |category|
+      %div.row
+        = f.check_box :category_ids, {:multiple => true}, category.id, nil
+        = category.name

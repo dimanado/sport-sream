@@ -1,0 +1,22 @@
+%div(style="padding: 20px; border: 1px solid lightgrey; background: white;")  
+  %ul
+    %li.field
+      - flash.each do |key, message|
+        .alert-message{:class => key}
+          = message
+
+  - if @valid_token
+    - if not @unsubscribed
+      %p 
+        You want to unsubscribe from weekly emails.
+        %br 
+        To confirm this action please click on the button below.
+      %br
+
+      %p= button_to 'Confirm unsubscribe', toggle_email_weekly_consumer_path(u: params[:u], h: params[:h]), method: :post
+
+    - elsif not flash.any?
+      You are already unsubscribed from weekly emails
+  - else
+    .alert-message.error
+      Invalid token.

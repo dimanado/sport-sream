@@ -1,0 +1,37 @@
+= render 'validation_errors', resource: @business
+%br/
+%p.header= f.label :logo, 'Upload Your Company Logo'
+%p.form
+- if @business.logo
+  - logostr = "v#{@business.logo.version}/#{@business.logo.public_id}"
+  = cl_image_tag(logostr, { size: '90x85', crop: :fit, format: :jpg })
+- else
+  = image_tag('default_business_logo.png')
+= f.attachinary_file_field :logo
+%br/
+= render :partial => "businesses/categories_selector", :locals => {:f => f}
+
+%p.header= f.label :name
+%p.form= f.text_field :name
+%p.header
+  = f.check_box :online_business
+  = f.label :online_business
+
+%div{:class => 'promocode_field', :style => @business.online_business == 1.to_s ? 'display: none' : ''}
+  %p.header= f.label :address
+  %p.form= f.text_field :address
+  %p.header= f.label :city
+  %p.form= f.text_field :city
+  %p.header= f.label :state
+  %p.form= f.subregion_select :state, Carmen::Country.coded('us'), :prompt => "Select State *"
+
+
+%p.header= f.label :zip_code
+%p.form= f.text_field :zip_code
+%p.header= f.label :phone
+%p.form= f.text_field :phone
+%p.header= f.label :web_site
+%p.form= f.text_field :website
+%p.header= f.label :description, 'Business Description'
+%p.form= f.text_area :description, :rows => 6, :placeholder => "A few sentences to inform consumers about your business."
+=render partial: 'businesses/configure_social_apis'

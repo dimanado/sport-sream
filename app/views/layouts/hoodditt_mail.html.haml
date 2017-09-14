@@ -1,0 +1,9 @@
+%html.no-js{:lang => "en"}
+  / <![endif]
+  %head
+    = stylesheet_link_tag "hooditt_mailer"
+  %body
+    #content
+      %p.header
+        = image_tag attachments['left.jpg'].url
+      = yield

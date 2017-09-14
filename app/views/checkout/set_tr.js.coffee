@@ -1,0 +1,1 @@
+$('.tr-data').html('<%= hidden_field_tag :tr_data, @tr_data %>')

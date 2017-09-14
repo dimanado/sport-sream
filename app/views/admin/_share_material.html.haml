@@ -1,0 +1,10 @@
+%div{ :class => 'sharing-buttons'}
+  %div{ :class => 'facebook-button' }
+    .fb-share-button{ 'data-href' => materials_share_url(id, p: current_partner.slug), 'data-type' => "button_count" }
+  %div{ :class => 'linkedin-button'}
+    %script{src: "//platform.linkedin.com/in.js", type: "text/javascript"}
+      :cdata
+        lang: en_US
+    %script{"data-counter" => "right", "data-url" => materials_share_url(id, p: current_partner.slug), type: "IN/Share"}
+  %div{ :class => 'twitter-button' }
+    %a.twitter-share-button{ 'href' => "https://twitter.com/share", 'data-url' => materials_share_url(id, p: current_partner.slug), 'data-via' => "dollarhoodUS", 'data-lang' => "en", 'data-text' => "#{partner} shared #{title} -"}

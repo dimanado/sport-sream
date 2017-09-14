@@ -1,0 +1,30 @@
+.greeting {
+  text-align: right; 
+  color: grey;
+  font-family: proximanova;
+  font-size: 18px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.greeting,
+.logout_btn {
+  display: inline-block;
+  float: right;
+}
+
+.chbusiness {
+  display: inline-block;
+  margin-top: 10px; 
+  float: right; 
+  margin-right: 10px;
+}
+
+.logout {
+  float: right;
+  a {
+    text-decoration: none;
+    font-family: proximanova_bold;
+  }
+}
+

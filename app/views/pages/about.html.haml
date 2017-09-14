@@ -1,0 +1,44 @@
+= content_for :head do
+  %meta{:content => "Dollarhood", :property => "og:title"}/
+  %meta{:content => "https://dollarhood.com/pages/about", :property => "og:url"}/
+  %meta{:content => "dollarhood provides $1 offers created by local businesses for loyal customers who love great deals.", :property => "og:description"}/
+  %meta{:content => "local deals, smartphone deals, 1 dollar coupons, best restaurants, things to do, pet services, shop local, sports deals, exclusive, best of business", :name => "keywords"}/
+  %meta{:content => "hooditt", :property => "og:site_name"}/
+  = stylesheet_link_tag "base"
+
+.content.clearfix
+  %section.left-main
+    %hgroup
+      %h1.page-head
+        About dollarhood
+      %h2.page-slogan
+        dollarhood is a game-changer in the wide world of online marketing.
+    %p.about-text
+      The dollarhood system was created by small business owners who can appreciate a great deal but understand the importance of profit. Finally, here is a business-friendly system for reaching out to a large group of targeted, local customers, free of charge. dollarhood businesses post exclusive
+      %em Offers
+      in real-time, on their terms. Customers lock in great savings on their favorite local Offers for only $1. dollarhood is exclusive, local and a must-have for any local business that craves more exposure and new customers.
+    %h3.inline-head
+      %strong FREE
+      for Local Businesses
+    %ul.list-inline
+      %li Post Offers customized for your business, in real-time, on your terms, at your price.
+      %li Every type of business can use dollarhood to attract new clients, customers and even B2B.
+      %li Free for businesses -- always!
+    %h3.inline-head
+      %strong Priceless
+      for Savvy Customers
+    %ul.list-inline
+      %li See an Offer you like? Buyitt for only $1 and redeem at your local business.
+      %li Limited time and quantity options allow businesses to post unique/exclusive <em>Offers</em> that customers won't want to miss.
+      %li Take back your inbox! Receive email alerts from only the businesses and categories you care about.
+  %aside.sidebar
+    %nav.sidenav
+      = link_to "About dollarhood", "/pages/about", :class => 'sidenav-item active'
+      = link_to "Contact dollarhood", "/contact_us/new", :class => 'sidenav-item'
+      = link_to "Resources", "/pages/resources", :class => 'sidenav-item'
+    %a.h-badge.h-badge_shop{:href => image_path("dollarhood/dollarhood-logo-smaller.jpg")}
+      = image_tag("dollarhood/dollarhood-logo-smaller.jpg", :style => 'width: 260px')
+    %a.h-badge.h-badge_shop{:href => "https://www.dollarhood.com/"}
+      = image_tag("dollarhood/love-local-dollarhood-small.png", :style => 'width: 183px; height: 190px')
+    %a.h-badge.h-badge_offers{:href => "https://www.dollarhood.com/"}
+      = image_tag("dollarhood/dollarhood-exclusive-badge.png", :width => '170')

@@ -1,0 +1,20 @@
+%h1 Coupon purchases
+%br
+-unless @entries.nil?
+  %table.table
+    %thead
+      %th Date
+      %th Consumer
+      %th Code(s)
+      %th Payment
+    %tbody
+      - unless @entries.nil?
+        - @entries.each do |entry|
+          %tr
+            %td= l(entry[:date])
+            %td= entry[:email]
+            %td= entry[:codes]
+            %td= '$' + entry[:payment].to_s
+- else
+%h1
+  No purchases yet.

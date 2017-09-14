@@ -1,0 +1,64 @@
+#content {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+#coupon {
+  width: 100%;
+  height: 100%;
+  padding: 10px 0px;
+  text-align: center;
+  &.phonecoupon {
+    width:290px;
+    height:610px;
+    background-image: url('/assets/phone5.png');
+    background-repeat:no-repeat;
+    .holder {
+      width:240px;
+      margin:106px 23px 0 26px;
+      height:409px;    
+    }
+  }
+  #logo, #promo {
+    text-align: center;
+  }
+
+  .heading {
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-size: 24pt;
+    word-wrap:break-word; 
+    margin-left: 2px;
+    margin-right: 2px;
+  }
+
+  #coupon-info {
+    margin-top:10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  #terms {
+    margin-top: 5px;
+    font-size: small;
+  }
+
+  code {
+    font-size: larger;
+  }
+  #coupon-footer {
+    margin-top: 3em;
+  }
+}
+
+a.buynow {
+  color: white;
+  font-weight: bold;
+  border-radius: 7px;
+  text-decoration: none;
+  background: green;
+  padding: 5px;
+}

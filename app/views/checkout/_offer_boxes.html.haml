@@ -1,0 +1,11 @@
+- coupon = campaign.coupon
+- business = campaign.business
+
+.offer_box
+	.offer_image
+		%img{:src => coupon.thumb}
+	.offer_info
+		%p.offer_subject= coupon.subject
+		%p.offer_name= business.name
+		%p
+			= link_to "add to cart $1", shopping_cart_items_path(offer_id: coupon), class: "btn btn-primary btn-rec btn-add-to-cart", method: :post, remote: true

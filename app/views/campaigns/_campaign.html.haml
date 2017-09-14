@@ -1,0 +1,12 @@
+%tr[campaign]
+  %td
+    - if campaign.description?
+      = campaign.description
+    - else
+      %em Untitled
+  %td= campaign_date_progressbar campaign
+  %td.action-links
+    - if campaign.delivered?
+      = link_to 'sales', sales_campaign_path(campaign)
+
+    = render "campaigns/action_links", :campaign => campaign

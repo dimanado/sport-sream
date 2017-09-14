@@ -1,0 +1,11 @@
+= stylesheet_link_tag "popup"
+= javascript_include_tag "popup/popup_launch"
+.feedBack-box
+  .feedBack-overlay
+  .feedBack-popup
+    .feedBack-thumbnail
+      = image_tag "food.png", :alt => "dh"
+    .text-center
+      %h3  Welcome to the neighborhood!
+      %h4 Tell us a little about yourself.
+      %span.highlight{ :onClick => 'getFeedBackBox()', :style => "cursor: pointer;" } Update profile

@@ -1,0 +1,29 @@
+%header.group
+  %a{href: root_url}
+    = image_tag 'dollarhood/dollarhood-logo-smaller.jpg', {width:'249',height:'63'}
+  #nav
+    = link_to "My Businesses", businesses_path
+    = link_to "Profile", edit_business_path(current_business) if current_business
+    = link_to "Update Password", edit_merchant_registration_path
+    = link_to "Contact", new_merchants_contact_us_path, :class => 'noline'
+    %br
+    = link_to "My Offers", campaigns_path
+    = link_to "Create New Offer", new_campaign_path, :class => 'noline'
+
+  .buttons_block
+    .logout_btn
+      = button_to 'Logout', destroy_merchant_session_path,:method => :delete, :class => 'logout_button', :style => 'border: 0'
+
+.clear
+.line
+.logout
+  .chbusiness
+    = form_tag set_current_business_path, :class => 'merchant-bar' do
+      - if current_business.nil?
+        - cbid = current_merchant.business_ids.first
+      - else
+        - cbid = current_business.id
+      = select_tag "business_id", options_from_collection_for_select(current_merchant.businesses, :id, :name_and_address, current_business.id)
+  .greeting
+    Hi, #{current_merchant.name}, choose your business
+.clear

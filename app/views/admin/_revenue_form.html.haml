@@ -1,0 +1,26 @@
+%form#revenue-filter
+	%fieldset
+		%p
+			%label
+				= radio_button_tag 'time_range_type', 'all', true
+				All
+		%p
+			= radio_button_tag 'time_range_type', 'preselect', params[:time_range_type] == 'preselect'
+			= select_tag("time", options_for_select([['For the last 24 hours', '24h'], ['This week', 'this_week'], ['Last week', 'last_week'], ['This month', 'this_month'], ['Last month', 'last_month'], ['Last three month', 'last_three_month']], params[:time]))
+		%p.calendar-select
+			%p
+				%label
+					= radio_button_tag 'time_range_type', 'custom', params[:time_range_type] == 'custom'
+					Custom date range
+			%div.indent
+				%label
+					From:
+					%p
+						%input{:name => "start_date", :class => "datepicker", :value => params[:start_date]}
+				%label
+					To:
+					%p
+						%input{:name => "end_date", :class => "datepicker", :value => params[:end_date]}
+	%fieldset
+		%p
+			%input{:type => "submit"}

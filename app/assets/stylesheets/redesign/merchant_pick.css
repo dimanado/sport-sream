@@ -1,0 +1,168 @@
+.new_offers
+{
+
+}
+.header_new_offers
+{
+  border-bottom:1px #cccccc solid;
+  margin:20px 0 0px 0px;
+  padding: 0 0 20px 20px;
+
+}
+.header_new_offers span
+{
+
+  font-family:proximanova_bold;
+  font-size:15pt;
+  color:#62A343;
+
+}
+.new_offer_handler
+{
+  width:243px;
+  height:325px;
+  float: left;
+  margin:15px 0px 0 5px;
+}
+.pick_this
+{
+  background: url(/assets/dollarhood/dollar-.jpg) no-repeat;
+  width:81px;
+  height:80px;
+  float: left;
+  position:absolute;
+  margin: 2px 0 0 -2px;
+}
+.pig_coupon
+{
+  background: url(/assets/dollarhood/green-flag.png) no-repeat;
+  width:54px;
+  height:101px;
+  margin:2px 0 0 175px;
+  position:absolute;
+  text-align: center;
+}
+.pig_coupon strong
+{
+  font-family:proximanova_bold;
+  font-size:22pt;
+  color:#fff;
+  display:block;
+  margin:10px 0 2px 0;
+  padding:0 2px 0px 0;
+}
+.pig_coupon p
+{
+  font-family:proximanova;
+  font-size:9pt;
+  color:#fff;
+  padding:0 3px 0px 0;
+}
+.new_offer
+{
+  width:233px;
+  height:321px;
+  border:3px #62A343 solid;
+  margin:4px 0 0 0;
+  border-radius: 3px;
+}
+.new_offer .logotype{
+  width: 103px;
+  height: 103px;
+  margin: 20px 0 0 60px;
+  position: absolute;
+  text-align: center;
+}
+
+.new_offer .descrip
+{
+  height: 82px;
+  max-height: 82px;
+  overflow: hidden;
+  line-height: 1;
+  margin: 150px 0 20px;
+  padding: 0 5px 0 10px;
+  
+}
+.new_offer .descrip u
+{
+  font-family:proximanova_bold;
+  font-size:11pt;
+
+}
+.new_offer .descrip a
+{
+  color:#007236;
+  font-size:9pt;
+
+}
+.new_offer .descrip span
+{
+  font-family:proximanova;
+  font-size:11pt;
+  color:#000;
+
+
+}
+.new_offer .distance
+{
+  text-align: center;
+  width: 100%;
+
+}
+
+.new_offer .distance span {
+    background-color:#deedc8;
+    font-family:proximanova;
+    font-size:10pt;
+    color:#007236;
+    border-radius:20px;
+    letter-spacing:1px;
+    padding: 3px 10px;
+}
+
+.new_offer .green_bottom
+{
+  width:221px;
+  height:35px;
+  text-align:center;
+  margin:8px 0 0 0;
+}
+.green_bottom p {
+  line-height: 16px;
+}
+.green_bottom
+{
+  padding:9px 6px 0 6px;
+  font-family:proximanova;
+  background-color:#62A343;
+  font-size:9pt;
+  color:#fff; 
+}
+.grey_border
+{
+  border-color: #8e8e8e;
+
+}
+.grey_color
+{
+  background-color:#8e8e8e;
+  color:#fff; 
+}
+.pick_this_grey
+{
+  background: url(/assets/pick_this_grey.png) no-repeat;
+}
+.pick_this_half_grey
+{
+  background: url(/assets/dollarhood/dollar-grey.jpg) no-repeat;
+}
+
+.new_offer .another_margin
+{
+  margin:26px 0 0 0 ;
+}
+.picks-subscribe-pagination {
+  margin-top: 20px;
+  text-align: center;
+}

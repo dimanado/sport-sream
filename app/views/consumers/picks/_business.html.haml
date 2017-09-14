@@ -1,0 +1,35 @@
+- subscribed = business.has_subscriber?(current_consumer) ? 'true' : 'false'
+- is_subscribed = current_consumer.subscribed_to?(business) ? 'true' : 'false'
+
+.new_offer_handler.business{'data-subscribed' => subscribed, 'is_subscribed' => is_subscribed}
+  %a.pick_this{'biz-id' => business.id}
+
+  - if business.campaigns_count > 0
+    = link_to "/consumers/offers/for_business/#{business.id}", :class => 'pig_coupon' do 
+      %strong= business.campaigns_count
+      %p 
+        GREAT
+        = "DEAL".pluralize(business.campaigns_count).upcase
+
+  .new_offer
+    .logotype
+      %a.follow_this.status{'biz-id' => business.id}
+        Follow
+      %br/
+      %br/
+      - if business.logo.present? 
+        - logostr = "v#{business.logo.version}/#{business.logo.public_id}"
+        = cl_image_tag(logostr, { size: '90x85', crop: :fit, format: :jpg  })
+      - else 
+        = image_tag('default_business_logo.png', :width => '120')
+    .descrip
+      %u= business.name
+      - if business.description.present? && !business.description.empty?
+        %span= business.description
+        - if business.website.present?
+          %p
+          %a(href="#{business.website}") MORE
+    .distance
+      %span #{business.distance.to_f.round(2)} miles from you
+    .green_bottom
+      %p= business.full_address

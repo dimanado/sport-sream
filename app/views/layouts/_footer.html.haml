@@ -1,0 +1,48 @@
+.clear
+.dh-footer
+  .lower-nav.clearfix
+    .row.set-4-cols
+      .col
+        %ul
+          %li.bold Dollarhood
+          %li
+            %a{href: "/pages/about"} About
+          %li
+            %a{href: new_contact_us_path} Contact Us
+          %li
+            %a{href: new_partner_session_path} Partner Login
+      .col
+        %a{href: root_url}
+          = image_tag 'dollarhood/love-local-dollarhood-small.png'
+      .col
+        %ul.p-l30
+          %li.bold Businesses
+          - unless merchant_signed_in?
+            %li.text-primary
+              %a{href: new_merchant_registration_path} Sign up
+              |
+              %a{href: new_merchant_session_path} Login
+          %li
+            %a{href: "/pages/dollarhood_for_business/"} Dollarhood for Business
+          %li
+            %a{href: "/pages/merchants_tos"} Terms for Businesses
+          %li
+            %a{href: "/pages/faq"} FAQ
+      .col
+        %ul.p-l60
+          %li.bold Customers
+          - unless consumer_signed_in?
+            %li.text-primary
+              %a{href: new_consumer_registration_path} Sign up
+              |
+              %a{href: new_consumer_session_path} Login
+          %li
+            %a{href: "/pages/faq"} FAQ
+  .clear
+  = image_tag 'logo-footer.png'
+  %p
+    \© 2015 Dollarhood. All Rights Reserved
+    |
+    %a{href: "/pages/privacy"} Privacy Policy
+    |
+    %a{href: "/pages/merchants_tos"} Terms of Use

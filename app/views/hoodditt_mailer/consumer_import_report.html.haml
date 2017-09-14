@@ -1,0 +1,30 @@
+%html
+  %body
+    %p The import of your excel file has been completed.
+
+    %p
+      Total rows:
+      = @all.size
+
+    %p
+      Imported rows:
+      = @valid.size
+
+    %p
+      Rows with errors:
+      = @invalid.size
+    
+    - unless @invalid.empty?
+      %h3 Errors:
+      - @all.each_with_index do |consumer,index|
+        - unless consumer.valid?
+          %p
+            %b
+              Row
+              = index + 1
+            %br
+            - consumer.errors.messages.each do |field, errs|
+              - errs.each do |error_message|
+                %p= "#{field.to_s} #{error_message}"
+            
+

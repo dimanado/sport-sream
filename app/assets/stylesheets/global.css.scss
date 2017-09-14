@@ -1,0 +1,356 @@
+
+BODY {
+  font-family: proximanova, Raleway, sans-serif;
+A {
+    color: #62A343;
+    text-decoration:none;
+    &:hover {
+    color:#aaaaaa;
+    }
+  }
+}
+.column1 {
+  width:620px;
+}
+
+.coupon-detail {
+  .col1 {
+    width:400px;
+    float:left;
+  }
+  .col2 {
+    margin-left:20px;
+    width:240px;
+    float:left;
+  }
+}
+
+#qv-coupon.quick-view {
+  .subscribe {
+    margin-top: 5px;
+    width: 234px;
+    font-size: 1.2em;
+    position: absolute;
+    text-align: center;
+    .follow {
+      background-color: #deedc8;
+      font-family: proximanova;
+      font-size: 14pt;
+      color: #007236;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      padding: 3px 10px;
+      margin:0 0 5px 0;
+    }
+    .status {
+      margin:0 0 5px 0; 
+    }
+  }
+}
+
+.right_block_consumer_view {
+  .new_offers .logotype .follow {
+    background-color: #deedc8;
+    font-family: proximanova;
+    font-size: 10pt;
+    color: #007236;
+    border-radius: 20px;
+    letter-spacing: 1px;
+    padding: 3px 10px;
+    margin:0 0 5px 0;
+  }
+  .new_offers .logotype .status {
+    margin:0 0 5px 0; 
+  }
+  form .header {
+  LABEL {
+    font-size:15px;
+    margin:0;
+    color:#575759;
+  }
+    background-color: #edefe4;
+    color:#575759;
+    padding:8px;
+    margin:18px 0 10px 0;
+      width:380px;
+  }
+  .form input, .form TEXTAREA, .form SELECT {
+    width:380px;
+    font-family: proximanova;
+    margin:10px 0;
+    padding:6px;
+    font-size:15px;
+    line-height:18px;
+  }
+  .form input[type="checkbox"] {
+    width:auto;
+  }
+  INPUT[type="submit"].special {
+    text-shadow:none;
+    font-size:16px;
+    text-transform:uppercase;
+    font-family: proximanova;
+    border: 0;
+    height:auto;
+    display: block;
+    margin: 20px auto;
+    padding: 6px 30px;
+    color: #fff;
+    background: #909543;
+    border-radius: 8px;
+  }
+  .consumer-order {
+    width: 396px;
+    margin-top: 15px;
+    .consumer-order-row {
+      .consumer-order-cell {
+        padding: 8px;
+        font-size: 13px;
+      }
+      .consumer-order-cell-first {
+        width: 297px;
+      }
+    }
+    .consumer-order-row-main {
+      background: #edefe4;
+      color: #575759;
+      .consumer-order-cell {
+        font-size: 100%;
+        text-align: center;
+      }
+    }
+  }
+  .entire-amount {
+    width: 396px;
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: right;
+  }
+}
+.column1, .business {
+  .col_a, .col_b {
+    width:250px;
+    float:left;
+    .row {
+      padding:5px;
+    }
+  }
+  .hole {
+    height:60px;
+  }
+  h1 {
+    color:#803e95;
+    font-size:24px;
+  }
+  float:left;
+  margin-top:20px;
+  .header{
+    background-color: #edefe4;
+    color:#575759;
+    padding:8px;
+    margin:18px 0 10px 0;
+    }
+    .form INPUT, .form TEXTAREA, .form SELECT {
+      width:350px;
+      font-family: proximanova;
+      margin:10px 20px;
+      padding:6px;
+      font-size:15px;
+      line-height:18px;
+    }
+    INPUT.special {
+      font-family: proximanova;
+      border: 0;
+      display: block;
+      margin: 20px auto;
+      padding: 4px 30px;
+      color: #fff;
+      background: #373;
+      border-radius: 6px;
+    }
+    .business-image {
+      float:left;
+    }
+    .business-name {
+      width:200px;
+      padding:10px 10px 10px 20px;
+      float:left;
+    }
+    INPUT.add_business {
+      color:#fff;
+      font-size:28px;
+      font-family: proximanova_bold;
+      border:1px solid #8f9650;
+      background-color:#8f9650;
+      width:358px;
+      padding:28px;
+      margin:14px 0 0 14px ;
+      float:left;
+    }
+    .business {
+      border:1px solid #c6caa9;
+      width:340px;
+      padding:8px;
+      margin:14px 0 0 14px ;
+      float:left;
+    }
+}
+
+.bottom 
+{
+  border-top: 2px solid #eee;
+  margin:24px 0 0 0  ;
+  padding: 13px 0 60px 0;
+  P {
+  margin-bottom:8px;
+  }
+  .links {
+    float: left;
+    margin-right: 50px;
+  }
+}
+.merchants .content {
+  min-height:500px;
+}
+.merchants HEADER {
+  #nav {
+    float:left;
+    text-align:right;
+    line-height:24px;
+    padding:10px 0 0 120px;
+    A {
+      display:inline-block;
+      padding:0 7px;
+      border-right:1px solid #8b9627;
+      &.noline {
+        border:0
+      }
+    }
+
+  }
+  .buttons_block {
+    margin: 20px 20px 0 0;
+    a {
+    text-decoration:none;
+    color:#fff;
+      &:hover {
+      color:#A0A0A0;
+      }
+    }
+  }
+
+}
+
+.login_button {
+  color:#000;
+  cursor:pointer;
+  display:block;
+  height:30px;
+  float:right;
+  padding:6px 12px 0px 12px;
+  font-family: proximanova_bold;
+    text-decoration: none;
+    margin: 0px 30px 0px 0;
+    &:hover {
+    border-radius: 4px 4px 4px 4px;
+  color:#A0A0A0;
+    }
+}
+
+
+.logout_button {
+  text-decoration:uppercase;
+  background-color: #000;
+  margin: 10px 10px 0 0;
+  padding: 5px 15px ;
+  color: #fff;
+}
+.logout_button:hover {
+  background-color: #A0A0A0;
+  color: #e2e2e2;
+}
+.shopping_form {
+  min-height: 320px;
+}
+.content.shopping {
+  position:relative;
+  .braintree_logo {
+    position: absolute;
+    top: 12px;
+    right: 0;
+  }
+}
+.right_block_consumer_view {
+  .shopping {
+    position: relative;
+    .braintree_logo {
+      position: absolute;
+      left: 196px;
+      top: -4px;
+    }
+  }
+}
+.topmenu {
+  .count_shopping {
+    font-size: 13px;
+  }
+}
+
+#confirm {
+  float: left;
+  margin-left: 10px;
+}
+
+.confirm_offer {
+  display: inline-block;
+  width: 585px;
+  float: right;
+}
+
+.finished_offer_button {
+  height: 37px;
+  line-height: 36px;
+  background-image: url(/assets/button_bckg_salad.png);
+  color: #fff;
+  cursor: pointer;
+  font-size: 17pt;
+  font-family: proximanova_semibold;
+  text-transform: uppercase;
+  text-shadow: black 1px 1px 2px;
+  width: auto;
+  padding: 0 30px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.column1 .disabled {
+  background-image: none;
+}
+
+.buy-offer-details {
+  display: inline-block;
+  padding: 4px 20px 3px;
+  background: #62A343;
+  color: #fff;
+}
+
+.schraderautism {
+  .navigationsection {
+    #menu-new-main-menu {
+      a {
+        font-size: 10pt;
+        color: rgb(242, 101, 36);
+      }
+      a:hover {
+        background: transparent;
+        color: rgb(55, 189, 191);
+      }
+    }
+  }
+}
+
+
+form input[type="text"], form input[type="password"], form input[type="email"] {
+    font-size: 16.5px;
+    height: 22px;
+}

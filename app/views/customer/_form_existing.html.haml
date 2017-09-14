@@ -1,0 +1,34 @@
+- if @result
+  #total-errors{:style => "color:red;"}
+    = h(@result.errors.size)
+    error(s)
+= form_for :customer, :url => Braintree::TransparentRedirect.url,                |
+  :params => @result && @result.params[:customer],           |
+  :existing => current_consumer,                             |
+  :builder => ApplicationHelper::BraintreeFormBuilder,       |
+  :errors => @result && @result.errors.for(:customer) do |f| |
+  = field_set_tag "Customer" do
+    %p.header= f.label :first_name, 'First Name'
+    %p.form= f.text_field :first_name
+    %p.header= f.label :last_name, 'Last Name'
+    %p.form= f.text_field :last_name
+    %p.header= f.label :phone, 'Phone'
+    %p.form= f.text_field :phone
+
+  %p.header Payment Information
+  - @credit_cards.each do |credit_card|
+    %tr
+    %p.form
+      = OtherUtil.only_last(credit_card.masked_number) 
+      = '(default)' if credit_card.default?
+      = link_to "Edit", edit_credit_card_info_path(credit_card.token) 
+      - if not credit_card.default?
+        |
+        = link_to "Delete", credit_card_info_path(credit_card.token), :method => :delete, data: {confirm: "Are you sure?"}
+        | 
+        = link_to "Make default", set_default_credit_card_path(credit_card.token)
+  = hidden_field_tag :tr_data, @tr_data
+  %br
+  = link_to "Add new card", new_credit_card_info_path
+  %br
+  = f.submit 'Save Profile Info'

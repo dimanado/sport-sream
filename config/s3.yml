@@ -1,0 +1,29 @@
+development:
+  storage: :filesystem
+  url: "/system/:class/:id/:attachment/:style.:extension"
+  path: ":rails_root/public/system/:class/:id/:attachment/:style.:extension"
+
+test:
+  storage: :filesystem
+  url: "/system/:class/:id/:attachment/:style.:extension"
+  path: ":rails_root/public/system/:class/:id/:attachment/:style.:extension"
+
+staging:
+  storage: :s3
+  bucket: "chinoki-test"
+  path: ":class/:id/:attachment/:style.:extension"
+  s3_permissions:
+    private
+  s3_credentials:
+    access_key_id: AKIAJTXQVVRJBNGWGGXQ
+    secret_access_key: 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
+
+production:
+  storage: :s3
+  bucket: "chinoki-production"
+  path: ":class/:id/:attachment/:style.:extension"
+  s3_permissions: 
+    private
+  s3_credentials:
+    access_key_id: AKIAJTXQVVRJBNGWGGXQ
+    secret_access_key: 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

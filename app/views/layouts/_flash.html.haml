@@ -1,0 +1,4 @@
+-# @param flash Flash object from the layout
+- [:notice, :success, :alert].each do |msg_type|
+  - if flash[msg_type]
+    %p{class: msg_type}= flash[msg_type]

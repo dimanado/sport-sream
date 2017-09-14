@@ -1,0 +1,57 @@
+= stylesheet_link_tag 'redesign/picks'
+= stylesheet_link_tag 'redesign/merchant_pick'
+= javascript_include_tag 'other/searchbar'
+
+:css
+  .right_block_consumer_view {
+    padding: 0;
+    width: 754px;
+  }
+  .filter_bar {
+    margin: 0;
+    width: auto;
+  }
+- unless @exclude_search
+  .filter_bar
+    %input.inline.mefilter(type='text')
+    %input.inline.mebutton(type='button' value='SEARCH')
+    %select.inline.drop_down_top#distanceFilter
+      %option(value='-1' selected='selected') All Distances
+      %option(value='0') 0 miles
+      %option(value='1') 1 mile
+      %option(value='2') 2 miles
+      %option(value='3') 3 miles
+      %option(value='5') 5 miles
+      %option(value='10') 10 miles
+      %option(value='15') 15 miles
+      %option(value='30') 30 miles
+      %option(value='50') 50 miles
+      %option(value='150') 150 miles
+      %option(value='300') 300 miles
+    %select.inline.drop_down_top#categoryFilter
+      %option(value='-1' selected='selected') All Categories
+      - unless @category_data.nil?
+        - @category_data.each do |entry|
+          %option{:value => entry[1]}= entry[0]
+  .clear
+  %br
+  .filter_message
+  %br
+.new_offers
+  .header_new_offers
+    - if (@only_followed)
+      %span My Hotspots
+    - else
+      %span Local Hotspots
+
+  = render :partial => 'business',
+    :collection => @businesses,
+    :as => :business,
+    :cache => false
+
+  %div.clearfix
+  %div.picks-subscribe-pagination
+    = paginate @businesses
+
+= javascript_include_tag 'consumer/subscribe_ajax'
+

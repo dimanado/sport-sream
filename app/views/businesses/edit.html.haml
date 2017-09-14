@@ -1,0 +1,15 @@
+= render partial: 'popups/welcome' if flash.key?(:welcome)
+= render partial: 'popups/make_some_money' if flash.key?(:money)
+- if nil != @shown
+  - flash.each do |key, message|
+    .alert-message{:class => key}
+      = message
+
+- smart_path = @admin_edit ? admin_business_path(@business) : business_path(@business)
+= form_for @business, :url => smart_path, :html => {:multipart => true, :class => "split-2"} do |f|
+  .group
+    .column1
+      %h1 Business Profile
+      = render :partial => 'businesses/form', :locals => {:f => f}
+      .clear
+      = f.submit "Save", class: 'special'

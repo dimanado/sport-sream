@@ -1,0 +1,12 @@
+%form
+	%fieldset
+		%label
+			Categories:
+			%p
+				- Category.all.each do |c|
+					= check_box_tag "category_ids[]", c.id, false, :id => "category_ids_#{c.id}"
+					= c.name
+					%br
+	%fieldset
+		%p
+			%input{:type => "submit"}

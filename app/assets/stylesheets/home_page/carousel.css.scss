@@ -1,0 +1,33 @@
+#carousel {
+  width: 670px;
+
+  .prev, .next {
+    width: 32px;
+    height: 70px;
+    display: inline-block;
+    background: image-url('prev-next.jpg') no-repeat;
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .prev {
+    padding-right: 10px;
+    float: left;
+    background-position: 0px 19px;
+  }
+
+  .next {
+    float: right;
+    padding-left: 10px;
+    background-position: -39px 19px;
+  }
+
+}
+
+.carousel-frame {
+  display: inline-block;
+}

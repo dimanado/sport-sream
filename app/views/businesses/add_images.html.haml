@@ -1,0 +1,11 @@
+= form_for @business, url: upload_business_image_path(@business), :html => {:multipart => true} do |b|
+  %br/
+  %br/
+  = b.label :images, "Upload your own photo:"
+  = b.attachinary_file_field :images, input_html: { multiple: true } 
+
+  %a.click-to-browse
+    Click to Browse
+  %br/
+  %br/
+  = b.submit "Save Image", class: 'btn btn-primary'

@@ -1,0 +1,16 @@
+%table#transactions
+  %thead
+    %tr.first
+      %th.transaction ID
+      %th.date Date
+      %th.type Type
+      %th.description Description
+      %th.amount Amount
+  %tbody
+    - transactions.each do |transaction|
+      %tr[transaction]
+        %td.transaction= transaction.id
+        %td.date= l transaction.created_at.to_date
+        %td.type= transaction.transaction_type
+        %td.description= transaction.memo
+        %td.amount= number_to_currency(transaction.amount_in_cents / 100.0)

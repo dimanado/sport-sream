@@ -1,0 +1,57 @@
+.signup
+  = form_for :partner, :url => partner_registration_path() do |f|
+    .signup_header
+      .signup_header_text
+        %h1
+          %span.signup_header_text_blue> Step 1:
+          \&nbsp;&nbsp;
+          %span.signup_header_text_red Create your account
+    .signup_content
+      - if self.respond_to?(:resource)
+        = devise_error_messages!
+      %ul
+        %li.label
+          = f.label :email, "Your email address"
+        %li.field
+          = f.email_field :email, :class => "signup_full"
+        %li.label
+          = f.label :password, "Password"
+        %li.field
+          = f.password_field :password, :class => "signup_full"
+          %p.notice Your password should be at least 8 characters.
+        %li.label
+          = f.label :password_confirmation, "Re-Enter Password"
+        %li.field
+          = f.password_field :password_confirmation, :class => "signup_full"
+        %li.label
+          = f.label :location, "Zip Code"
+        %li.field
+          = f.text_field :location, :class => "signup_half"
+        %li.label
+          = f.label :birth_year, "Birth Year"
+        %li.field
+          = f.select :birth_year, (100.years.ago.year..13.years.ago.year).to_a.reverse, :include_blank => true
+        %li.label
+          = f.label :gender
+        %li.field
+          = f.radio_button :gender, 'm'
+          \&nbsp;
+          %label> Male
+          \&nbsp;&nbsp;&nbsp;
+          = f.radio_button :gender, 'f'
+          \&nbsp;
+          %label Female
+        %li.label
+          %label
+            Message Delivery Preference
+        %li.field.delivery-preferences.last
+          = f.radio_button :message_delivery_preference, DeliveryChannel::Email
+          = f.label :message_delivery_preference_deliverychannelemail, DeliveryChannel::Email.human_name
+          = f.radio_button :message_delivery_preference, DeliveryChannel::Sms, :checked => true
+          = f.label :message_delivery_preference_deliverychannelsms, "Mobile Phone (verification required)"
+        %li.label.mobile-input
+          = f.label :mobile, "Mobile number"
+        %li.field.mobile-input.last
+          = f.phone_field :mobile, :placeholder => "ex. xxx xxx xxxx", :class => "signup_half"
+    .signup_submit
+      = submit_tag "Submit"

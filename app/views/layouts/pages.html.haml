@@ -1,0 +1,9 @@
+= extends :application do
+
+  = yield
+  = render 'layouts/footer'
+  - cache 'layouts_pages_modals' do
+    = render 'consumers/login_modal'
+    = render 'consumers/signup_modal'
+    = render '/merchants/signup_modal'
+  = yield :extra_modals

@@ -1,0 +1,20 @@
+.group.business
+  %h1 My Businesses
+  .group
+    - @businesses.each do |business|
+      .business.row
+        .business-image
+          - if business.logo
+            - logostr = "v#{business.logo.version}/#{business.logo.public_id}"
+            = link_to cl_image_tag(logostr, { size: '90x85', crop: :fit, format: :jpg }), edit_business_path(business)
+          - else
+            = link_to image_tag('default_business_logo.png', :width => '100'), edit_business_path(business)
+        .business-name
+          %p
+            = link_to business.name, edit_business_path(business)
+            %br/
+            %br/
+          %p
+            = business.full_address
+  .row
+    = button_to "+ Add A Business", new_business_path, :method => :get, class: 'add_business'

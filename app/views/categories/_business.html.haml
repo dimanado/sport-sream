@@ -1,0 +1,23 @@
+- subscribed = 'false'
+.new_offer_handler.business{'data-subscribed' => subscribed}
+  %a.pick_this{'biz-id' => business.id}
+  - if business.count_active_campaigns > 0
+    = link_to "/consumers/offers/for_business/#{business.id}", :class => 'pig_coupon' do 
+      %strong= business.count_active_campaigns
+      %p 
+        GREAT
+        = "DEAL".pluralize(business.count_active_campaigns).upcase
+  .new_offer
+    .logotype
+      - if business.logo.present? 
+        - logostr = "v#{business.logo.version}/#{business.logo.public_id}"
+        = cl_image_tag(logostr, { size: '90x85', crop: :fit, format: :jpg  })
+      - else 
+        = image_tag('default_business_logo.png', :width => '110')
+    .descrip
+      %u= business.name
+      - if business.description.present? && !business.description.empty?
+        %span= business.description
+      %br
+    .green_bottom
+      %p= business.full_address

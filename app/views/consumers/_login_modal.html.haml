@@ -1,0 +1,26 @@
+.modal#consumerLogin(data-form="fancyform_login")
+  .header 
+    .purple
+      Customer Login
+      %span.header__business-link
+        = link_to 'Business Login', '/merchants/sign_in', :target => "_top"
+  .body
+    = form_for(consumer, :method => 'post', :remote => true, :url => session_path(:consumer, :fancylogin => true)) do |f|
+      .errors
+      = f.label :email
+      = f.email_field :email, :class => "signup_full"
+      = f.label :password
+      = f.password_field :password, :class => "signup_full"
+      .inline
+        = f.check_box :remember_me
+        = f.label :remember_me
+      .clean
+      = f.submit "Sign in", :class => 'button'
+      %br
+      = link_to "", consumer_omniauth_authorize_path(:facebook), :class => 'facebook-btn facebook-btn_signin'
+  .footer
+    %a{'data-modal' => 'consumerSignup'} Sign up
+    %br
+    = link_to 'Forgot your password?', new_consumer_password_path, :target => "_top"
+    %br
+    = link_to 'Business Log In', '/merchants/sign_in', :target => "_top"

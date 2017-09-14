@@ -1,0 +1,9 @@
+.top-nav(style="width: auto") 
+  %ul(style="float:right")
+    %li= link_to "Consumers", admin_consumers_path
+    %li= link_to "Merchants", admin_merchants_path
+    %li= link_to "Businesses", admin_businesses_path
+    %li= link_to "Campaigns", admin_campaigns_path
+    %li= link_to "Referrals", admin_referrals_path
+    %li= link_to "Partners", admin_partners_path
+    %li= link_to "Logout", destroy_merchant_session_path, :method => :delete

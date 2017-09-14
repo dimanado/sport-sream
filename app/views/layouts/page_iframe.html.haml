@@ -1,0 +1,84 @@
+!!!
+%html{:dir => "ltr", :lang => "en-US", :xmlns => "http://www.w3.org/1999/xhtml", "xmlns:fb" => "http://ogp.me/ns/fb#"}
+  %head
+    = meta_tags(:title=> "dollarhood — Exclusive Offers > Special Invitations > New Product Announcements and More!")
+    %meta{:content => "noodp, noydir", :name => "robots"}/
+    %meta{:content => "Dollarhood", :property => "og:title"}/
+    %meta{:content => "https://dollarhood.com/", :property => "og:url"}/
+    %meta{:content => "dollarhood provides $1 offers created by local businesses for loyal customers who love great deals.", :property => "og:description"}/
+    %meta{:content => "local deals, 1 dollar coupons, best restaurants, things to do, pet services, shop local, sports deals, shopping and travel deals, exclusive offers, best of businesses", :name => "keywords"}/
+    %meta{:content => "Dollarhood", :property => "og:site_name"}/
+    %link{href: asset_path("icon57.png"), rel: "apple-touch-icon", sizes: "57x57"}/
+    %link{href: asset_path("icon72.png"), rel: "apple-touch-icon", sizes: "72x72"}/
+    %link{href: asset_path("icon76.png"), rel: "apple-touch-icon", sizes: "76x76"}/
+    %link{href: asset_path("icon114.png"), rel: "apple-touch-icon", sizes: "114x114"}/
+    %link{href: asset_path("icon120.png"), rel: "apple-touch-icon", sizes: "120x120"}/
+    %link{href: asset_path("icon144.png"), rel: "apple-touch-icon", sizes: "144x144"}/
+    %link{href: asset_path("icon152.png"), rel: "apple-touch-icon", sizes: "152x152"}/
+    %link{href: asset_path("favicon.ico"), rel: "shortcut icon", type: "image/ico"}/
+    %meta{content: asset_path("icon144.png"), name: "msapplication-TileImage"}/
+    %meta{content: "#ffffff", name: "msapplication-TileColor"}/
+    %meta{content: "dollarhood", name: "application-name"}/
+    %link{:href => "https://www.dollarhood.com/", :rel => "canonical"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Droid+Sans:400,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://fonts.googleapis.com/css?family=Raleway:400,300,700", :rel => "stylesheet", :type => "text/css"}/
+    %link{:href => "https://hooditt-fonts.s3.amazonaws.com/proxima.css", :rel => "stylesheet", :type => "text/css"}/
+    = javascript_include_tag "redesign/application"
+    = javascript_include_tag "custom"
+    = stylesheet_link_tag "hooditt"
+    = stylesheet_link_tag "redesign/application"
+    = stylesheet_link_tag "global"
+    = stylesheet_link_tag "landing"
+    = yield :head
+    :javascript
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-50172507-1', 'dollarhood.com');
+      ga('send', 'pageview');
+
+  - simple = defined?(params[:simple]) && params[:simple]
+  - other_layout = defined?(params[:other]) && params[:other]
+  - partner_slug = defined?(params[:partner_slug]) && params[:partner_slug]
+  %body.iframe-container{ :class => !simple && other_layout  ? 'other' : '' }
+    #container{ :class => partner_slug == " www.schraderautism.org"  ? 'schraderautism' : '' }
+
+      .navigationsection
+        %ul#menu-new-main-menu.menu.mainmenu
+          %li#menu-item-464{:class => "menu-item #{'current-menu-item' if params[:tag]=='all-offers'}"}
+            %a{:href => "/category/all-offers/?#{request.env['QUERY_STRING']}"} All Offers
+          %li#menu-item-465{:class => "menu-item #{'current-menu-item' if params[:tag]=='food-and-drink'}"}
+            %a{:href => "/category/all-offers/philadelphia/food-and-drink/?#{request.env['QUERY_STRING']}"} Food &amp; Drink
+          %li#menu-item-469{:class => "menu-item #{'current-menu-item' if params[:tag]=='lifestyle'}"}
+            %a{:href => "/category/all-offers/philadelphia/lifestyle/?#{request.env['QUERY_STRING']}"} Lifestyle
+          %li#menu-item-473{:class => "menu-item #{'current-menu-item' if params[:tag]=='pets'}"}
+            %a{:href => "/category/all-offers/philadelphia/pets/?#{request.env['QUERY_STRING']}"} Pets
+          %li#menu-item-477{:class => "menu-item #{'current-menu-item' if params[:tag]=='services'}"}
+            %a{:href => "/category/all-offers/philadelphia/services/?#{request.env['QUERY_STRING']}"} Services
+          %li#menu-item-481{:class => "menu-item #{'current-menu-item' if params[:tag]=='shopping'}"}
+            %a{:href => "/category/all-offers/philadelphia/shopping/?#{request.env['QUERY_STRING']}"} Shopping
+          %li#menu-item-485{:class => "menu-item #{'current-menu-item' if params[:tag]=='sports'}"}
+            %a{:href => "/category/all-offers/philadelphia/sports/?#{request.env['QUERY_STRING']}"} Sports
+          %li#menu-item-489{:class => "menu-item #{'current-menu-item' if params[:tag]=='things-to-do'}"}
+            %a{:href => "/category/all-offers/philadelphia/things-to-do/?#{request.env['QUERY_STRING']}"} Things to Do
+
+      = yield
+
+    = render 'consumers/login_modal'
+    = render 'consumers/signup_modal'
+    = render '/merchants/signup_modal'
+    = yield :extra_modals
+    :javascript
+      var sc_project=9049977;
+      var sc_invisible=1;
+      var sc_security="e888c9b6";
+      var scJsHost = (("https:" == document.location.protocol) ?
+      "https://secure." : "http://www.");
+      document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+      "statcounter.com/counter/counter.js'></"+"script>");
+    %noscript
+      .statcounter
+        %a{:href => "http://statcounter.com/free-hit-counter/", :target => "_blank", :title => "free hit counter"}
+          %img.statcounter{:alt => "free hit counter", :src => "http://c.statcounter.com/9049977/0/e888c9b6/1/"}/

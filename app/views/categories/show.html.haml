@@ -1,0 +1,19 @@
+= stylesheet_link_tag 'redesign/picks'
+= javascript_include_tag 'redesign/picks'
+- iframe = defined?(params[:iframe]) && params[:iframe]
+
+%br/
+-unless iframe
+  %h2#siteDescription.center
+
+.columns
+  - unless @offers.empty?
+    = render :partial => 'shared/offer',
+      :collection => @offers,
+      :as => :campaign,
+      :iframe => iframe,
+      :cache => Proc.new { |campaign| [campaign, campaign.business, campaign.coupon, "iframe=#{iframe}"] }
+= content_for :extra_modals do
+  = render 'pages/quick_coupon_view'
+
+= javascript_include_tag 'redesign/random-site-descript'

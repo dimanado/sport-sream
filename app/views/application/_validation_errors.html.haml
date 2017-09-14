@@ -1,0 +1,3 @@
+- if resource.errors.present?
+  - resource.errors.full_messages.each do |m| 
+    .alert-message.block-message.error= m

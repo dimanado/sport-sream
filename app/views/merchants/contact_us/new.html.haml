@@ -1,0 +1,53 @@
+.content.group
+  = form_for @message, :url => merchants_contact_us_path do |f|
+    %h1 Contact Us
+
+    %ul{:style=>" list-style-type: none;"}
+      %li.label
+        = f.label :name
+      %li.field
+        = f.text_field :name, :class => "signup_full"
+      %li.label
+        = f.label :email
+      %li.field
+        = f.email_field :email, :class => "signup_full"
+      %li.label
+        = f.label :subject
+      %li.field
+        = f.text_field :subject, :class => "signup_full"
+      %li.label
+        = f.label :body
+      %li.field.last
+        = f.text_area :body, :size => "100x7"
+      .contact_form_input{:style=>"margin:0"}
+        = f.submit "Submit", :class => 'buy', :disable_with => 'Please wait...', :class => "special", :style => 'margin: 10px 100px'
+:css
+  ul li
+  {
+    margin:5px 0 0 0;
+  }
+  ul .field.last
+  {
+    margin:5px 0 20px 0;
+
+  }
+
+  .contact_form_input input
+  {
+    margin:20px 0 0 0px;
+    cursor:pointer;
+    height:43px;
+    background-image:url('using_chinoki_bckg_button_green.png');
+    float: left;
+    border-radius:25px;
+    padding:8px 35px 0 35px;
+    border:0;
+    font-family: proximanova;
+    font-size: 20pt;
+    color:#fff;
+    padding: 2px 25px 0 25px;
+  }
+  .contact_form_input input:active
+  {
+    background:#a4cb2e;
+  }

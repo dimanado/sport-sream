@@ -1,0 +1,11 @@
+%h3
+  %h2= coupon.subject 
+  %p= coupon.content
+  %br
+  
+  %div(style="width: 100%; text-align: center")
+    %h1
+      Cost: $
+      = coupon.price
+
+= button_to 'Buy coupon', buy_coupon_consumer_path(:reference => params[:reference]), :method => :post

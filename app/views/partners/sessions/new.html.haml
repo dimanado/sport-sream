@@ -1,0 +1,62 @@
+.partnersSignIn
+  .signin
+    .container
+      %h1{:style => "font-weight:bold;font-size:1.75em;margin-bottom:0;"}
+        Partner login
+      .body
+        = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          - flash.each do |key, message|
+            .errors
+              .alert-message{:class => key}
+                = message
+          = f.label :email
+          = f.email_field :email, :class => "signup_full"
+          = f.label :password
+          = f.password_field :password, :class => "signup_full"
+          .inline
+            = f.check_box :remember_me
+            = f.label :remember_me
+          .clean
+          = f.submit "LOGIN"
+          %div{style: "margin-top:10px;text-align:center;"}
+            = render :partial => "partners/shared/links"
+.signInInfo
+  .infoBox
+    %p{:style => "color:#62a343;margin-bottom:50px;font-size:1.75em;font-weight:bold;line-height:1em;"} Welcome to the partnership program at dollarhood.
+    %div{:style => "float:left;width:40%;margin-right:20px;"}
+      = image_tag "dollarhood/dh-phone.jpg", :style => "max-width:150px;"
+    %div{:style => "float:left;width:50%;height:300px;position:relative;"}
+      %p{:style => "font-size:0.8em;padding-top:10px;"} Dollarhood is a free marketing resource for local and online businesses. Dollarhood partners earn payments through a system of referrals. Sign in to view your referral businesses, offer commissions and our growing library of marketing materials.
+      %div{:style => "color:#62a343;font-size:0.8em;position:absolute;bottom:0;height:35px;"}
+        %span{:style => "display:block;"} Free for businesses... always.
+        %span{:style => "display:block;"} No credit card required
+    %div{:style => "clear:both;"}
+:css
+  .partnersSignIn, .signInInfo {
+    width: 50%;
+    height: 575px;
+    float: left;
+  }
+  .infoBox {
+    margin: 50px 40px 50px;
+    padding: 30px;
+    border: 2px solid #b7b7b7;
+  }
+  .partnersSignIn {
+    display: table;
+  }
+  .signin {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: left;
+    width: 300px;
+    height: 350px;
+    margin: auto;
+  }
+  .signin .container, .signin .header {
+    width: 300px;
+  }
+  .signin .body form input {
+    width: 90%;
+  }
+

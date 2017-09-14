@@ -1,0 +1,21 @@
+= stylesheet_link_tag 'redesign/picks'
+= stylesheet_link_tag 'redesign/merchant_pick'
+= javascript_include_tag 'redesign/picks'
+%br/
+%h2#siteDescription.center
+.columns
+	.businesses{style:"margin-left:75px;"}
+		- unless @businesses.empty?
+			- @businesses.each do |b|
+				= render 'business', :business => b
+			
+= javascript_include_tag 'redesign/random-site-descript'
+:css
+	.new_offer .logotype {
+		margin-top:30px;
+	}
+	.new_offer .content {
+		margin-top:135px;
+		height:97px;
+		max-height:97px;
+	}

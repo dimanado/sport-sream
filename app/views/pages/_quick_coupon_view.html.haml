@@ -1,0 +1,51 @@
+#qv-coupon.quick-view
+  .qv-layer
+  .qv-body
+    %i.icon-x.qv-close
+    %h2 Quick View
+    .item-info
+      .coupon-logo
+      %h3.coupon-subject
+        Buy this youth sized hoodie
+        and get this free youth sized hat!
+      / %ul.list-inline
+      /   .addthis_toolbox.addthis_default_style.group.qv-addthis
+      /     .span{style:'float:left;display:inline-block'} Share this offer &nbsp; &nbsp;
+      /     %a.addthis_button_preferred_1
+      /     %a.addthis_button_preferred_2
+      /     %a.addthis_button_preferred_3
+      /     %a.addthis_button_preferred_4
+      /     %a.addthis_button_compact
+      /     %a.addthis_counter.addthis_bubble_style
+      .shareLinks{style:"margin-bottom:20px;"}
+        %p{style:"margin:0 15px 0 0;display:inline;"} Share this offer
+        %a.fb-link
+          %img{:alt => "Facebook", :border => "0", :src => "http://cache.addthiscdn.com/icons/v1/thumbs/32x32/facebook.png", :style => "width:16px;height:16px;vertical-align:top;"}/
+        %a.twitter-link
+          %img{:alt => "Twitter", :border => "0", :src => "http://cache.addthiscdn.com/icons/v1/thumbs/32x32/twitter.png", :style => "width:16px;height:16px;vertical-align:top;"}/
+        %a.more-links
+          %img{:alt => "More...", :border => "0", :src => "http://cache.addthiscdn.com/icons/v1/thumbs/32x32/more.png", :style => "width:16px;height:16px;vertical-align:top;"}/
+      %a.btn.btn-primary.btn-rec.btn-add-to-cart{'data-modal' => "consumerLogin"}(style = 'font-size: 20px; padding: 1.5px 12px;') add to cart $1
+    .brand-info
+      .business-logo
+      %br/
+      %p{:style=>'margin-bottom: 0;'}
+        %strong.bold.business-name Lieberman’s Bookstore
+        %br/
+        .business-address{:style =>'margin-bottom: 10px;'}
+        %a.business-website
+        .subscribe
+          %a.follow_this.status.follow{'data-modal' => "consumerLogin"}
+            Follow
+    .clear
+    .qv-desc
+      %p.bold{:style => 'text-transform: uppercase; margin-bottom: 0;'} More details
+      .coupon-content{:style => 'word-wrap: break-word;'}
+      %br/
+      .watch
+        This offer ends in
+        %span.expires-set
+
+:javascript
+  var addthis_config = {"data_track_addressbar":true};
+= javascript_include_tag "https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-508e563741b6132f"

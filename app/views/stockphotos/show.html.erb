@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Img:</b>
+  <%= @stockphoto.img %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @stockphoto.category %>
+</p>
+
+
+<%= link_to 'Edit', edit_stockphoto_path(@stockphoto) %> |
+<%= link_to 'Back', stockphotos_path %>

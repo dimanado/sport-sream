@@ -1,0 +1,141 @@
+- purge :category_nav
+= content_for :head do
+  = javascript_include_tag 'checkout'
+.dh-wrapper
+  .inner-container.checkout-page
+    .layout.main-sidebar
+      .main
+        = link_to 'Continue shopping', consumers_offers_path, :class => "gradient cart-submit"
+        %h1 Confirm Your Order
+        %form{:action => new_transaction_path}
+          %table.checkout-table
+            = render :partial => 'shopping_cart_item', :collection => shopping_cart.shopping_cart_items
+        .clearfix
+        .row.set-2-cols.checkout-cols
+          .col#checkout_card
+            = render :partial => 'form_edit_payment'
+          - if current_consumer.has_payment_info?
+            .col#checkout_paypal
+              %i.icon-or.stick-left
+              .widget.text-center
+                %h3 Pay with PayPal
+                %a{href: new_paypal_transaction_path}
+                  %img{alt: "paypal", src: "https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif"}/
+        .clearfix
+        .offer_boxes
+          - if @offers.empty?
+            %h1 There are no offers available.
+          - else
+            - unless @offers.empty?
+              = render :partial => 'offer_boxes', :collection => @offers, :as => :campaign
+
+      .sidebar
+        .widget
+          %h3 Your order
+          %ul
+            %li
+              Price:
+              %span.pull-right.summer
+                = number_to_currency(shopping_cart.total)
+            %li
+              Sales Tax:
+              %span.pull-right $0.0
+            %li.total
+              %strong.bold Total:
+              %span.pull-right.bold.summer
+                = number_to_currency(shopping_cart.total)
+
+
+            - if !params[:token]
+              = render "form"
+            - else
+              = render "form_paypal"
+
+
+        .text-center
+          %em Payments are securely processed with BrainTree and PayPal.
+:css
+  #checkout_card, #checkout_paypal {
+    float: left;
+  }
+  #checkout_card form {
+    border: 1px solid #777;
+    padding: 23px 13px 18px;
+  }
+  #checkout_card #credit_card_number, #checkout_card #credit_card_cvv {
+    width: 150px;
+  }
+  #checkout_card #credit_card_expiration_date, #checkout_card #billing_address_postal_code {
+    width: 90px;
+  }
+  .text, .header {
+    margin: 0;
+  }
+  fieldset {
+    margin-bottom: 15px;
+    font-size: 0.9em;
+  }
+  legend {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .stick-left {
+    top: 25px;
+    z-index: 1;
+    left: -19px;
+    position: absolute;
+  }
+  .offer_boxes {
+    margin-top: 35px;
+  }
+
+  .offer_box {
+    width: 155px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+  }
+  .offer_box:last-child {
+    margin: 0;
+  }
+  .offer_image {
+    width: 155px;
+    height: 155px;
+    background-color: #ddd;
+    margin-bottom: 7.5px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .offer_image img {
+    height: 100%;
+    position: absolute;
+    left: -50%;
+  }
+  .offer_info {
+    position: relative;
+    height: 90px;
+  }
+  .offer_subject {
+    margin: 0;
+    font-size: 8pt;
+  }
+  .offer_name {
+    margin-bottom: 15px;
+    font-size: 6.5pt;
+  }
+  .btn-add-to-cart {
+    position: absolute;
+    bottom: 0;
+    font-size: 9pt; 
+    padding: 7px 10px; 
+    text-transform: uppercase;
+  }
+  .bottom_text {
+    margin: 15px 0 0;
+    font-size: 9pt;
+  }
+  .bottom_text .place_order {
+    text-transform: uppercase;
+    font-weight: bold;
+  }

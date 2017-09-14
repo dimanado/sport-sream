@@ -1,0 +1,8 @@
+.recipient-selector-review.modal{:id => "modal-#{campaign.id}", "style" => "text-align:left;padding:1em; display: none"}
+  %table(style="width: 100%")
+    %tbody
+      %tr
+        %td
+          %b Consumers:
+        %td
+          = campaign.matched_consumers.count

@@ -1,0 +1,26 @@
+- if @result
+  #total-errors{:style => "color:red;"}
+    = h(@result.errors.size)
+    error(s)
+= form_for :credit_card,                                        |
+  :url => Braintree::TransparentRedirect.url,                   |
+  :params => @result && @result.params[:credit_card],           |
+  :builder => ApplicationHelper::BraintreeFormBuilder,          |
+  :existing => @credit_card,                                    |
+  :errors => @result && @result.errors.for(:credit_card) do |f| |
+  = field_set_tag "" do
+    %p= f.label :number, 'Card number'
+    %p.text= f.text_field :number
+    %p= f.label :expiration_date, 'Expiration date'
+    %p.text= f.text_field :expiration_date
+    %p
+      = f.label :cvv, 'CVV'
+      %a{href: "https://www.cvvnumber.com/cvv.html", target: "_blank", style: "font-size:11px;display:inline-block;margin-left:5px;"} What is my CVV code?
+    %p.text= f.text_field :cvv
+    = fields_for :billing_address do |p|
+      %p= p.label :postal_code, 'Zip code'
+      %p.text= p.text_field :postal_code, :value => @credit_card.billing_address.nil? ? '' : @credit_card.billing_address.postal_code, :name => "credit_card[billing_address][postal_code]"
+    %p= f.label 'Default Credit Card'
+    %p= f.check_box :default?, :value => , :name => "credit_card[options][make_default]", :checked_value => "true", :unchecked_value => "false"
+  = hidden_field_tag :tr_data, @tr_data, id: 'tr-data'
+  = f.submit 'Save', class: 'btn btn-primary btn-rec btn-save'

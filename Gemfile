@@ -4,6 +4,7 @@ if RUBY_VERSION =~ /1.9/
 end
 
 source 'http://rubygems.org'
+ruby "2.0.0"
 
 gem 'mysql2'
 
@@ -18,6 +19,7 @@ gem 'devise-encryptable'
 gem 'dynamic_form'
 
 gem 'activeadmin'
+gem 'cancan'
 
 gem "redis", '3.0.7'
 gem "resque"

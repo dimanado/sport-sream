@@ -8,4 +8,6 @@ class Location < ActiveRecord::Base
   validates_presence_of :consumer
   after_validation :geocode, :if => :zip_code_changed?
 
+  has_attachments :photos
+
 end

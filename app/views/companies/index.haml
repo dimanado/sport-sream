@@ -1,0 +1,8 @@
+.companies
+  - @companies.each do |company|
+    .company_item
+      .company_item__title
+        = link_to company.title, company_url(company)
+      .company_item__description
+        = company.description
+

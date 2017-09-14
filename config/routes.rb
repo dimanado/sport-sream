@@ -1,5 +1,7 @@
 Hooditt::Application.routes.draw do
 
+  resources :companies
+
   namespace :payments do
     resources :customers do
       get 'client_token', on: :member
@@ -207,7 +209,7 @@ Hooditt::Application.routes.draw do
 
   get '/pages/dollarhood_for_business/' => "pages#dollarhood_for_business", :as => "page_business"
   match '/pages/:action', :controller => "pages", :as => "pages"
-  root :to => 'categories#show_all'
+  root :to => 'companies#index'
 
   controller :dashboard do
     get '/dashboard' => 'dashboard#index'
@@ -226,6 +228,5 @@ Hooditt::Application.routes.draw do
   unless Rails.application.config.consider_all_requests_local
     match '*not_found', to: 'errors#error_404'
   end
-
 end
 

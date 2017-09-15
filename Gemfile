@@ -18,11 +18,11 @@ gem 'devise', '3.2.2'
 gem 'devise-encryptable'
 gem 'dynamic_form'
 
-gem 'activeadmin'
+gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
 gem 'cancan'
 
 gem "redis", '3.0.7'
-gem "resque"
+gem "resque", github: "resque/resque", branch: "1-x-stable"
 gem 'resque-scheduler', '2.5.5'
 
 gem 'state_machine'

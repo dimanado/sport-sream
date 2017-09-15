@@ -3,3 +3,5 @@
     = @company.title
   .company_item__description
     = @company.description
+  .company_item__locations
+    = render partial: "locations/company_location", collection: @company.locations, as: :item

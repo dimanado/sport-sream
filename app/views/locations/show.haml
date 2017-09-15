@@ -1,0 +1,5 @@
+.location
+  .location__name
+    = @location.name
+  .location__streams
+    = render partial: "streams/location_stream", collection: @location.streams, as: :item

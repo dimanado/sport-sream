@@ -1,6 +1,8 @@
 Hooditt::Application.routes.draw do
 
   resources :companies
+  resources :locations
+  resources :streams
 
   namespace :payments do
     resources :customers do

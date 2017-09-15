@@ -3,7 +3,6 @@ class Merchants::CompaniesController < ApplicationController
 
   def index
     @companies = current_merchant.companies.all
-    puts @companies.count
   end
 
   def new

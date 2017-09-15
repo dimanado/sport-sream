@@ -13,6 +13,7 @@ class Merchant < ActiveRecord::Base
   has_many :campaigns, through: :businesses
   has_many :messages, through: :campaigns
   has_many :shopping_cart_items, through: :businesses
+  has_and_belongs_to_many :companies
   validates :name, presence: true
   validates_format_of :email, with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
   accepts_nested_attributes_for :businesses, reject_if: proc {|attrs| attrs.any?{|k,v| v.blank?} }

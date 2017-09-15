@@ -1,4 +1,5 @@
 class Stream < ActiveRecord::Base
+	has_one :category
 	belongs_to :location
 
 	validates :title, presence: true

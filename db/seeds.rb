@@ -1,220 +1,39 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+puts "\nSeeding Companies"
 
+pl = Category.create!(name: "Powerlifting", parent_id: nil, tag: "powerlifting")
+cf = Category.create!(name: "Crossfit", parent_id: nil, tag: "crossfit")
+pt = Category.create!(name: "Power Training", parent_id: nil, tag: "power-training")
+sw = Category.create!(name: "Swimming", parent_id: nil, tag: "swimming")
+yg = Category.create!(name: "Yoga", parent_id: nil, tag: "yoga")
 
-#categories
-puts "\nSeeding Categories"
+consumers = Consumer.last(10)
 
-parent = Category.find_or_create_by_name :name => 'Venues & Events'
-Category.find_or_create_by_name_and_parent_id(:name => 'Music Concerts', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Athletic/Fitness Events', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Family', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Festivals & Fairs', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Shows/Musicals', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Non-Profit Events', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Performing Arts', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Sporting Events', :parent_id => parent.id)
+parent = Company.create!(title: "Power Imperium", description: "A couple of heavylifting training gyms")
+Location.create!(name: "Power Imperium Gym", zip_code: "22002", latitude: 1.002031231, longitude: 1.004574565, consumer: consumers.sample, company: parent)
+Location.create!(name: "Sport Complex 'Imperor'", zip_code: "12993", latitude: 1.00215135231, longitude: 1.024731231, consumer: consumers.sample, company: parent)
+Location.create!(name: "Basement gym \#1", zip_code: "45002", latitude: 1.0023545331, longitude: 1.0742931231, consumer: consumers.sample, company: parent)
+Location.create!(name: "Basement gym \#2", zip_code: "12334", latitude: 1.002323431, longitude: 1.06475231, consumer: consumers.sample, company: parent)
+Location.create!(name: "Gym 'Imperator'", zip_code: "43002", latitude: 1.0036531, longitude: 1.023431231, consumer: consumers.sample, company: parent)
 
-parent = Category.find_or_create_by_name :name => 'Pets'
-Category.find_or_create_by_name_and_parent_id(:name => 'Cats', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Dogs', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Other Pets', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Day Care/Kennels', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Food & Supplies', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Grooming', :parent_id => parent.id)
+parent.categories << pl << cf << pt
 
-parent = Category.find_or_create_by_name :name => 'Services & Organizations'
-Category.find_or_create_by_name_and_parent_id(:name => 'Museums', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Schools', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Non-Profit Organizations', :parent_id => parent.id)
+parent = Company.create!(title: "Sport swimming pool 'Neptus'", description: "Swimming pool for professional athlets")
+Location.create!(name: "Sport swimming pool 'Neptus'", zip_code: "22001", latitude: 4.234234231, longitude: 6.3420044565, consumer: consumers.sample, company: parent)
 
-parent = Category.find_or_create_by_name :name => 'Travel'
-Category.find_or_create_by_name_and_parent_id(:name => 'Airlines/Airfare', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Hotels/Resorts', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Travel Agencies', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Limo Service', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Car Rental', :parent_id => parent.id)
+parent.categories << sw
 
-parent = Category.find_or_create_by_name :name => 'Automotive'
-Category.find_or_create_by_name_and_parent_id(:name => 'Purchase', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Lease', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Used', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'BMW', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Mercedes Benz', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Ford', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Chevy', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Lexus', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Mazda', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Toyota', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Nissan', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Dodge', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Chrysler', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Volkswagen', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Lincoln', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Acura', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Honda', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Saab', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Jaguar', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Audi', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Buick', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Cadillac', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Bentley', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Aston Martin', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Hyundai', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Jeep', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Land Rover', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Porsche', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Volvo', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Subaru', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Kia', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Infinity', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Suzuki', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Smart', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Scion', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Mini', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Dealerships', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Parts & Supplies', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Service', :parent_id => parent.id)
+parent = Company.create!(title: "'Adelion' kids swimming pools", description: "Swimming pools for spine correction")
+Location.create!(name: "Pool at st. Ancher 55", zip_code: "23042", latitude: 2.0433001231, longitude: 2.004600565, consumer: consumers.sample, company: parent)
+Location.create!(name: "Pool at 356-kindergarten", zip_code: "14443", latitude: 3.344015135231, longitude: 1.12470000, consumer: consumers.sample, company: parent)
 
-parent = Category.find_or_create_by_name :name => 'Baby & Toddler'
-Category.find_or_create_by_name_and_parent_id(:name => 'Gifts & Accessories', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Registry', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Toys', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Classes & Events', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Baby/Toddler Furniture', :parent_id => parent.id)
+parent.categories << sw
 
-parent = Category.find_or_create_by_name :name => 'Food & Beverage'
-Category.find_or_create_by_name_and_parent_id(:name => 'American', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Asian Fusion', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Barbecue', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Bistros', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Brazilian', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Burgers', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Cafe', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Caribbean', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Chinese', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Cuban', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Delis', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Diners', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'French', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'German', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Greek', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Indian', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Irish', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Italian', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Japanese', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Korean', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Mediterranean', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Mexican', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Middle Eastern', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Pizza', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Pub', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Seafood', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Soul Food', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Steakhouse', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Sushi bars', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Tapas', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Thai', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Vegetarian', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Bar', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Sports Bar', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Wine Bar', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Bakery', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Piano Bar', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Martini Bar', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Tavern', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Cheese/Charcuterie', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Hoagies', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Frozen Yogurt', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Beer/Wine Distributors', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Water Ice', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Ice Cream', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Soft Pretzels', :parent_id => parent.id)
+parent = Company.create!(title: "YogaCastle", description: "Place where you can find peace")
+Location.create!(name: "Yoga Palace 'Imaguru'", zip_code: "22000", latitude: 1.002451345341, longitude: 5.0009994565, consumer: consumers.sample, company: parent)
+Location.create!(name: "Yoga open air playground", zip_code: "10093", latitude: 1.0136231, longitude: 3.0808780231, consumer: consumers.sample, company: parent)
+Location.create!(name: "Yoga masterclass studio", zip_code: "00002", latitude: 3.01455331, longitude: 4.0734501231, consumer: consumers.sample, company: parent)
+Location.create!(name: "Yoga Palace 'Lama'", zip_code: "12000", latitude: 4.42323431, longitude: 1.08800231, consumer: consumers.sample, company: parent)
 
-parent = Category.find_or_create_by_name :name => 'Home & Garden'
-Category.find_or_create_by_name_and_parent_id(:name => 'Florists', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Garden Supplies', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Home Decor', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Home Furnishings', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Interior Design', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Landscaping', :parent_id => parent.id)
+parent.categories << yg
 
-parent = Category.find_or_create_by_name :name => 'Apparel & Accessories'
-Category.find_or_create_by_name_and_parent_id(:name => 'Bridal Wear', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Baby/Children's Apparel", :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Athletic/Team Apparel', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Women's Accessories", :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Men's Shoes", :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Eyewear & Sunglasses', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Jewelry & Watches', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Maternity Wear', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Women's Apparel", :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Women's Shoes", :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Men's Apparel", :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Men's Accessories", :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Junior's Apparel", :parent_id => parent.id)
-
-
-parent = Category.find_or_create_by_name :name => 'Beauty'
-Category.find_or_create_by_name_and_parent_id(:name => 'Spas', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Hair Salons', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Nail Salons', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Tanning', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Cosmetic & Beauty Supplies', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Skincare', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Med Spa & Laser Skincare', :parent_id => parent.id)
-
-parent = Category.find_or_create_by_name :name => 'Fitness & Health'
-Category.find_or_create_by_name_and_parent_id(:name => 'Athletic/Fitness Events', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Athletic Wear', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Gyms & Fitness Centers', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Sporting Goods', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Fitness Equipment', :parent_id => parent.id)
-
-parent = Category.find_or_create_by_name :name => 'Gifts & Cards'
-Category.find_or_create_by_name_and_parent_id(:name => 'Candles & Accessories', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Toys', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Greeting Cards', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Flowers', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Keepsakes', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Photo Albums', :parent_id => parent.id)
-
-parent = Category.find_or_create_by_name :name => 'Weddings & Event Planning'
-Category.find_or_create_by_name_and_parent_id(:name => 'Catering', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Photographers', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => "Event Musicians/DJ's", :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Party Supplies/Rentals', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Stationary & Invitations', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Event Planning Services', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Florists', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Expos & Events', :parent_id => parent.id)
-
-parent = Category.find_or_create_by_name :name => 'Electronics'
-Category.find_or_create_by_name_and_parent_id(:name => 'Computers/Computing', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Devices', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'DVD', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'In-Car Entertainment', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Mobile Phones', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Music', :parent_id => parent.id)
-
-parent = Category.find_or_create_by_name :name => 'Sports'
-Category.find_or_create_by_name_and_parent_id(:name => 'Baseball', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Soccer', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'UFC', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Tennis', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Nascar', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Lacrosse', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Hockey', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Golf', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Football', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Basketball', :parent_id => parent.id)
-
-parent = Category.find_or_create_by_name :name => 'Lifestyle Services'
-Category.find_or_create_by_name_and_parent_id(:name => 'Grocery Store Delivery Service', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Laundry Services', :parent_id => parent.id)
-Category.find_or_create_by_name_and_parent_id(:name => 'Car Services', :parent_id => parent.id)
+puts "Created"

@@ -7,7 +7,6 @@ class Business < ActiveRecord::Base
   has_many :shopping_cart_items, through: :campaigns
   has_and_belongs_to_many :categories
   has_one :partner, :through => :merchant
-  has_and_belongs_to_many :companies
 
   # you can use Business.include(:logo_files) to prevent quering in loop for each business.logo call
   # :logo_files is an attachinary auto-created relation, but is hidden by default

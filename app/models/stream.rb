@@ -6,4 +6,6 @@ class Stream < ActiveRecord::Base
 	validates :link, format: { with: /^https?:\/\/www\.youtube\.com\/.+?$/, message: "not a youtube link" }
 
 	validates_presence_of :location_id
+
+    has_attachment :avatar, accept: [:jpg, :png, :gif]
 end

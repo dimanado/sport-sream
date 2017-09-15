@@ -55,7 +55,7 @@ class Merchants::RegistrationsController < Devise::RegistrationsController
     else
       build_resource
       merchant.save
-      HooddittMailer.welcome_merchant(merchant.email).deliver!
+      # HooddittMailer.welcome_merchant(merchant.email).deliver!
       sign_in(:merchant, merchant)
       redir_url = edit_business_path(merchant.businesses.first)
       flash[:welcome] = true

@@ -46,7 +46,8 @@ class Merchants::RegistrationsController < Devise::RegistrationsController
 
   def create_ajax
     merchant = @partner.merchants.new(params[:merchant])
-    business = merchant.businesses.build(params[:business])
+    # business = merchant.businesses.build(params[:business])
+    company = merchant.companies.build(params[:company])
     if merchant.errors.any? or !merchant.valid?
       render :json => {
         :success => false,
@@ -57,7 +58,7 @@ class Merchants::RegistrationsController < Devise::RegistrationsController
       merchant.save
       # HooddittMailer.welcome_merchant(merchant.email).deliver!
       sign_in(:merchant, merchant)
-      redir_url = edit_business_path(merchant.businesses.first)
+      redir_url = edit_merchants_company_path(merchant.companies.first)
       flash[:welcome] = true
       render :json => {
         :success => true,

@@ -95,6 +95,7 @@ Hooditt::Application.routes.draw do
 
   namespace :merchants do
     resource :contact_us, :only => ["new", "create"]
+    resources :companies
   end
   namespace :consumers do
 
@@ -208,6 +209,8 @@ Hooditt::Application.routes.draw do
       get :delivered
     end
   end
+
+  resources :companies, only: [:index, :show]
 
   get '/pages/dollarhood_for_business/' => "pages#dollarhood_for_business", :as => "page_business"
   match '/pages/:action', :controller => "pages", :as => "pages"

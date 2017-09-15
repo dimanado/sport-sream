@@ -1,28 +1,15 @@
 .modal#merchantSignup(data-form="fancyform_signup")
-  .header 
+  .header
     .green
       Business signup
   .body
     = form_for(merchant, :as => :merchant, :url => registration_path(:merchant, :fancysignup => true)) do |f|
-      = fields_for :business do |b|
-        = b.label :name, "Business Name"
-        = b.text_field :name
-        = b.label :online_business, "Are you online business?", :class => 'online_business'
-        = b.check_box :online_business, :class => 'online_business'
-        
-        .not_online
-          = b.label :address, "Street"
-          = b.text_field :address, :rows => "2"
-          = b.label :city, "City"
-          = b.text_field :city
-          = b.label :state
-          = b.subregion_select :state, Carmen::Country.coded('us'), :prompt => "Select State"
-          
-        = b.label :zip_code, "ZIP Code *"
-        = b.text_field :zip_code
-        = b.label :phone, "Phone (main number) *"
-        = b.text_field :phone
-        %p.notice Must be the phone number to your business for verification purposes
+      = fields_for :company do |b|
+        = b.label :title, "Company Name"
+        = b.text_field :title
+        = b.label :description, "Description *"
+        = b.text_field :description
+
       %h3 Merchant Contact Information:
       = f.label :name, "Your Name"
       = f.text_field :name
@@ -35,7 +22,7 @@
       = f.password_field :password_confirmation
       .green_button{:style=>"margin:40px 0 0 70px"}
         .left_corner_button
-        .bckg_green_button 
+        .bckg_green_button
           = f.submit 'SIGNUP', input_html: { :style=>"border:0;margin-top:4px;height:30px", :class => 'button'}
         .right_corner_button
   .footer

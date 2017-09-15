@@ -1,0 +1,19 @@
+.group.business
+  %h1 My Companies
+  .group
+    = @companies.count
+    - @companies.each do |company|
+      .business.row
+        .business-image
+          - if company.avatar
+            - avastr = "v#{company.avatar.version}/#{company.avatar.public_id}"
+            = link_to cl_image_tag(avastr, { size: '90x85', crop: :fit, format: :jpg }), edit_merchants_company_path(company)
+          - else
+            = link_to image_tag('default_business_logo.png', :width => '100'), edit_merchants_company_path(company)
+        .business-name
+          %p
+            = link_to company.title, edit_merchants_company_path(company)
+            %br/
+            %br/
+  .row
+    = button_to "+ Add a Company", new_merchants_company_path, :method => :get, class: 'add_business'

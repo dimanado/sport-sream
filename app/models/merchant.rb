@@ -13,21 +13,15 @@ class Merchant < ActiveRecord::Base
   has_many :campaigns, through: :businesses
   has_many :messages, through: :campaigns
   has_many :shopping_cart_items, through: :businesses
+  # ==== new
   has_and_belongs_to_many :companies
+  accepts_nested_attributes_for :companies, reject_if: proc {|attrs| attrs.any?{|k,v| v.blank?} }
+  # ====
   validates :name, presence: true
   validates_format_of :email, with: /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/
   accepts_nested_attributes_for :businesses, reject_if: proc {|attrs| attrs.any?{|k,v| v.blank?} }
   validates_uniqueness_of :email
 
-  # validate :must_have_at_least_one_business, :on => :create
-
-  #def self.search (email)
-  #  unless email.nil? or email.empty?
-  #    where("lower(email) LIKE ?", "%#{email.downcase}%")
-  #  else
-  #    Kaminari.paginate_array(all)
-  #  end
-  #end
 
   def update_dispatch_recepient
     dispatch_recipient = DispatchRecipient.joins(:dispatch).order("created_at DESC").where("dispatches.partner_id" => self.partner_id, :email => self.email).readonly(false).first

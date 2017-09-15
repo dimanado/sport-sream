@@ -2,4 +2,7 @@
   .location__name
     = @location.name
   .location__streams
-    = render partial: "streams/location_stream", collection: @location.streams, as: :item
+    - if @location.streams.any?
+      = render partial: "streams/location_stream", collection: @location.streams, as: :item
+    - else
+      %span Place don't have stream.

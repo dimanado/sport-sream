@@ -4,4 +4,8 @@
   .company_item__description
     = @company.description
   .company_item__locations
-    = render partial: "locations/company_location", collection: @company.locations, as: :item
+    .company_item__locations_title Places
+    - if @company.locations.any?
+      = render partial: "locations/company_location", collection: @company.locations, as: :item
+    - else
+      %span Company don't have places.

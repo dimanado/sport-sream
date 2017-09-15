@@ -6,24 +6,12 @@
       .body
         = form_for(merchant, :as => :merchant, :url => registration_path(:merchant, :fancysignup => true)) do |f|
           = hidden_field_tag(:partner_slug, params[:partner_slug])
-          = fields_for :business do |b|
-            = b.label :name, "Business Name *"
-            = b.text_field :name
-            = b.label :online_business, "Are you online business?", :class => 'online_business'
-            = b.check_box :online_business, :class => 'online_business'
+          = fields_for :company do |b|
+            = b.label :title, "Company Name *"
+            = b.text_field :title
+            = b.label :description, "Description *"
+            = b.text_field :description
 
-            .not_online
-              = b.label :address, "Street *"
-              = b.text_field :address, :rows => "2"
-              = b.label :city, 'City *'
-              = b.text_field :city
-              = b.label :state, 'State *'
-              = b.subregion_select :state, Carmen::Country.coded('us'), :prompt => "Select State"
-
-            = b.label :zip_code, "ZIP Code *"
-            = b.text_field :zip_code
-            = b.label :phone, "Phone (main number) *"
-            = b.text_field :phone
           %h3 Merchant Contact Information:
           = f.label :name, "Your Name *"
           = f.text_field :name

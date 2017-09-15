@@ -1,0 +1,16 @@
+= render 'validation_errors', resource: @company
+%br/
+%p.header= f.label :avatar, 'Upload Your Company Avatar'
+%p.form
+- if @company.avatar
+  - avastr = "v#{@company.avatar.version}/#{@company.avatar.public_id}"
+  = cl_image_tag(avastr, { size: '90x85', crop: :fit, format: :jpg })
+- else
+  = image_tag('default_business_logo.png')
+= f.attachinary_file_field :avatar
+%br/
+
+%p.header= f.label :title
+%p.form= f.text_field :title
+%p.header= f.label :description, 'Company Description'
+%p.form= f.text_area :description, :rows => 6, :placeholder => "A few sentences to inform consumers about your company."

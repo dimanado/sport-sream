@@ -1,0 +1,7 @@
+- smart_path = @admin_edit ? admin_companies_path : merchants_companies_path
+= form_for @company, url: smart_path, :html => {:multipart => true} do |f|
+  .group
+    .column1
+      %h1 New Company Profile
+      = render :partial => 'merchants/companies/form', :locals => {:f => f}
+      = f.submit "Add Company", class: 'special'

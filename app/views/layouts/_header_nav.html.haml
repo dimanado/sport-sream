@@ -14,7 +14,7 @@
             %i.icon-caret.t-5
           .dropdown-list.login.clearfix
             %p.text-center
-              = link_to 'Profile', consumer_signed_in? ? edit_consumer_path : businesses_path
+              = link_to 'Profile', consumer_signed_in? ? edit_consumer_path : merchants_companies_path
               %br
               = link_to 'Log out', consumer_signed_in? ? destroy_consumer_session_path : destroy_merchant_session_path, :method => :delete
         - if consumer_signed_in?

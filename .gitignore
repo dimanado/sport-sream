@@ -17,4 +17,5 @@ bin
 .idea/
 _info
 .env
+config/database.yml
 

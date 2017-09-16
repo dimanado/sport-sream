@@ -14,3 +14,22 @@
 %p.form= f.text_field :title
 %p.header= f.label :description, 'Company Description'
 %p.form= f.text_area :description, :rows => 6, :placeholder => "A few sentences to inform consumers about your company."
+
+%h1 Locations
+.group
+- @company.locations.each do |location|
+  .business.row
+    .business-image
+      - if location.avatar
+        - avastr = "v#{location.avatar.version}/#{location.avatar.public_id}"
+        = link_to cl_image_tag(avastr, { size: '90x85', crop: :fit, format: :jpg }), edit_merchants_location_path(company_id: @company.id, id: location.id)
+      - else
+        = link_to image_tag('default_location_avatar.png', :width => '100'), edit_merchants_location_path(company_id: @company.id, id: location.id)
+    .business-name
+      %p
+        = link_to location.name, edit_merchants_location_path(company_id: @company.id, id: location.id)
+        %br/
+        %br/
+        = link_to 'x', merchants_location_path(location), :method => :delete
+.row
+= link_to "+ Add a location", new_merchants_location_path(company_id: @company.id), class: 'add_business'

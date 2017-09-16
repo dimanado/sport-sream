@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Hooditt::Application.load_tasks
+KD::Application.load_tasks

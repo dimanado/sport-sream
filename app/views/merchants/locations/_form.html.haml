@@ -1,0 +1,16 @@
+= render 'validation_errors', resource: @location
+%br/
+%p.header= f.label :avatar, 'Upload Your Location Avatar'
+%p.form
+- if @location.avatar
+  - avastr = "v#{@location.avatar.version}/#{@location.avatar.public_id}"
+  = cl_image_tag(avastr, { size: '90x85', crop: :fit, format: :jpg })
+- else
+  = image_tag('default_location_logo.png') ### CHANGE PICTURE
+= f.attachinary_file_field :avatar
+%br/
+
+%p.header= f.label :name
+%p.form= f.text_field :name
+%p.header= f.label :zip_code
+%p.form= f.text_field :zip_code

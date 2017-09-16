@@ -1,0 +1,6 @@
+= form_for @location, url: merchants_locations_path(company_id: @company.id), :html => {:multipart => true} do |f|
+  .group
+    .column1
+      %h1 New Location
+      = render :partial => 'merchants/locations/form', :locals => {:f => f}
+      = f.submit "Add Location", class: 'special'

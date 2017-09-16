@@ -1,0 +1,7 @@
+= form_for @location, :url => merchants_location_path(company_id: @company.id, id: @location.id), :html => {:multipart => true, :class => "split-2"} do |f|
+  .group
+    .column1
+      %h1 Location
+      = render :partial => 'merchants/locations/form', :locals => {:f => f}
+      .clear
+      = f.submit "Save", class: 'special'

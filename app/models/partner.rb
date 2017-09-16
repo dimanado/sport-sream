@@ -2,7 +2,6 @@ class Partner < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable
-  validates :slug, :presence => true, :uniqueness => true, :format => { with: /^[a-zA-Z0-9_]*$/, message: "allows only alphanumeric characters" }, :length => { in: 4..20 }
   validates :zip, :presence => true
   validates :phone, :presence => true
   devise :database_authenticatable,
@@ -61,25 +60,6 @@ class Partner < ActiveRecord::Base
   def password_required?
     new_record? ? false : super
   end
-
-  def shopping_cart_items_by_status(status)
-    shopping_cart_items.where(owner_id: ShoppingCart.joins(:transactions).where("transactions.status" => status).pluck(:id))
-  end
-
-  def all_shopping_cart_items_by_status(status)
-    ShoppingCartItem.where(owner_id: ShoppingCart.joins(:transactions).where("transactions.status" => status).pluck(:id))
-  end
-
-  def revenue_per_item(payment_processor)
-    if payment_processor == "Braintree"
-      cut = 0.32
-    end
-    if payment_processor == "Paypal"
-      cut = 0.1
-    end
-    (1 - cut) * self.revenue_share / 100
-  end
-
 
   def all_offers
     Campaign.by_partner(self.id)

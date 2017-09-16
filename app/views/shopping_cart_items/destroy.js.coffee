@@ -1,5 +1,0 @@
-minicart = $('.dropdown-list.cart-list.clearfix')
-minicart.html('<%= j render partial: 'shopping_carts/minishow' %>')
-$('small.notifier').text('<%= shopping_cart.quantity %>')
-$('.summer').text('<%= number_to_currency(shopping_cart.quantity) %>')
-$('table.checkout-table').html('<%= j render :partial => 'checkout/shopping_cart_item', :collection => shopping_cart.shopping_cart_items %>')

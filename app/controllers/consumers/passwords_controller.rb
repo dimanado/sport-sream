@@ -10,7 +10,7 @@ class Consumers::PasswordsController < Devise::PasswordsController
 
   def after_sign_in_path_for(resource)
     if params[:fancylogin]
-      consumers_offers_path
+      edit_consumer_path
     else
       stored_location_for(resource) || consumers_dashboard_path
     end

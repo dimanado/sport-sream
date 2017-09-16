@@ -100,24 +100,6 @@ module ApplicationHelper
 
   def campaign_date_progressbar (campaign)
     return l(campaign.deliver_at) #unless campaign.delivered?
-
-    # total_days = (campaign.expires_at - campaign.deliver_at) / 1.day
-    # remaining_days = (campaign.expires_at - Time.now.to_datetime) / 1.day
-    # remaining_days = 0 unless remaining_days >= 0
-    # percentage = (total_days - remaining_days) * 100 / 100
-
-    # content_tag :div, :class => 'progress-wrap' do
-    #   content_tag :div, :class => 'progress-value', :style => "width: #{percentage}%" do
-    #     content_tag :div, :class => 'progress', :rel => 'tooltip', :title => "Campaign expires in #{remaining_days.to_i} days" do
-    #       l campaign.deliver_at
-    #     end
-    #   end
-    # end
-  end
-
-  def link_to_shopping_cart
-    summ = shopping_cart.shopping_cart_items.map(&:quantity).sum
-    link_to "Shopping Cart (<strong class=\"count_shopping\">#{summ}</strong>)".html_safe, shopping_cart_path
   end
 
   def current_user

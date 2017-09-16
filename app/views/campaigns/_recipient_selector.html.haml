@@ -1,7 +1,0 @@
-#recipient-selector
-  = campaign_form.fields_for :target do |target|
-    %ul.checkbox-list
-      %li.block-15
-        = target.radio_button :subscribers, 'subscribed', :checked => true
-        = target.label :subscribers_true, "Subscribed consumers: Those who chose my business."
-

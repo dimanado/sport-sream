@@ -60,9 +60,9 @@ class Consumers::ConsumerController < Consumers::ApplicationController
     if @consumer.update_attributes(params[:consumer])
       flash[:success] = 'Profile was successfully saved.'
       respond_to do |format|
-        format.html { params[:ucat] ? redirect_to(consumers_categories_path) : redirect_to(consumers_offers_path) }
+        format.html { params[:ucat] ? redirect_to(consumers_categories_path) : redirect_to(edit_consumer_path) }
         format.json { render :json => @consumer.reload }
-        format.mobile { params[:ucat] ? redirect_to(consumers_categories_path) : redirect_to(consumers_offers_path) }
+        format.mobile { params[:ucat] ? redirect_to(consumers_categories_path) : redirect_to(edit_consumer_path) }
       end
     else
       respond_to do |format|
@@ -80,7 +80,7 @@ class Consumers::ConsumerController < Consumers::ApplicationController
     else
       @valid_token = false
     end
-    
+
     @unsubscribed = !user.weekly_digest? if @valid_token
 
     if request.post?
@@ -92,38 +92,7 @@ class Consumers::ConsumerController < Consumers::ApplicationController
       end
     end
   end
-
-  def show_transaction
-    if current_consumer && current_consumer.has_payment_info?
-      me = current_consumer.with_braintree_data! rescue nil
-      unless me.nil?
-        @cart = Transaction.find(params[:id]).shopping_cart
-        @print_offer = params[:print_offer]
-      end
-    end
-    render :layout => false
-  end
-
-  def show_receipt
-    if current_consumer && current_consumer.has_payment_info?
-      me = current_consumer.with_braintree_data! rescue nil
-      unless me.nil?
-        @transaction = Transaction.find(params[:id]) 
-        @cart = @transaction.shopping_cart
-        @trans_confirm_code = @transaction.confirmation_code
-        @email_view = false
-        @print_receipt = params[:print_receipt]
-      end
-    end
-    render :layout => false
-  end
-
-  def transactions
-    if current_consumer 
-      @transactions = Transaction.where(:consumer_id => current_consumer.id)
-                                  .where(:status => 'Success')
-    end
-  end
+  
 
   def buy_coupon
     if current_consumer.account.nil?
@@ -137,7 +106,7 @@ class Consumers::ConsumerController < Consumers::ApplicationController
 
       @business = @coupon.campaign.business
       @business.subscribers << current_consumer unless current_consumer.subscribed_to?(@business)
-      
+
       return emit_purchase if request.post?
     end
   end

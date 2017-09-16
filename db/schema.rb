@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170915132360) do
+ActiveRecord::Schema.define(:version => 20170916174711) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -111,6 +111,11 @@ ActiveRecord::Schema.define(:version => 20170915132360) do
   create_table "categories_companies", :id => false, :force => true do |t|
     t.integer "category_id"
     t.integer "company_id"
+  end
+
+  create_table "categories_locations", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "location_id"
   end
 
   create_table "companies", :force => true do |t|
@@ -239,7 +244,7 @@ ActiveRecord::Schema.define(:version => 20170915132360) do
 
   create_table "locations", :force => true do |t|
     t.string   "name",                     :null => false
-    t.string   "zip_code",    :limit => 5, :null => false
+    t.string   "zip_code",    :limit => 6, :null => false
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at",               :null => false

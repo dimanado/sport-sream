@@ -89,7 +89,7 @@
           .navigationsection
             %ul#menu-new-main-menu.menu.mainmenu
               %li#menu-item-464.menu-item.current-menu-item
-                = link_to 'All sports', companies_url
+                = link_to 'Все виды', companies_url
               - Category.find_each do |category|
                 %li#menu-item-464.menu-item.current-menu-item
                   = link_to category.name, companies_url(category_id: category.id)

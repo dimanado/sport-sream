@@ -86,22 +86,9 @@
         = area :category_nav do
           .navigationsection
             %ul#menu-new-main-menu.menu.mainmenu
-              %li#menu-item-464.menu-item.current-menu-item
-                %a{href: "/category/all-offers/"} All Offers
-              %li#menu-item-465.menu-item
-                %a{href: "/category/all-offers/philadelphia/food-and-drink/"} Food & Drink
-              %li#menu-item-469.menu-item
-                %a{href: "/category/all-offers/philadelphia/lifestyle/"} Lifestyle
-              %li#menu-item-473.menu-item
-                %a{href: "/category/all-offers/philadelphia/pets/"} Pets
-              %li#menu-item-477.menu-item
-                %a{href: "/category/all-offers/philadelphia/services/"} Services
-              %li#menu-item-481.menu-item
-                %a{href: "/category/all-offers/philadelphia/shopping/"} Shopping
-              %li#menu-item-485.menu-item
-                %a{href: "/category/all-offers/philadelphia/sports/"} Sports
-              %li#menu-item-489.menu-item
-                %a{href: "/category/all-offers/philadelphia/things-to-do/"} Things to Do
+              - Category.find_each do |category|
+                %li#menu-item-464.menu-item.current-menu-item
+                  = link_to category.name, companies_url(category_id: category.id)
 
     = render "layouts/flash", flash: flash
     = yield

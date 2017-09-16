@@ -1,6 +1,10 @@
 class CompaniesController < ApplicationController
   def index
-    @companies = Company.all
+    if params['category_id']
+      @companies = Category.find(params['category_id']).companies
+    else
+      @companies = Company.all
+    end
   end
 
   def show

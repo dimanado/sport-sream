@@ -1,4 +1,5 @@
 puts "\nSeeding Companies"
+Merchant.create(email: 'email@mail.com', password: '11111111', name: 'Ivan')
 
 pl = Category.create(name: "Powerlifting", parent_id: nil, tag: "powerlifting")
 cf = Category.create(name: "Crossfit", parent_id: nil, tag: "crossfit")

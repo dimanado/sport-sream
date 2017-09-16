@@ -47,7 +47,7 @@ class Consumers::RegistrationsController < Devise::RegistrationsController
 
   def create_success
     @consumer.save
-    HooddittMailer.welcome_consumer(@consumer.email).deliver!
+    #HooddittMailer.welcome_consumer(@consumer.email).deliver!
     sign_in(:consumer, @consumer)
     render :json => {
       :success => true,

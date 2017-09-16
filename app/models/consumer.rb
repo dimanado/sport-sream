@@ -37,7 +37,7 @@ class Consumer < ActiveRecord::Base
 
   validates :email, presence: true, format: {:with => /\b[A-Z0-9._%a-z\-]+@(?:[A-Z0-9a-z\-]+\.)+[A-Za-z]{2,4}\z/}
   validates :location, :presence => true, :on => :create
-  validates_format_of :location, :with => /^\d{5}(-\d{4})?$/
+  validates_format_of :location, :with => /^\d{6}$/
   validates_uniqueness_of :email
 
   paginates_per 10

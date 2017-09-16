@@ -1,6 +1,6 @@
 require "digest/sha1"
 
-class HoodittEncryptor < Devise::Encryptable::Encryptors::Base
+class KDEncryptor < Devise::Encryptable::Encryptors::Base
 
   SALT = "X8k;aoeri39erfvmb,2we rrd98ap-2]:qcfJE3"
 

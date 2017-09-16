@@ -12,7 +12,7 @@ class Location < ActiveRecord::Base
 
   after_validation :geocode, :if => :zip_code_changed?
 
-  has_attachment :avatar, accept: [:jpg, :png, :gif]
+  has_attachment :avatar, accept: [:jpg, :png, :gif, :svg]
   has_attachments :photos
 
 end

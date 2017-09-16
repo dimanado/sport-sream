@@ -14,7 +14,7 @@ class Merchants::CompaniesController < ApplicationController
     @company.merchants << current_merchant
     if @company.save
       flash[:success] = "Created #{@company.title}!"
-      redirect_to merchants_companies_path ###change
+      redirect_to merchants_companies_path
     else
       flash.now[:error] = "Failed to create company"
       render :new
@@ -29,7 +29,7 @@ class Merchants::CompaniesController < ApplicationController
 
   def update
     if @company.update_attributes(params[:company])
-      redirect_to edit_merchants_company_path(@company) , :flash => { :success => "Profile complete" }
+      redirect_to merchants_companies_path(@company), :flash => { :success => "Company saved" }
     else
       flash.now[:error] = "Failed to save company"
       render :edit

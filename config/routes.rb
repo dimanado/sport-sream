@@ -96,9 +96,11 @@ KD::Application.routes.draw do
   namespace :merchants do
     resource :contact_us, :only => ["new", "create"]
     resources :companies
+    resources :locations, :except => ["index", "show"]
   end
-  namespace :consumers do
 
+
+  namespace :consumers do
     controller :application  do
       get '/login', :action => 'login', :as => 'consumerlogin'
       get '/signup_form', :action => 'signup_form', :as => 'signup_form'

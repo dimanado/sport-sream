@@ -30,8 +30,6 @@ gem 'active_admin-state_machine'
 
 gem 'geocoder', '~> 1.2.6'
 
-gem 'rails-footnotes', :group => :development
-
 gem 'braintree'
 gem 'roadie'
 #gem "mail_view"

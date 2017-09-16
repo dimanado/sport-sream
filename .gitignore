@@ -18,4 +18,4 @@ bin
 _info
 .env
 config/database.yml
-
+config/initializers/abstract_mysql2_adapter.rb

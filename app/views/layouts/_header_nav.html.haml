@@ -3,7 +3,7 @@
     .pull-left
       = form_for 'city', url: companies_url, html: { method: 'GET' } do |f|
         = f.text_field :geo_city
-        = f.submit "Create"
+        = f.submit "Search"
     %ul.pull-right
       - if user_signed_in?
         %li.dropdown
@@ -24,8 +24,6 @@
         - if consumer_signed_in?
           %li.dropdown
             %a.dropdown-btn{href: ""}
-              %i.icon-cart.m--t4
-                %small.notifier #{shopping_cart.quantity}
             .dropdown-list.cart-list.clearfix
               = render :partial => 'shopping_carts/minishow'
       - else

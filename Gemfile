@@ -22,7 +22,7 @@ gem 'activeadmin', :git => 'https://github.com/gregbell/active_admin.git'
 gem 'cancan'
 
 gem "redis", '3.0.7'
-gem "resque", github: "resque/resque", branch: "1-x-stable"
+gem "resque"
 gem 'resque-scheduler', '2.5.5'
 
 gem 'state_machine'
@@ -68,7 +68,7 @@ gem 'oj'
 gem 'jbuilder'
 gem 'attachinary'
 gem 'cloudinary'
-gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branch => '0-1-x'
+gem 'acts_as_shopping_cart'
 gem 'yui-compressor'
 gem 'coffee-rails' # used to render ajax response views and is required in production
 

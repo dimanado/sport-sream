@@ -3,7 +3,7 @@
 }
 
 A {text-decoration:none;}
- 
+
 p.notice {
 	font-size:12px;
 	font-style:italic;
@@ -75,7 +75,7 @@ h3 {
 	}
 h2 {
 	&.plain {
-		font-family: proximanova;		
+		font-family: proximanova;
 	}
 	font-size: 28px;
 	font-family: proximanova_bold;
@@ -326,7 +326,7 @@ h2 {
 	.widget li a:hover, .widget p a { text-decoration: underline; }
 	.widget p a:hover { text-decoration: none; }
 	.search-form .input_text { width: 100%; }
-	
+
 	/*                Body                     */
 	body {
 		font-family: helvetica, arial, sans-serif;
@@ -693,6 +693,10 @@ h2 {
 	margin-bottom: 9px;
 	}
 
+	.mainmenu li:last-child a {
+		border-right: none;
+	}
+
 	#menu-item-95 a:hover, #menu-item-464 a:hover {
 	color: white;
 	}
@@ -1012,7 +1016,7 @@ h2 {
 	border: 0;
 	}
 	.columns:after, .post_box:after, .post_box .post_content:after, .sidebar:after, .sidebar .post_content:after, .menu:after, .comment .comment_text:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-	
+
 	#siteDescription {
 	color:	#000;
 	font-family: 'Raleway', sans-serif;

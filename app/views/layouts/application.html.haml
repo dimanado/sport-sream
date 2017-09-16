@@ -3,6 +3,8 @@
   %head
 
     %link{href: "https://fonts.googleapis.com/css?family=Roboto+Slab|Vollkorn:600&amp;subset=cyrillic", rel: "stylesheet"}
+    %title ЗОЖ ДЛЯ ВСЕХ
+
     -#= meta_tags(:title=> "dollarhood — Exclusive Offers > Special Invitations > New Product Announcements and More!")
     %meta{:content => "noodp, noydir", :name => "robots"}/
 
@@ -96,6 +98,9 @@
 
     = render "layouts/flash", flash: flash
     = yield
+
+    = render 'consumers/login_modal'
+    = render 'consumers/signup_modal'
 
     :javascript
       var sc_project=9049977;

@@ -1,4 +1,4 @@
-Hooditt::Application.configure do
+KD::Application.configure do
   config.cache_classes                          = false
   config.whiny_nils                             = true
   config.consider_all_requests_local            = true
@@ -19,7 +19,7 @@ Hooditt::Application.configure do
   ENV['FACEBOOK_CONSUMER_KEY'] = '1388457188133313'
   ENV['FACEBOOK_CONSUMER_SECRET'] = '178ce238e41ae64e792ade9aea4a9c58'
 
-  
+
   # Generate digests for assets URLs
   config.action_mailer.smtp_settings = {
     :address              => "smtp.gmail.com",

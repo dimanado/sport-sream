@@ -144,12 +144,12 @@ class Consumer < ActiveRecord::Base
   end
 
   def send_weekly_email
-    HooddittMailer.consumer_weekly(email).deliver if weekly_digest?
+    KDMailer.consumer_weekly(email).deliver if weekly_digest?
   end
 
   def send_confirmation_email
     self.email_confirmed = false
-    HooddittMailer.consumer_confirmation(email).deliver
+    KDMailer.consumer_confirmation(email).deliver
   end
 
   def self.registered_from (date)
@@ -168,7 +168,7 @@ class Consumer < ActiveRecord::Base
   end
 
   def send_welcome_email
-    HooddittMailer.welcome_consumer(email).deliver
+    KDMailer.welcome_consumer(email).deliver
   end
 
   def interesting_indirect_messages
@@ -184,16 +184,16 @@ class Consumer < ActiveRecord::Base
   end
 
   def authenticatable_salt
-    HoodittEncryptor.salt
+    KDEncryptor.salt
   end
 
   def password_digest(password)
-    HoodittEncryptor.digest(password, 1, authenticatable_salt, nil)
+    KDEncryptor.digest(password, 1, authenticatable_salt, nil)
   end
 
   def valid_password?(password)
     begin
-      HoodittEncryptor.compare(encrypted_password, password, 1, authenticatable_salt, nil)
+      KDEncryptor.compare(encrypted_password, password, 1, authenticatable_salt, nil)
     rescue Exception => e
       p e
       return false

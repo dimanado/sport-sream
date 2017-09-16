@@ -10,7 +10,7 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
-module Hooditt
+module KD
   # Settings in config/environments/* take precedence over those specified here.
   class Application < Rails::Application
     # make ActiveAdmin use correct locale

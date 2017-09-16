@@ -1,4 +1,4 @@
-Hooditt::Application.routes.draw do
+KD::Application.routes.draw do
 
   resources :companies
   resources :locations
@@ -234,4 +234,3 @@ Hooditt::Application.routes.draw do
     match '*not_found', to: 'errors#error_404'
   end
 end
-

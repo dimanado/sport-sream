@@ -1,4 +1,4 @@
-Hooditt::Application.configure do
+KD::Application.configure do
   config.cache_classes                              = true
   config.serve_static_assets                        = true
   config.static_cache_control                       = "public, max-age = 3600"
@@ -12,7 +12,7 @@ Hooditt::Application.configure do
   config.action_mailer.default_url_options          = { :host  => 'example.com' }
 
   Faker::Config.locale = 'en-us'
-  
+
   ENV['ADMIN_CONTACT_EMAIL'] = 'support@dollarhood.com'
   ENV['ADMIN_CONTACT_EMAIL_MERCHANTS'] = 'business@dollarhood.com'
 

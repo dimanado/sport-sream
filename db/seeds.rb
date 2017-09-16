@@ -1,5 +1,8 @@
 puts "\nSeeding Companies"
-Merchant.create(email: 'email@mail.com', password: '11111111', name: 'Ivan')
+m1 = Merchant.create(email: 'email@mail.com', password: '11111111', name: 'Ivan Urgant')
+m2 = Merchant.create(email: 'ivan_email@mail.com', password: '11111111', name: 'Igor Krutoy')
+
+Partner.create!(name: 'Dollarhood', slug: 'dollarhood', email: 'test_partner@gmail.com', password: '123456789', phone: '+375292929292', zip: '12345')
 
 pl = Category.create(name: "Powerlifting", parent_id: nil, tag: "powerlifting")
 cf = Category.create(name: "Crossfit", parent_id: nil, tag: "crossfit")
@@ -18,17 +21,20 @@ Location.create(name: "Basement gym \#2", zip_code: "12334", company_id: parent.
 Location.create(name: "Gym 'Imperator'", zip_code: "43002", company_id: parent.id)
 
 parent.categories << [pl, cf, pt]
+parent.merchants << m1
 
 parent = Company.create(title: "Sport swimming pool 'Neptus'", description: "Swimming pool for professional athlets")
 Location.create(name: "Sport swimming pool 'Neptus'", zip_code: "22001", company_id: parent.id)
 
 parent.categories << sw
+parent.merchants << m1
 
 parent = Company.create(title: "'Adelion' kids swimming pools", description: "Swimming pools for spine correction")
 Location.create(name: "Pool at st. Ancher 55", zip_code: "23042", company_id: parent.id)
 Location.create(name: "Pool at 356-kindergarten", zip_code: "14443", company_id: parent.id)
 
 parent.categories << sw
+parent.merchants << m2
 
 parent = Company.create(title: "YogaCastle", description: "Place where you can find peace")
 Location.create(name: "Yoga Palace 'Imaguru'", zip_code: "22000", company_id: parent.id)
@@ -37,5 +43,6 @@ Location.create(name: "Yoga masterclass studio", zip_code: "00002", company: par
 Location.create(name: "Yoga Palace 'Lama'", zip_code: "12000", company: parent)
 
 parent.categories << yg
+parent.merchants << m2
 
 puts "Created"

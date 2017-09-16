@@ -5,4 +5,10 @@
         = link_to company.title, company_url(company)
       .company_item__description
         = company.description
+      .company_item__avatar
+        - if company.avatar
+          - avatar = "v#{company.avatar.version}/#{company.avatar.public_id}"
+          = cl_image_tag(avatar, { size: '90x85', crop: :fit, format: :jpg })
+        - else
+          = image_tag('default_business_logo.png', :width => '100')
 

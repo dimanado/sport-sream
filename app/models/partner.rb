@@ -19,7 +19,7 @@ class Partner < ActiveRecord::Base
   has_many :dispatches
   has_many :material, through: :dispatches
 
-  after_create { |admin| admin.send_welcome_partner }
+  # after_create { |admin| admin.send_welcome_partner }
 
   def self.default_partner
     find_or_create_by_name 'Dollarhood'

@@ -14,7 +14,7 @@
 
   font-family:proximanova_bold;
   font-size:15pt;
-  color:#62A343;
+  color:#00ac64;
 
 }
 .new_offer_handler
@@ -62,7 +62,7 @@
 {
   width:233px;
   height:321px;
-  border:3px #62A343 solid;
+  border:3px #00ac64 solid;
   margin:4px 0 0 0;
   border-radius: 3px;
 }
@@ -135,7 +135,7 @@
 {
   padding:9px 6px 0 6px;
   font-family:proximanova;
-  background-color:#62A343;
+  background-color:#00ac64;
   font-size:9pt;
   color:#fff; 
 }

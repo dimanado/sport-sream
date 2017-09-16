@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  attr_accessible :name, :zip_code
+  attr_accessible :name, :zip_code, :company_id
 
   has_many :streams
   belongs_to :consumer

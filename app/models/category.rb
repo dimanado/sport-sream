@@ -2,10 +2,12 @@ class Category < ActiveRecord::Base
   extend ActsAsTree::TreeView
   acts_as_tree
 
+  validates :name, presence: true, uniqueness: true
+
   has_and_belongs_to_many :businesses
+  has_and_belongs_to_many :companies
   has_many :subcategories, :foreign_key => 'parent_id', :class_name => 'Category'
-  
-  belongs_to :company
+
   belongs_to :stream
 
   accepts_nested_attributes_for :subcategories, :allow_destroy => true

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20170915132352) do
+ActiveRecord::Schema.define(:version => 20170915132360) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -83,11 +83,6 @@ ActiveRecord::Schema.define(:version => 20170915132352) do
   add_index "businesses_categories", ["business_id"], :name => "index_businesses_categories_on_business_id"
   add_index "businesses_categories", ["category_id"], :name => "index_businesses_categories_on_category_id"
 
-  create_table "businesses_companies", :id => false, :force => true do |t|
-    t.integer "business_id"
-    t.integer "company_id"
-  end
-
   create_table "campaigns", :force => true do |t|
     t.integer  "business_id"
     t.datetime "deliver_at"
@@ -111,6 +106,11 @@ ActiveRecord::Schema.define(:version => 20170915132352) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "tag"
+  end
+
+  create_table "categories_companies", :id => false, :force => true do |t|
+    t.integer "category_id"
+    t.integer "company_id"
   end
 
   create_table "companies", :force => true do |t|

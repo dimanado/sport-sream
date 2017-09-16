@@ -73,19 +73,17 @@
     = area :top do
       #container
         = area :logo_header do
-          %header.main-header.clearfix
-            .brand
+          %header.main-header
             - if consumer_signed_in?
               %a{href: "/consumers/offers"}
                 %span зож для всех
             - else
               %a{href: root_url}
                 %span зож для всех
-                / %img{alt: "dollarhood", src: "dh-logo.png"}/
             .market
-              %span.currency-sign $
+              = image_tag('dumbbell.png', :width => '40', :height => '40', :alt => 'Dumbbell')
               %p
-                Exclusive dollar deals in your neighborhood and online!
+                Эксклюзивные трансляции из спортивных клубов
           .clear
         = area :category_nav do
           .navigationsection

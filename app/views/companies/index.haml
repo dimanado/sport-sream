@@ -8,7 +8,6 @@
       .company_item__avatar
         - if company.avatar
           - avatar = "v#{company.avatar.version}/#{company.avatar.public_id}"
-          = cl_image_tag(avatar, { size: '90x85', crop: :fit, format: :jpg })
+          = cl_image_tag(avatar)
         - else
-          = image_tag('default_business_logo.png', :width => '100')
-
+          = image_tag('default_business_logo.png')

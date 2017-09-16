@@ -427,35 +427,74 @@ i.m--t3 { margin-top: -3px; }
 .cart-list .item-sum   { width: 30px; }
 .cart-list .btn { border-radius: 0; }
 
+.companies {
+  width: 900px;
+  margin: 30px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.company_item {
+  display: flex;
+  flex-direction: column;
+  width: calc((900px - 60px) / 3);
+  height: 300px;
+  margin: 0 30px 30px 0;
+  padding: 25px;
+  border: 1px solid #727272;
+  box-sizing: border-box;
+}
+
+.company_item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.company_item__title {
+  font-size: 24px;
+}
+
+.company_item__title,
+.company_item__description {
+  margin-bottom: 15px;
+}
+
+.company_item__avatar {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-end;
+}
+
+.company_item__avatar img {
+  max-width: 100%;
+
+}
+
 /* [ main header ] */
 .main-header {
   margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .main-header a {
   text-transform: uppercase;
+  line-height: 1;
   font-size: 36px;
   font-family: 'Vollkorn', serif;
 }
-.brand   { float: left; }
-.market  {
-  float: right;
-  width: 488px;
-  font-size: 18px;
-  border: 1px solid #a6a6a6;
-  font-family: "gotham_bookregular";
+.brand {
 }
-.market a,
-.market .currency-sign {
+.market {
+  display: flex;
+  align-items: center;
+
+  font-size: 18px;
+}
+.market a {
   color: #00ac64;
 }
-.market .currency-sign {
-  float: left;
-  width: 55px;
-  text-align: center;
-  font-size: 48px;
-}
 .market p {
-  padding: 8px 8px 8px 0;
+  margin-left: 20px;
   margin-bottom: 0;
   line-height: 20px;
 }

@@ -157,7 +157,11 @@ h2 {
 	.alignnone, .block { display: block; clear: both; }
 
 	#container { width: 900px; margin-top: 25px; margin-right: auto; margin-left: auto; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-	.menu { position: relative; list-style: none; z-index: 50; }
+	.menu {
+		display: flex;
+    justify-content: center;
+		position: relative; list-style: none; z-index: 50;
+	}
 	.menu li { position: relative; float: left; }
 	.menu ul { position: absolute; visibility: hidden; list-style: none; z-index: 110; }
 	.menu ul li { clear: both; }

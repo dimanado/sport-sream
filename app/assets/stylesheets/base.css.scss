@@ -7,7 +7,6 @@ textarea {
 }
 body {
     font-size: 1em;
-    line-height: 1.4;
 }
 ::-moz-selection {
     background: #b3d4fc;
@@ -399,7 +398,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ac64', end
 .cart-submit:focus {
   outline:none;
   border:2px solid #000;
-  padding: 3px 11px;  
+  padding: 3px 11px;
 }
 
 .errorField {

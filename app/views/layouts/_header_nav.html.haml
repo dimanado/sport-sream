@@ -1,5 +1,9 @@
 .nav.quick-access
   .inner-container.clearfix
+    .pull-left
+      = form_for 'city', url: companies_url, html: { method: 'GET' } do |f|
+        = f.text_field :geo_city
+        = f.submit "Create"
     %ul.pull-right
       - if user_signed_in?
         %li.dropdown

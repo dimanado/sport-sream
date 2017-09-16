@@ -6,7 +6,7 @@ class Location < ActiveRecord::Base
   belongs_to :company
   geocoded_by :zip_code
 
-  validates :zip_code, :format => {:with => /^\d{5}(-\d{4})?$/}
+  # validates :zip_code, :format => {:with => /^\d{5}(-\d{4})?$/}
   # validates_presence_of :consumer
   validates_presence_of :company_id
 

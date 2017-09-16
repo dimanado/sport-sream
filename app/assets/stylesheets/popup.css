@@ -78,7 +78,7 @@
   max-height: 165px;
 }
 
-.feedBack-popup a { color: #62a343; }
+.feedBack-popup a { color: #00ac64; }
 .feedBack-popup h2,
 .feedBack-popup h3,
 .feedBack-popup h4 {
@@ -91,7 +91,7 @@
 .feedBack-popup h4 { color: #000;  }
 .feedBack-popup h4 { font-size: 16px; }
 .feedBack-popup .highlight {
-  background: #62a343;
+  background: #00ac64;
   text-transform: uppercase;
   color: #fff;
   padding: 9px 7px;
@@ -108,6 +108,6 @@
   margin: 0 0 15px 15px;
 }
 .feedBack-popup ul li { line-height: 18px; }
-.feedBack-footer { margin-top: 20px; color: #62a343; }
+.feedBack-footer { margin-top: 20px; color: #00ac64; }
 .feedBack-footer span { margin: 0 7px; }
 .text-center { text-align: center; }

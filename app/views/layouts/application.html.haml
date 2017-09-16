@@ -1,6 +1,10 @@
 !!!
 %html{:dir => "ltr", :lang => "en-US", :xmlns => "http://www.w3.org/1999/xhtml", "xmlns:fb" => "http://ogp.me/ns/fb#"}
   %head
+
+    %link{href: "https://fonts.googleapis.com/css?family=Roboto+Slab|Vollkorn:600&amp;subset=cyrillic", rel: "stylesheet"}
+    %title ЗОЖ ДЛЯ ВСЕХ
+
     -#= meta_tags(:title=> "dollarhood — Exclusive Offers > Special Invitations > New Product Announcements and More!")
     %meta{:content => "noodp, noydir", :name => "robots"}/
 
@@ -20,7 +24,7 @@
     %link{href: asset_path("icon120.png"), rel: "apple-touch-icon", sizes: "120x120"}/
     %link{href: asset_path("icon144.png"), rel: "apple-touch-icon", sizes: "144x144"}/
     %link{href: asset_path("icon152.png"), rel: "apple-touch-icon", sizes: "152x152"}/
-    %link{href: asset_path("favicon.ico"), rel: "shortcut icon", type: "image/ico"}/
+    %link{href: asset_path("favicon.png"), rel: "shortcut icon", type: "image/png"}/
     %meta{content: asset_path("icon144.png"), name: "msapplication-TileImage"}/
     %meta{content: "#ffffff", name: "msapplication-TileColor"}/
     %meta{content: "dollarhood", name: "application-name"}/
@@ -73,10 +77,10 @@
             .brand
             - if consumer_signed_in?
               %a{href: "/consumers/offers"}
-                = image_tag 'dh-logo.png'
+                %span зож для всех
             - else
               %a{href: root_url}
-                = image_tag 'dh-logo.png'
+                %span зож для всех
                 / %img{alt: "dollarhood", src: "dh-logo.png"}/
             .market
               %span.currency-sign $
@@ -94,6 +98,9 @@
 
     = render "layouts/flash", flash: flash
     = yield
+
+    = render 'consumers/login_modal'
+    = render 'consumers/signup_modal'
 
     :javascript
       var sc_project=9049977;

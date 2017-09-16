@@ -3,7 +3,7 @@
 }
 
 A {text-decoration:none;}
- 
+
 p.notice {
 	font-size:12px;
 	font-style:italic;
@@ -62,10 +62,10 @@ h3 {
 	font-weight:bold;
 }
 	.purple {
-		color: #62A343;
+		color: #00ac64;
 	}
 	.green {
-		color: #62A343;
+		color: #00ac64;
 	}
 	.orange {
 		color: #ea6d36;
@@ -75,7 +75,7 @@ h3 {
 	}
 h2 {
 	&.plain {
-		font-family: proximanova;		
+		font-family: proximanova;
 	}
 	font-size: 28px;
 	font-family: proximanova_bold;
@@ -326,7 +326,7 @@ h2 {
 	.widget li a:hover, .widget p a { text-decoration: underline; }
 	.widget p a:hover { text-decoration: none; }
 	.search-form .input_text { width: 100%; }
-	
+
 	/*                Body                     */
 	body {
 		font-family: helvetica, arial, sans-serif;
@@ -624,7 +624,7 @@ h2 {
 	}
 
 	.menu li.current-menu-item a {
-	color: #62A343;
+	color: #00ac64;
 	font-weight: bold;
 	}
 
@@ -691,6 +691,10 @@ h2 {
 	padding-bottom: 0px;
 	margin-top: 9px;
 	margin-bottom: 9px;
+	}
+
+	.mainmenu li:last-child a {
+		border-right: none;
 	}
 
 	#menu-item-95 a:hover, #menu-item-464 a:hover {
@@ -776,7 +780,7 @@ h2 {
 	line-height: 24px;
 	font-size: 15px;
 		a {line-height:13px;
-			color: #62A343;
+			color: #00ac64;
 			border-bottom:1px solid #d9dcc2;
  			font-family: proximanova_bold;
  			text-decoration: none;
@@ -792,7 +796,7 @@ h2 {
 	line-height: 24px;
 	font-size: 15px;
 		a {
-			color: #62A343;
+			color: #00ac64;
 			border-bottom:1px solid #d6cdd3;
  			font-family: proximanova_bold;
  			text-decoration: none;
@@ -867,7 +871,7 @@ h2 {
 	}
 
 	.menu a:hover, .menu .current ul a:hover, .menu .current-cat ul a:hover, .menu .current-parent a:hover, .menu .current-menu-ancestor a:hover, .menu .current-menu-item a:hover {
-	background-color: #62A343;
+	background-color: #00ac64;
 	color: #FFFFFF;
 	}
 
@@ -1012,7 +1016,7 @@ h2 {
 	border: 0;
 	}
 	.columns:after, .post_box:after, .post_box .post_content:after, .sidebar:after, .sidebar .post_content:after, .menu:after, .comment .comment_text:after { content: "."; display: block; height: 0; clear: both; visibility: hidden; }
-	
+
 	#siteDescription {
 	color:	#000;
 	font-family: 'Raleway', sans-serif;

@@ -1,0 +1,6 @@
+= form_for @stream, url: merchants_streams_path(location_id: @location.id), :html => {:multipart => true} do |f|
+  .group
+    .column1
+      %h1 New Stream
+      = render :partial => 'merchants/streams/form', :locals => {:f => f}
+      = f.submit "Add Stream", class: 'special'

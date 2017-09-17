@@ -13,6 +13,7 @@ class Merchants::CompaniesController < ApplicationController
     @company = Company.new(params[:company])
     @company.merchants << current_merchant
     if @company.save
+      @company.categories << Category.where(id: params[:company][:categories])
       flash[:success] = "Created #{@company.title}!"
       redirect_to merchants_companies_path
     else
@@ -29,6 +30,7 @@ class Merchants::CompaniesController < ApplicationController
 
   def update
     if @company.update_attributes(params[:company])
+      @company.categories << Category.where(id: params[:company][:categories])
       redirect_to merchants_companies_path(@company), :flash => { :success => "Company saved" }
     else
       flash.now[:error] = "Failed to save company"

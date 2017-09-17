@@ -1,4 +1,3 @@
-= render 'validation_errors', resource: @location
 %br/
 %p.header= f.label :avatar, 'Upload Your Location Avatar'
 %p.form
@@ -6,7 +5,7 @@
   - avastr = "v#{@location.avatar.version}/#{@location.avatar.public_id}"
   = cl_image_tag(avastr, { size: '90x85', crop: :fit, format: :jpg })
 - else
-  = image_tag('default_location_logo.png') ### CHANGE PICTURE
+  = image_tag('default_location_avatar.png') ### CHANGE PICTURE
 = f.attachinary_file_field :avatar
 %br/
 
@@ -14,3 +13,23 @@
 %p.form= f.text_field :name
 %p.header= f.label :zip_code
 %p.form= f.text_field :zip_code
+%p.form= f.select :categories, :collection => Category.all.map {|u| [u.name, u.id]}
+
+%h1 Streams
+.group
+- @location.streams.each do |stream|
+  .business.row
+    .business-image
+      - if stream.avatar
+        - avastr = "v#{stream.avatar.version}/#{stream.avatar.public_id}"
+        = link_to cl_image_tag(avastr, { size: '90x85', crop: :fit, format: :jpg }), edit_merchants_stream_path(location_id: @location, id: stream.id)
+      - else
+        = link_to image_tag('default_stream_avatar.png', :width => '100'), edit_merchants_stream_path(location_id: @location.id, id: stream.id)
+    .business-name
+      %p
+        = link_to stream.title, edit_merchants_stream_path(location_id: @location.id, id: stream.id)
+        %br/
+        %br/
+        = link_to 'x', merchants_stream_path(stream), :method => :delete
+.row
+= link_to "+ Add a stream", new_merchants_stream_path(location_id: @location.id), class: 'add_business'

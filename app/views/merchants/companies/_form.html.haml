@@ -1,4 +1,3 @@
-= render 'validation_errors', resource: @company
 %br/
 %p.header= f.label :avatar, 'Upload Your Company Avatar'
 %p.form
@@ -14,6 +13,7 @@
 %p.form= f.text_field :title
 %p.header= f.label :description, 'Company Description'
 %p.form= f.text_area :description, :rows => 6, :placeholder => "A few sentences to inform consumers about your company."
+%p.form= f.select :categories, :collection => Category.all.map {|u| [u.name, u.id]}
 
 %h1 Locations
 .group

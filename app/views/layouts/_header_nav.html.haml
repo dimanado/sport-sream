@@ -36,8 +36,6 @@
         - if consumer_signed_in?
           %li.dropdown
             %a.dropdown-btn{href: ""}
-            .dropdown-list.cart-list.clearfix
-              = render :partial => 'shopping_carts/minishow'
       - else
         %li
           %a(data-modal="consumerSignup") Зарегистрироваться

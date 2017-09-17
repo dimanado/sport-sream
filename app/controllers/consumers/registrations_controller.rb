@@ -11,7 +11,7 @@ class Consumers::RegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(consumer)
-    consumers_offers_path
+    '/'
   end
 
   def new

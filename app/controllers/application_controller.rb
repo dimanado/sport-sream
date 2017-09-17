@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   helper_method :current_business
-  helper_method :shopping_cart
+  # helper_method :shopping_cart
 
   before_filter :set_partner_cookie
   before_filter :set_ip_geocoding_cookie
@@ -34,12 +34,6 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, ActionController::UnknownController, ::AbstractController::ActionNotFound, ActiveRecord::RecordNotFound, with: lambda { |exception| render_error 404, exception }
   end
 
-  def shopping_cart
-    @cart ||= (ShoppingCart.find(session[:shopping_cart_id]) rescue ShoppingCart.create).tap do |cart|
-      session[:shopping_cart_id] = cart.id
-    end
-  end
-
   def all_offers
     Campaign.includes(:coupon).includes(:business => [:logo_files])
     .where('expires_at > ?', Time.zone.now)
@@ -53,14 +47,6 @@ class ApplicationController < ActionController::Base
     .where('deliver_at < ?', Time.zone.now)
     .where('coupons.amount != 0')
     .where('businesses.zip_code IN (?)', ZipCode.bca_zip_codes)
-  end
-
-  def all_offers_hashtag(hashtag)
-    Campaign.includes(:coupon).includes(:hashtags)
-    .where('expires_at > ?', Time.zone.now)
-    .where('deliver_at < ?', Time.zone.now)
-    .where('coupons.amount != 0')
-    .where("hashtags.tag = ?", hashtag)
   end
 
   def verify_zip(zip, zip_arr)
@@ -99,7 +85,7 @@ class ApplicationController < ActionController::Base
     return admin_dashboard_path unless current_partner.blank?
     return session[:consumer_return_to] if session[:consumer_return_to]
     return session[:merchant_return_to] if session[:merchant_return_to]
-    return resource == current_merchant ? campaigns_path : consumers_offers_path
+    return resource == current_merchant ? campaigns_path : edit_consumer_path
   end
 
   def generate_entries (collection)
@@ -127,11 +113,6 @@ class ApplicationController < ActionController::Base
   def filter_by_subcategories (collection)
     return collection unless params[:cat_ids]
     CategorizesCampaigns.filter_by_subcategories_ids(collection, params[:cat_ids])
-  end
-
-  def filter_by_hashtag (collection)
-    return collection unless params[:hashtag]
-    collection.select{|c| c.coupon.hashtags.any? {|hashtag| hashtag.tag == params[:hashtag]}}
   end
 
   def fetch_new_transparent_redirect_data

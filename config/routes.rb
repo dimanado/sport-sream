@@ -4,14 +4,14 @@ KD::Application.routes.draw do
   resources :locations
   resources :streams
 
-  namespace :payments do
-    resources :customers do
-      get 'client_token', on: :member
-    end
-  end
-  get "/checkout", to: 'checkout#checkout', as: :checkout
-  get "/checkout/cr_card_confirm", to: 'checkout#cr_card_confirm', as: :cr_card_confirm
-  post "/checkout/set_tr", to: 'checkout#set_tr', as: :set_tr
+  # namespace :payments do
+  #   resources :customers do
+  #     get 'client_token', on: :member
+  #   end
+  # end
+  # get "/checkout", to: 'checkout#checkout', as: :checkout
+  # get "/checkout/cr_card_confirm", to: 'checkout#cr_card_confirm', as: :cr_card_confirm
+  # post "/checkout/set_tr", to: 'checkout#set_tr', as: :set_tr
 
 
   devise_for :partners, ActiveAdmin::Devise.config
@@ -19,15 +19,15 @@ KD::Application.routes.draw do
   resources :dispatches, only: [:index, :create]
   resources :notifications, only: [:index, :create]
 
-  get '/materials/:id', to: 'materials#share', as: :materials_share
-  get '/materials/download/:id', to: 'materials#download', as: :download_material
+  # get '/materials/:id', to: 'materials#share', as: :materials_share
+  # get '/materials/download/:id', to: 'materials#download', as: :download_material
 
-  resource :shopping_cart, :only => [:show] do
-    resources :items, only: [:create, :destroy], controller: :shopping_cart_items do
-      get 'add_from_iframe', on: :collection, to: "shopping_cart_items#create"
-    end
-    get 'save_amount'
-  end
+  # resource :shopping_cart, :only => [:show] do
+  #   resources :items, only: [:create, :destroy], controller: :shopping_cart_items do
+  #     get 'add_from_iframe', on: :collection, to: "shopping_cart_items#create"
+  #   end
+  #   get 'save_amount'
+  # end
 
   devise_for :partners, :controllers => {
     :sessions => "partners/sessions",
@@ -35,7 +35,7 @@ KD::Application.routes.draw do
     :passwords => "partners/passwords"
   }
 
-  resources :orders
+  # resources :orders
 
   get "/partners/demo/buckscountyalive/", :to => "demonstrations#iframe_all_order", :as => "partner"
   get "/partners/demo/buckscountyalive/business/", :to => "demonstrations#iframe_business"
@@ -89,9 +89,9 @@ KD::Application.routes.draw do
     :passwords => "merchants/passwords"
   }
 
-  controller :coupons do
-    get '/coupons' => 'coupons#index'
-  end
+  # controller :coupons do
+  #   get '/coupons' => 'coupons#index'
+  # end
 
   namespace :merchants do
     resource :contact_us, :only => ["new", "create"]
@@ -113,13 +113,13 @@ KD::Application.routes.draw do
       get '/directions' => 'dashboard#directions'
     end
 
-    controller :picks do
-      get '/offers' => 'picks#index', :as => 'offers'
-      get '/offers/subscribe' => 'picks#subscribe'
-      get '/offers/myhotspots' => 'picks#myhotspots'
-      get '/offers/for_business/:id' => 'picks#for_business'
-      get '/offers/:id' => 'picks#show', as: 'show_offer'
-    end
+    # controller :picks do
+    #   get '/offers' => 'picks#index', :as => 'offers'
+    #   get '/offers/subscribe' => 'picks#subscribe'
+    #   get '/offers/myhotspots' => 'picks#myhotspots'
+    #   get '/offers/for_business/:id' => 'picks#for_business'
+    #   get '/offers/:id' => 'picks#show', as: 'show_offer'
+    # end
 
     resources :businesses, :only => [:index, :show] do
       member do
@@ -139,34 +139,34 @@ KD::Application.routes.draw do
 
   resource :consumer, :controller => "consumers/consumer" do
     post :update_location, :action => 'update_location', :on => :collection
-    get :toggle_email_weekly
-    post :toggle_email_weekly
-    get :confirm_email
-    get :buy_coupon
-    post :buy_coupon
-    get :transactions
-    get :coupon_purchase_status
+    # get :toggle_email_weekly
+    # post :toggle_email_weekly
+    # get :confirm_email
+    # get :buy_coupon
+    # post :buy_coupon
+    # get :transactions
+    # get :coupon_purchase_status
     get :complete_registration
 
 
   end
 
   resources :customer, :only => [:new, :edit]
-  resources :credit_card_info, :only => [:new, :edit, :destroy]
-  match '/credit_card_info/:id/set_default' => 'credit_card_info#set_default', :as => :set_default_credit_card
+  # resources :credit_card_info, :only => [:new, :edit, :destroy]
+  # match '/credit_card_info/:id/set_default' => 'credit_card_info#set_default', :as => :set_default_credit_card
 
   #get "/credit_card_info/edit_default", to: 'credit_card_info#edit_default', as: :edit_default_credit_card_info
 
   match 'customer/confirm' => 'customer#confirm', :as => :confirm_customer
-  match 'credit_card_info/confirm' => 'credit_card_info#confirm', :as => :confirm_credit_card_info
+  # match 'credit_card_info/confirm' => 'credit_card_info#confirm', :as => :confirm_credit_card_info
 
-  match '/consumers/transactions/new' => 'transactions#new', :as => :new_transaction
-  match '/consumers/transactions/new_paypal' => 'transactions#new_paypal', :as => :new_paypal_transaction
-  match '/consumers/transactions/:id/show' => 'consumers/consumer#show_transaction', :as => :show_transaction
-  match '/consumers/transactions/confirm/' => 'transactions#confirm', :as => :confirm_transaction
-  match '/consumers/transactions/confirm_paypal/' => 'transactions#confirm_paypal', :as => :confirm_paypal_transaction
+  # match '/consumers/transactions/new' => 'transactions#new', :as => :new_transaction
+  # match '/consumers/transactions/new_paypal' => 'transactions#new_paypal', :as => :new_paypal_transaction
+  # match '/consumers/transactions/:id/show' => 'consumers/consumer#show_transaction', :as => :show_transaction
+  # match '/consumers/transactions/confirm/' => 'transactions#confirm', :as => :confirm_transaction
+  # match '/consumers/transactions/confirm_paypal/' => 'transactions#confirm_paypal', :as => :confirm_paypal_transaction
 
-  match '/consumers/receipts/:id/show' => 'consumers/consumer#show_receipt', :as => :show_receipt
+  # match '/consumers/receipts/:id/show' => 'consumers/consumer#show_receipt', :as => :show_receipt
 
 
   post "/set_current_business" => "merchants/application#set_current_business"
@@ -199,23 +199,23 @@ KD::Application.routes.draw do
     end
   end
 
-  resources :campaigns do
-    member do
-      get :recipient_demographics
-      get :statistics
-      get :campaign_data
-      get :sales
-    end
-    collection do
-      match :count_recipients
-      get :scheduled
-      get :delivered
-    end
-  end
+  # resources :campaigns do
+  #   member do
+  #     get :recipient_demographics
+  #     get :statistics
+  #     get :campaign_data
+  #     get :sales
+  #   end
+  #   collection do
+  #     match :count_recipients
+  #     get :scheduled
+  #     get :delivered
+  #   end
+  # end
 
   resources :companies, only: [:index, :show]
 
-  get '/pages/dollarhood_for_business/' => "pages#dollarhood_for_business", :as => "page_business"
+  # get '/pages/dollarhood_for_business/' => "pages#dollarhood_for_business", :as => "page_business"
   match '/pages/:action', :controller => "pages", :as => "pages"
   root :to => 'companies#index'
 
@@ -224,11 +224,11 @@ KD::Application.routes.draw do
     get '/dashboard/demographics/:group' => 'dashboard#demographics'
   end
 
-  match '/coupons/redeem'    => "coupons#redeem",  :as => "redeem_coupon", :via => [:get, :post]
-  get   '/coupons/preview'   => "coupons#preview"
-  post  '/coupons/hook'      => "coupons#hook"
-  get   '/coupons/:code'     => "coupons#view",    :as => "view_coupon"
-  get   '/coupons_json/:code' => "coupons#view_json", :as => 'view_coupon_json'
+  # match '/coupons/redeem'    => "coupons#redeem",  :as => "redeem_coupon", :via => [:get, :post]
+  # get   '/coupons/preview'   => "coupons#preview"
+  # post  '/coupons/hook'      => "coupons#hook"
+  # get   '/coupons/:code'     => "coupons#view",    :as => "view_coupon"
+  # get   '/coupons_json/:code' => "coupons#view_json", :as => 'view_coupon_json'
 
   resource :contact_us, :only => ["new", "create"]
   match '*a', :to => 'errors#error_404'

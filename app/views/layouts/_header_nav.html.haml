@@ -3,7 +3,7 @@
     .pull-left
       = form_for 'city', url: companies_url, html: { method: 'GET' } do |f|
         = f.text_field :geo_city
-        = f.submit "Search"
+        = f.submit "Поиск"
     %ul.pull-right
       - if user_signed_in?
         %li.dropdown
@@ -14,13 +14,13 @@
               - else
                 #{current_consumer.email}
             - else
-              Signed as #{current_merchant.name}
+              #{current_merchant.name}
             %i.icon-caret.t-5
           .dropdown-list.login.clearfix
             %p.text-center
-              = link_to 'Profile', consumer_signed_in? ? edit_consumer_path : merchants_companies_path
+              = link_to 'Профиль', consumer_signed_in? ? edit_consumer_path : merchants_companies_path
               %br
-              = link_to 'Log out', consumer_signed_in? ? destroy_consumer_session_path : destroy_merchant_session_path, :method => :delete
+              = link_to 'Выйти', consumer_signed_in? ? destroy_consumer_session_path : destroy_merchant_session_path, :method => :delete
         - if consumer_signed_in?
           %li.dropdown
             %a.dropdown-btn{href: ""}
@@ -28,9 +28,9 @@
               = render :partial => 'shopping_carts/minishow'
       - else
         %li
-          %a(data-modal="consumerSignup") Sign Up
+          %a(data-modal="consumerSignup") Зарегистрироваться
         %li
-          %a(data-modal="consumerLogin") Log in
+          %a(data-modal="consumerLogin") Войти
       %li
         %a{href: "https://www.facebook.com/dollarhood", target: "_blank"}
           %i.icon-social.small.facebook.m--t3

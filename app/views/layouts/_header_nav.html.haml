@@ -18,6 +18,22 @@
     - if user_signed_in?
       %li.dropdown
         %a.dropdown-btn{href: ""}
+          - if consumer_signed_in?
+            - if current_consumer.name
+              Hi #{current_consumer.name}
+            - else
+              #{current_consumer.email}
+          - else
+            #{current_merchant.name}
+          %i.icon-caret.t-5
+        .dropdown-list.login.clearfix
+          %p.text-center
+            = link_to 'Профиль', consumer_signed_in? ? edit_consumer_path : merchants_companies_path
+            %br
+            = link_to 'Выйти', consumer_signed_in? ? destroy_consumer_session_path : destroy_merchant_session_path, :method => :delete
+      - if consumer_signed_in?
+        %li.dropdown
+          %a.dropdown-btn{href: ""}
     - else
       %li
         %a(data-modal="consumerSignup") Зарегистрироваться

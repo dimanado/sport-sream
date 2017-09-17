@@ -4,11 +4,11 @@ m2 = Merchant.create(email: 'ivan_email@mail.com', password: '11111111', name: '
 
 Partner.create!(name: 'Dollarhood', slug: 'dollarhood', email: 'test_partner@gmail.com', password: '123456789', phone: '+375292929292', zip: '12345')
 
-pl = Category.create(name: "Пауейрлифтинг", parent_id: nil, tag: "powerlifting")
+pl = Category.create(name: "Пауэрлифтинг", parent_id: nil, tag: "powerlifting")
 tn = Category.create(name: "Теннис", parent_id: nil, tag: "tennis")
-cf = Category.create(name: "Кросфит", parent_id: nil, tag: "crossfit")
+cf = Category.create(name: "Кроссфит", parent_id: nil, tag: "crossfit")
 pt = Category.create(name: "Силовые тренировки", parent_id: nil, tag: "power-training")
-sw = Category.create(name: "Плаванье", parent_id: nil, tag: "swimming")
+sw = Category.create(name: "Плавание", parent_id: nil, tag: "swimming")
 yg = Category.create(name: "Йога", parent_id: nil, tag: "yoga")
 
 parent = Company.create(title: "Империя силы", description: "Крупная сеть тренажёрных залов для бодибилдинга и пауерлифтинга")

@@ -1,48 +1,30 @@
-.nav.quick-access
-  .inner-container.clearfix
-    .pull-left
-      -#= form_for 'city', url: companies_url, html: { method: 'GET' } do |f|
-      -#  = f.text_field :geo_city
-      -#  = f.submit "Поиск"
-      .top_menu
-        %ul
-          %li
-            = link_to 'Новости', '#'
-          %li
-            = link_to 'Услуги', '#'
-          %li
-            = link_to 'Поиск', '#'
-          %li
-            = link_to 'Обратная связь', '#'
-          %li
-            = link_to 'События', '#'
-    %ul.pull-right
-      - if user_signed_in?
-        %li.dropdown
-          %a.dropdown-btn{href: ""}
-            - if consumer_signed_in?
-              - if current_consumer.name
-                Hi #{current_consumer.name}
-              - else
-                #{current_consumer.email}
-            - else
-              #{current_merchant.name}
-            %i.icon-caret.t-5
-          .dropdown-list.login.clearfix
-            %p.text-center
-              = link_to 'Профиль', consumer_signed_in? ? edit_consumer_path : merchants_companies_path
-              %br
-              = link_to 'Выйти', consumer_signed_in? ? destroy_consumer_session_path : destroy_merchant_session_path, :method => :delete
-        - if consumer_signed_in?
-          %li.dropdown
-            %a.dropdown-btn{href: ""}
-      - else
+.nav.quick-access.inner-container
+  .pull-left
+    .top_menu
+      %ul
         %li
-          %a(data-modal="consumerSignup") Зарегистрироваться
+          = link_to 'Новости', '#'
         %li
-          %a(data-modal="consumerLogin") Войти
+          = link_to 'Услуги', '#'
+        %li.search
+          = link_to 'Поиск', '#', class: "search-trigger"
+          = image_tag('navigate-up-arrow.png', class: 'search-hide-icon')
+          = render :partial => 'layouts/header_nav_search'
+        %li
+          = link_to 'Обратная связь', '#'
+        %li
+          = link_to 'События', '#'
+  %ul.pull-right
+    - if user_signed_in?
+      %li.dropdown
+        %a.dropdown-btn{href: ""}
+    - else
       %li
-        %a{href: "https://www.facebook.com/dollarhood", target: "_blank"}
-          %i.icon-social.small.facebook.m--t3
-        %a{href: "https://twitter.com/dollarhoodUS", target: "_blank"}
-          %i.icon-social.small.twitter.m--t3
+        %a(data-modal="consumerSignup") Зарегистрироваться
+      %li
+        %a(data-modal="consumerLogin") Войти
+    %li
+      %a{href: "", target: "_blank"}
+        %i.icon-social.small.facebook.m--t3
+      %a{href: "", target: "_blank"}
+        %i.icon-social.small.twitter.m--t3

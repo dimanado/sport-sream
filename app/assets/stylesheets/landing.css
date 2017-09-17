@@ -348,7 +348,62 @@ i.m--t3 { margin-top: -3px; }
 
 .nav.quick-access {
   background: #00ac64;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.search {
+  position: relative;
+  height: 36px;
+  width: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.search-hide-icon {
+  display: none;
+  width: 25px;
+  margin: 0 auto;
+}
+
+.search-form,
+.search-hide-icon,
+.nav ul li.search--expanded:hover > .search-trigger,
+.nav ul li.search--expanded > .search-trigger {
+  display: none;
+}
+
+.search--expanded .search-form,
+.search--expanded .search-hide-icon {
+  display: flex;
+}
+
+.search-form {
+  position: absolute;
+  top: 45px;
+  left: -25px;
+  align-items: center;
+}
+
+.search-form .city-input {
+  width: 200px;
+}
+
+.search-form input {
+  height: 24px;
+  margin-left: -1px;
+  line-height: 22px;
+  padding: 0 5px;
+
+  font: 14px 'Roboto Slab', serif;
+  border: 1px solid #727272;
+}
+
+.search-form .city-input:focus,
+.search-form input:focus {
+  outline-color: #00ac64;
 }
 
 .notifier {

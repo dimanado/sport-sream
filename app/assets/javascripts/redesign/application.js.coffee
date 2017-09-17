@@ -5,4 +5,5 @@
 #= require ./modal
 #= require ./fancyform
 #= require_directory ./merchants
+#= require search-form
 #

@@ -1,0 +1,3 @@
+= form_for 'city', url: companies_url, html: { method: 'GET', class: 'search-form' } do |f|
+ = f.text_field :geo_city, class: 'city-input'
+ = f.submit "Поиск"

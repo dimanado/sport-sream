@@ -10,6 +10,7 @@ class Merchants::LocationsController < ApplicationController
     @location = Location.new(params[:location])
     @company.locations << @location
     if @location.save
+      @location.categories << Category.where(id: params[:location][:categories])
       flash[:success] = "Created #{@location.name}!"
       redirect_to edit_merchants_company_path(@company)
     else
@@ -23,6 +24,7 @@ class Merchants::LocationsController < ApplicationController
 
   def update
     if @location.update_attributes(params[:location])
+      @location.categories << Category.where(id: params[:location][:categories])
       redirect_to edit_merchants_company_path(@company), :flash => { :success => "Location saved" }
     else
       flash.now[:error] = "Failed to save location"

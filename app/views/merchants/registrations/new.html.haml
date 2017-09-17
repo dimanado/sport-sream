@@ -1,49 +1,32 @@
 .stripes.clearfix
   .signUp{style: "width:50%;float:left;"}
     .modal#merchantSignup(data-form="fancyform_signup")
-      .header Create Business Account
+      .header Создать владельца
 
       .body
         = form_for(merchant, :as => :merchant, :url => registration_path(:merchant, :fancysignup => true)) do |f|
           = hidden_field_tag(:partner_slug, params[:partner_slug])
           = fields_for :company do |b|
-            = b.label :title, "Company Name *"
+            = b.label :title, "Имя компании *"
             = b.text_field :title
-            = b.label :description, "Description *"
+            = b.label :description, "Описание компании *"
             = b.text_field :description
 
           %h3 Merchant Contact Information:
-          = f.label :name, "Your Name *"
+          = f.label :name, "Ваше имя *"
           = f.text_field :name
           = f.label :email, 'Email *'
           = f.email_field :email
-          = f.label :password, 'Password *'
+          = f.label :password, 'Пароль *'
           = f.password_field :password
-          = f.label :password_confirmation, "Confirm Password *"
+          = f.label :password_confirmation, "Повторите пароль *"
           = f.password_field :password_confirmation
           .green_button{:style=>"margin:20px 0 0 70px"}
             .left_corner_button
             .bckg_green_button
-              = f.submit 'SIGN UP', input_html: { :style=>"border:0;margin-top:4px;margin-bottom:20px;height:40px", :class => 'button'}
+              = f.submit 'Зарегестрироваться', input_html: { :style=>"border:0;margin-top:4px;margin-bottom:20px;height:40px", :class => 'button'}
             .right_corner_button
-  .signUpInfo
-    .infoBox
-      %p{:style => "color:#00ac64"}
-        %span{:style => "display:block;font-size:2em;font-weight:bold;"} Welcome to dollarhood,
-        %span{:style => "display:block;font-size:1.17em;font-weight:bold;margin-top:-10px;"} your solution for online marketing.
-      %p{:style => "line-height:1.6em;font-size:0.8em;"} Start taking advantage of this free marketing opportunity by signing up and creating offers today! Once you sign up, you'll officially be part of the dollarhood community!
-      %div{:style => "float:left;width:40%;margin-right:20px;"}
-        = image_tag "dollarhood/dh-phone.jpg", :style => "max-width:150px;"
-      %div{:style => "float:left;width:50%;height:300px;position:relative;"}
-        %h2{:style => "margin: 50px 0 25px;font-size:1.25em;font-weight:bold;line-height:normal;"} Getting started is as easy as 1 - 2 - 3!
-        %ol{:style => "margin-left:20px;font-size:0.9em;"}
-          %li Sign up your business on dollarhood.
-          %li Create your business profile.
-          %li Start creating offers!
-        %div{:style => "color:#00ac64;font-size:0.8em;position:absolute;bottom:0;height:35px;"}
-          %span{:style => "display:block;"} Free for businesses... always.
-          %span{:style => "display:block;"} No credit card required
-      %div{:style => "clear:both;"}
+
 .footer
 :css
   .modal .body, .fancy {

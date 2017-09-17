@@ -2,23 +2,23 @@
 .modal
   .header
     .purple
-      Customer signup
+      Пользователи
       %span.header__business-link
-        = link_to 'Business signup', '/merchants/sign_up', :target => "_top"
+        = link_to 'Владельцы', '/merchants/sign_up', :target => "_top"
   .body
     = form_for(consumer, :as => :consumer, :url => registration_path(:consumer)) do |f|
       = f.label :email, 'Email *'
       = f.email_field :email
-      = f.label :password, 'Password *'
+      = f.label :password, 'Пароль *'
       = f.password_field :password
-      %p.notice Your password should be at least 8 characters.
-      = f.label :password_confirmation, 'Confirm Password *'
+      %p.notice Ваш пароль должен содержать не мение 8 символов.
+      = f.label :password_confirmation, 'Подтвердить пароль *'
       = f.password_field :password_confirmation
-      %label(for='consumer_location') Zip Code *
+      %label(for='consumer_location') Зип код *
       = f.text_field :location
-      %label(for='consumer_source') Referral Code
+      %label(for='consumer_source') Реферальный код
       = f.text_field :referral_code
       .clean
-      = f.submit "SIGNUP", :class => 'button'
+      = f.submit "Зарегестрироваться", :class => 'button'
   .footer
     = link_to "", consumer_omniauth_authorize_path(:facebook), :class => 'facebook-btn facebook-btn_signup'

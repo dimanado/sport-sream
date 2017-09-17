@@ -2,6 +2,8 @@ class Location < ActiveRecord::Base
   attr_accessible :name, :zip_code, :company_id
 
   has_many :streams
+  has_and_belongs_to_many :categories
+
   belongs_to :consumer
   belongs_to :company
   geocoded_by :zip_code

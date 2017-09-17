@@ -97,6 +97,7 @@ KD::Application.routes.draw do
     resource :contact_us, :only => ["new", "create"]
     resources :companies
     resources :locations, :except => ["index", "show"]
+    resources :streams, :except => ["index", "show"]
   end
 
 

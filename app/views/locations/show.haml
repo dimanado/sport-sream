@@ -1,8 +1,9 @@
-.location
-  .location__name
-    = @location.name
-  .location__streams
-    - if @location.streams.any?
-      = render partial: "streams/location_stream", collection: @location.streams, as: :item
-    - else
-      %span Place don't have stream.
+.companies
+  .location.company_item
+    .location__name.company_item__locations_title
+      = @location.name
+    .location__streams
+      - if @location.streams.any?
+        = render partial: "streams/location_stream", collection: @location.streams, as: :item
+      - else
+        %span У этого места нет доступных трансляций

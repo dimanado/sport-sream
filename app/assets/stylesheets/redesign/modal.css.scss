@@ -27,7 +27,6 @@
 .modal .header,
 .signin .header
 {
-	font-family: proximanova_bold;
 	font-size:24px;
 	line-height:1.0;
   padding:15px 30px;
@@ -41,7 +40,6 @@
 
   form {
     label {
-      font-family: proximanova;
       font-size:13pt;
       color:#000;
       display: block;
@@ -59,7 +57,7 @@
       display: block;
       width: 100%;
     }
-    
+
     .inline {
       display: block;
       input, label {
@@ -82,7 +80,6 @@
       color:#fff;
       cursor:pointer;
       font-size:17pt;
-      font-family:proximanova_semibold;
       width: auto;
       padding: 0 30px;
       margin: 0 auto;
@@ -91,7 +88,7 @@
   }
 }
 .modal .body,
-.fancy 
+.fancy
 {
   overflow-y: auto;
   margin-bottom: 20px;
@@ -101,7 +98,6 @@
 
   form {
     label {
-      font-family: proximanova;
       font-size:13pt;
       color:#000;
       display: block;
@@ -119,7 +115,7 @@
       display: block;
       width: 100%;
     }
-    
+
     .inline {
       display: block;
       input, label {
@@ -137,14 +133,13 @@
     }
 
     input[type='submit'] {
-      height:37px;    
+      height:37px;
       background-color: #00ac64;
       text-transform: uppercase;
       border: none;
       color:#fff;
       cursor:pointer;
       font-size:17pt;
-      font-family:proximanova_semibold;
       width: auto;
       padding: 0 30px;
       margin: 0 auto;
@@ -155,12 +150,10 @@
 
 .header__business-link a{
   color: #000;
-  font-family: proximanova;
   font-size: 19px;
   text-decoration: underline;
 }
 .header__business-link:before{
-  font-family: proximanova;
   content: '|';
   font-size: 18px;
   color: #000;
@@ -192,7 +185,6 @@ label .fieldErrors {
 .modal .footer {
   padding: 5px 30px 30px;
   a {
-    font-family: proximanova;
     font-size: 14px;
     color: grey;
     text-decoration: underline;

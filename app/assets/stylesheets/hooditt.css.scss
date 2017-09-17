@@ -160,9 +160,18 @@ h2 {
 	.menu {
 		display: flex;
     justify-content: center;
+		align-items: center;
 		position: relative; list-style: none; z-index: 50;
 	}
-	.menu li { position: relative; float: left; }
+	.menu li {
+		position: relative; float: left;
+
+		display: flex;
+		align-items: center;
+		flex-basis: 0;
+		height: 38px;
+		margin: 9px 0;
+	}
 	.menu ul { position: absolute; visibility: hidden; list-style: none; z-index: 110; }
 	.menu ul li { clear: both; }
 	.menu a { display: block; }
@@ -628,8 +637,10 @@ h2 {
 	}
 
 	.menu li.current-menu-item a {
+	margin: 0;
 	color: #00ac64;
 	font-weight: bold;
+	text-align: center;
 	}
 
 	/*topmenu hover*/

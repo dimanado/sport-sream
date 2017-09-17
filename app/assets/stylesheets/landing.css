@@ -499,12 +499,19 @@ i.m--t3 { margin-top: -3px; }
   box-sizing: border-box;
 }
 
+.company_item--single {
+  padding: 0;
+  width: auto;
+  border: none;
+}
+
 .company_item:nth-child(3n) {
   margin-right: 0;
 }
 
 .company_item__title {
   font-size: 24px;
+  font-weight: bold;
 }
 
 .company_item__title,
@@ -522,6 +529,30 @@ i.m--t3 { margin-top: -3px; }
 .company_item__avatar img {
   max-width: 100%;
   max-height: 140px;
+}
+
+.company_item__locations_title, .stream__name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.company_item__location__name {
+  margin-bottom: 3px;
+}
+
+.company_item__location__name:last-child {
+  margin-bottom: 0;
+}
+
+.location.company_item {
+  margin: 0;
+  padding: 0;
+  width: auto;
+  border: none;
+}
+
+.location__name, .stream__name {
+  margin-bottom: 10px;
 }
 
 /* [ main header ] */

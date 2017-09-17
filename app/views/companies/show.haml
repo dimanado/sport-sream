@@ -1,11 +1,12 @@
-.company_item
-  .company_item__title
-    = @company.title
-  .company_item__description
-    = @company.description
-  .company_item__locations
-    .company_item__locations_title Места
-    - if @company.locations.any?
-      = render partial: "locations/company_location", collection: @company.locations, as: :item
-    - else
-      %span Company don't have places.
+.companies
+  .company_item.company_item--single
+    .company_item__title
+      = @company.title
+    .company_item__description
+      = @company.description
+    .company_item__locations
+      .company_item__locations_title Места:
+      - if @company.locations.any?
+        = render partial: "locations/company_location", collection: @company.locations, as: :item
+      - else
+        %span Company don't have places.

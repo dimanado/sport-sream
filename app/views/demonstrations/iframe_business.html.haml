@@ -1,8 +1,0 @@
-= content_for :head do
-  = stylesheet_link_tag 'demonstrations.css'
-
-.bca.bca-business-wrapper
-  = image_tag("iframe_business.jpg")
-  %iframe{:src => "https://#{request.host_with_port}/businesses/1621/offers/?iframe=true&partner_slug=buckscountyalive",
-            :width => '785',
-            :height => '5000'}

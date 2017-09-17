@@ -25,13 +25,7 @@ class Consumer < ActiveRecord::Base
   has_one :account, :class_name => 'ConsumerAccount'
 
   has_many :messages, :foreign_key => "recipient_id"
-  has_many :subscriptions
   has_many :favorites, :through => :subscriptions, :source => :business
-  has_many :shopping_carts
-
-  has_many :transactions
-
-  #has_many :coupon_codes
 
   belongs_to :referral
 
@@ -67,12 +61,6 @@ class Consumer < ActiveRecord::Base
     self
   end
 
-  def default_credit_card
-    return unless has_payment_info?
-
-    credit_cards.find { |cc| cc.default? }
-  end
-
   def distance_to (point)
     DistanceCalculations.point_distance([latitude, longitude], [point.latitude, point.longitude])
   end
@@ -81,31 +69,10 @@ class Consumer < ActiveRecord::Base
       DistanceCalculations.nearby_zip_code_offers(all, zip_code, distance)
   end
 
-  def offers_count
-    offers.count
-  end
-
-  def offers
-    active_messages.map {|m| m.campaign }
-  end
-
-  def all_offers
-    Campaign
-      .includes(:coupon)
-      .includes(:business => [:logo_files, :categories])
-      .where('expires_at > ?', Time.zone.now)
-      .where('deliver_at < ?', Time.zone.now)
-      .select {|c| c.coupon.amount != 0 }
-  end
-
   def all_offers_board
     Campaign.where('expires_at > ?', Time.zone.now)
       .where('deliver_at < ?', Time.zone.now)
       .select {|c| c.coupon.amount != 0; c.business.merchant.is_admin? }
-  end
-
-  def active_messages
-    messages.select {|m| m.campaign.expires_at > Time.zone.now }
   end
 
   def charged_for? (coupon)

@@ -1,13 +1,6 @@
 .clear
 %br
-.left_block_header_consumer_view
-  My Dollarhood
 .left_block_items_consumer_view
-  = link_to_with_state "Offer Board", consumers_offers_path, :class => 'item_consumer_view'
-  = link_to_with_state "Local Hotspots", consumers_offers_subscribe_path, :class => 'item_consumer_view'
-  = link_to_with_state "My Hotspots", consumers_offers_myhotspots_path, :class => 'item_consumer_view'
   = link_to_with_state "Profile", edit_consumer_path, :class => 'item_consumer_view'
-  = link_to_with_state "Transactions", transactions_consumer_path, :class => 'item_consumer_view'
   = link_to_with_state "Info", "/customer/#{current_consumer.id}/edit", :class => 'item_consumer_view'
-  /= link_to_with_state "Payment Info", edit_default_credit_card_info_url, :class => 'item_consumer_view'
   = link_to "Logout", destroy_consumer_session_path, :class => 'item_consumer_view', :method => :delete

@@ -1,5 +1,0 @@
-- if @campaign.new_record?
-  %iframe#coupon-preview-frame{:src => coupons_preview_path, :width => 320, :height => 650, :scrolling => "no"}
-- else
-  = hidden_field_tag :id, @campaign.id
-  %iframe#coupon-preview-frame{:src => coupons_preview_path(:id => @campaign), :width => 320, :height => 650, :scrolling => "no"}

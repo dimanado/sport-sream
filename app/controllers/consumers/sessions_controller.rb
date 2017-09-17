@@ -17,9 +17,9 @@ class Consumers::SessionsController < Devise::SessionsController
   end
   def after_sign_in_path_for(resource)
     if params[:fancylogin]
-      consumers_offers_path
+      edit_consumer_path
     else
-      stored_location_for(resource) || consumers_offers_path
+      stored_location_for(resource) || edit_consumer_path
     end
   end
 

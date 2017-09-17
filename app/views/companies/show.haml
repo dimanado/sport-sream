@@ -4,7 +4,7 @@
   .company_item__description
     = @company.description
   .company_item__locations
-    .company_item__locations_title Places
+    .company_item__locations_title Места
     - if @company.locations.any?
       = render partial: "locations/company_location", collection: @company.locations, as: :item
     - else

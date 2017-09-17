@@ -1,0 +1,15 @@
+%br/
+%p.header= f.label :avatar, 'Upload Your Stream Avatar'
+%p.form
+- if @stream.avatar
+  - avastr = "v#{@stream.avatar.version}/#{@stream.avatar.public_id}"
+  = cl_image_tag(avastr, { size: '90x85', crop: :fit, format: :jpg })
+- else
+  = image_tag('default_stream_avatar.png') ### CHANGE PICTURE
+= f.attachinary_file_field :avatar
+%br/
+
+%p.header= f.label :title
+%p.form= f.text_field :title
+%p.header= f.label :link
+%p.form= f.text_field :link

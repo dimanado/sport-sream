@@ -354,3 +354,15 @@ form input[type="text"], form input[type="password"], form input[type="email"] {
     font-size: 16.5px;
     height: 22px;
 }
+
+.business > h1 {
+  color: #00ac64;
+  margin-left: 15px;
+}
+
+
+input.add_business {
+  margin-left: 15px !important;
+  padding: 1em !important;
+  cursor: pointer;
+}

@@ -734,3 +734,7 @@ i.m--t3 { margin-top: -3px; }
   cursor: pointer;
   margin: 0;
 }
+
+.nav .top_menu ul li > a{
+    font-size: 14px;
+}

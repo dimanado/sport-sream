@@ -1,9 +1,21 @@
 .nav.quick-access
   .inner-container.clearfix
     .pull-left
-      = form_for 'city', url: companies_url, html: { method: 'GET' } do |f|
-        = f.text_field :geo_city
-        = f.submit "Поиск"
+      -#= form_for 'city', url: companies_url, html: { method: 'GET' } do |f|
+      -#  = f.text_field :geo_city
+      -#  = f.submit "Поиск"
+      .top_menu
+        %ul
+          %li
+            = link_to 'Новости', '#'
+          %li
+            = link_to 'Услуги', '#'
+          %li
+            = link_to 'Поиск', '#'
+          %li
+            = link_to 'Обратная связь', '#'
+          %li
+            = link_to 'События', '#'
     %ul.pull-right
       - if user_signed_in?
         %li.dropdown
